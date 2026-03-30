@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stephen Kamphuis | KMA Fitness &amp; Martial Arts</title>
+  <meta name="description" content="Brazilian Jiu Jitsu, Muay Thai, Judo &amp; More in Makati, Philippines">
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Stephen Kamphuis | KMA Fitness &amp; Martial Arts">
+  <meta property="og:description" content="Brazilian Jiu Jitsu, Muay Thai, Judo &amp; More in Makati, Philippines">
+  <meta property="og:url" content="https://kma.chrisnatterer.com/coaches/stephen-kamphuis/">
+  <meta property="og:site_name" content="KMA Fitness &amp; Martial Arts">
+  <meta property="og:image" content="https://kma.chrisnatterer.com/images/openmat-christmas-2025.JPG">
+
+  <link rel="icon" type="image/png" href="/favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#f5f0e8',
+            'cream-light': '#faf7f2',
+            'warm-dark': '#1c1410',
+            'warm-mid': '#2e2319',
+            terracotta: '#c0462b',
+            'terracotta-light': '#d4553a',
+            gold: '#c89b3c',
+            'gold-light': '#dbb44e',
+            'warm-gray': '#6b5d52',
+            'warm-gray-light': '#9a8d82',
+            'warm-light': '#ebe4d8',
+            surface: '#ffffff',
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    .hero-img {
+      animation: hero-zoom 20s ease-out forwards;
+    }
+    @keyframes hero-zoom {
+      from { transform: scale(1.08); }
+      to { transform: scale(1); }
+    }
+
+    .photo-hover {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    }
+    .photo-hover:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 20px 40px rgba(28, 20, 16, 0.15);
+    }
+
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="font-body text-warm-dark bg-cream">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-warm-dark/95 backdrop-blur-md">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="flex items-center justify-between h-20">
+      <a href="/" class="font-display font-bold text-2xl tracking-tight text-cream transition-colors duration-300">
+        KMA
+      </a>
+
+      
+      <div class="hidden md:flex items-center gap-10">
+        <a href="/schedule/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
+          Schedule
+        </a>
+        <a href="/ranks/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
+          Ranks
+        </a>
+        <a href="/about/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
+          About
+        </a>
+        <a href="/contact/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
+          Contact
+        </a>
+        <a href="/contact/" class="bg-terracotta hover:bg-terracotta-light text-cream px-6 py-2.5 rounded-sm text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-300 hover:shadow-lg hover:shadow-terracotta/20">
+          Train with us
+        </a>
+      </div>
+
+      
+      <button id="menu-toggle" class="md:hidden text-cream p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  <main>
+    
+<div class="pt-20">
+  
+<!-- Hero -->
+<section class="relative py-32 lg:py-40 bg-warm-dark overflow-hidden grain">
+  <div class="absolute inset-0 opacity-15">
+    <img src="/images/noon%20class%20mixed.jpg" alt="" class="w-full h-full object-cover">
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <p class="text-gold font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Head Instructor</p>
+        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-cream leading-[0.95] mb-6">
+          Stephen<br>Kamphuis
+        </h1>
+        <p class="text-cream/60 text-lg sm:text-xl leading-relaxed max-w-xl mb-8">
+          5th Degree BJJ Black Belt. 7x World Masters Champion. President of the Philippine BJJ Federation. Building the sport in the Philippines for over two decades.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <span class="bg-terracotta/20 text-terracotta-light px-4 py-1.5 rounded-sm text-sm font-display font-semibold">BJJ 5th Degree</span>
+          <span class="bg-gold/20 text-gold-light px-4 py-1.5 rounded-sm text-sm font-display font-semibold">Judo 2nd Degree</span>
+          <span class="bg-cream/10 text-cream/70 px-4 py-1.5 rounded-sm text-sm font-display font-semibold">Team Fabricio</span>
+        </div>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="rounded-lg overflow-hidden max-w-sm mx-auto lg:mx-0">
+          <img src="/images/web-kma.jpg" alt="Stephen Kamphuis" class="w-full h-auto">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="bg-warm-mid py-8 relative grain">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="font-display text-3xl sm:text-4xl font-extrabold text-gold">7x</p>
+        <p class="text-cream/50 text-sm mt-1">World Masters Champion</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl sm:text-4xl font-extrabold text-gold">30+</p>
+        <p class="text-cream/50 text-sm mt-1">Schools Nationwide</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl sm:text-4xl font-extrabold text-gold">20+</p>
+        <p class="text-cream/50 text-sm mt-1">Years in Philippines</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl sm:text-4xl font-extrabold text-gold">5th</p>
+        <p class="text-cream/50 text-sm mt-1">Degree Black Belt</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Journey -->
+<section class="py-24 bg-cream">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="fade-up">
+      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">The Journey</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-warm-dark leading-tight mb-10">
+        From New Zealand to the Philippines
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-7 space-y-6 text-warm-gray leading-relaxed fade-up">
+        <p>
+          Stephen Kamphuis started his martial arts journey at 14 in New Zealand, when a Judo demonstration at his school changed his life. Training under Coach Ivan Willis — who would go on to become an Olympic Judo Referee — he quickly rose through the ranks, representing New Zealand at both junior and senior international level.
+        </p>
+        <p>
+          By 20, he had earned his Judo Black Belt, fresh off a runner-up finish at the Oceania Young Adults Championships. He went on to win the <strong class="text-warm-dark">Oceania Adult Judo Championship</strong>, cementing his place as one of New Zealand's top judoka.
+        </p>
+        <p>
+          At 22, he moved to Australia and added boxing to his repertoire. In 1997, at age 36, he walked into Anthony Lange's gym in Sydney — one of Australia's first BJJ schools — and discovered the art that would define the next chapter of his life.
+        </p>
+        <p>
+          He competed immediately and never stopped. Within a year he was NSW State Champion at white belt. By blue belt, he was winning the NSW Absolute and Pan Pacific titles. By the time he earned his Black Belt in 2004 — awarded jointly by Anthony Lange, John Will (Machado lineage), and Master Fabricio Martins — he had already won Absolute gold in Brazil at brown belt.
+        </p>
+        <p>
+          Stephen arrived in the Philippines in 2004 and has been based in Makati ever since, dedicating over two decades to growing Brazilian Jiu Jitsu across the country.
+        </p>
+      </div>
+      <div class="lg:col-span-5 space-y-4 fade-up stagger-2">
+        <div class="rounded-lg overflow-hidden photo-hover">
+          <img src="/images/stephen-coaching.jpg" alt="Stephen coaching a class at KMA" class="w-full h-auto">
+        </div>
+        <p class="text-warm-gray-light text-sm italic text-center">Coaching at KMA — passing the art to the next generation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Competition Record -->
+<section class="py-24 bg-warm-light relative grain">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="fade-up">
+      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Competition Record</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-warm-dark leading-tight mb-4">
+        Never missed a year
+      </h2>
+      <p class="text-warm-gray text-lg mb-12 max-w-2xl">From his first white belt tournament in 1999 to World Masters gold medals — Stephen has competed every single year since he started BJJ.</p>
+    </div>
+
+    <!-- Highlight titles -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      <div class="bg-surface rounded-lg p-8 border border-warm-light fade-up stagger-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-warm-dark text-xl">BJJ World Titles</h3>
+        </div>
+        <ul class="space-y-3 text-warm-gray text-sm">
+          <li class="flex items-start gap-2">
+            <span class="text-gold font-bold mt-0.5">&bull;</span>
+            <span><strong class="text-warm-dark">7x World Masters Open Weight Champion</strong> (Gi & No-Gi, 2007–2016)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gold font-bold mt-0.5">&bull;</span>
+            <span><strong class="text-warm-dark">3x International Masters Open Weight Champion</strong> (Brazil)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gold font-bold mt-0.5">&bull;</span>
+            <span><strong class="text-warm-dark">2x Grand Slam Champion</strong> — 4 golds in Worlds Gi and No-Gi in a single year</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gold font-bold mt-0.5">&bull;</span>
+            <span>Ranked <strong class="text-warm-dark">No. 1 in the World</strong>, Masters 5, No-Gi Division</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gold font-bold mt-0.5">&bull;</span>
+            <span>Undefeated in his division in Brazil for five consecutive years</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-surface rounded-lg p-8 border border-warm-light fade-up stagger-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-terracotta/10 rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-warm-dark text-xl">Judo & Other Titles</h3>
+        </div>
+        <ul class="space-y-3 text-warm-gray text-sm">
+          <li class="flex items-start gap-2">
+            <span class="text-terracotta font-bold mt-0.5">&bull;</span>
+            <span><strong class="text-warm-dark">Oceania Judo Champion</strong> (Adult division, representing New Zealand)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-terracotta font-bold mt-0.5">&bull;</span>
+            <span>Runner-up, Oceania Young Adults Championships</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-terracotta font-bold mt-0.5">&bull;</span>
+            <span>Represented New Zealand internationally (New Caledonia, Hawaii Pacific Rim)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-terracotta font-bold mt-0.5">&bull;</span>
+            <span><strong class="text-warm-dark">IBJJF World & Pan Am Referee</strong> — first non-Brazilian in Asia-Pacific to officiate at both</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Detailed results -->
+    <div class="fade-up">
+      <h3 class="font-display font-bold text-warm-dark text-2xl mb-6">Black Belt Results</h3>
+      <div class="bg-surface rounded-lg border border-warm-light overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-warm-dark text-cream">
+                <th class="text-left px-6 py-3 font-display font-semibold">Year</th>
+                <th class="text-left px-6 py-3 font-display font-semibold">Event</th>
+                <th class="text-left px-6 py-3 font-display font-semibold">Result</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-warm-light">
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2016</td>
+                <td class="px-6 py-3 text-warm-gray">World Masters (Gi)</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division</span>, Bronze Absolute</td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2016</td>
+                <td class="px-6 py-3 text-warm-gray">World Masters (No-Gi)</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division, Gold Absolute</span></td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2015</td>
+                <td class="px-6 py-3 text-warm-gray">World Masters (Gi)</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division</span>, Bronze Absolute</td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2015</td>
+                <td class="px-6 py-3 text-warm-gray">World Masters (No-Gi)</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division, Gold Absolute</span></td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2014</td>
+                <td class="px-6 py-3 text-warm-gray">World Masters (Gi)</td>
+                <td class="px-6 py-3">Silver Division, <span class="text-gold font-semibold">Gold Absolute</span></td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2014</td>
+                <td class="px-6 py-3 text-warm-gray">World Masters (No-Gi)</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division, Gold Absolute</span></td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2013</td>
+                <td class="px-6 py-3 text-warm-gray">World Masters (Gi & No-Gi)</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division, Gold Absolute</span></td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2012</td>
+                <td class="px-6 py-3 text-warm-gray">Asian Open (Japan)</td>
+                <td class="px-6 py-3">Silver Division</td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2011</td>
+                <td class="px-6 py-3 text-warm-gray">No-Gi Worlds</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division</span>, Bronze Absolute</td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2010</td>
+                <td class="px-6 py-3 text-warm-gray">No-Gi Worlds + International Masters</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division, Gold Absolute</span></td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2009</td>
+                <td class="px-6 py-3 text-warm-gray">No-Gi Worlds</td>
+                <td class="px-6 py-3">Silver Division</td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2008</td>
+                <td class="px-6 py-3 text-warm-gray">No-Gi Worlds + Dumau International (Japan)</td>
+                <td class="px-6 py-3">Silver Division, <span class="text-gold font-semibold">Gold (Japan)</span></td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2007</td>
+                <td class="px-6 py-3 text-warm-gray">No-Gi Worlds + International Masters</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division, Gold Absolute</span></td>
+              </tr>
+              <tr class="hover:bg-cream-light transition-colors">
+                <td class="px-6 py-3 font-medium text-warm-dark">2006</td>
+                <td class="px-6 py-3 text-warm-gray">International Masters (Brazil)</td>
+                <td class="px-6 py-3"><span class="text-gold font-semibold">Gold Division, Gold Absolute</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Building the Sport -->
+<section class="py-24 bg-warm-dark text-cream relative grain">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="fade-up">
+      <p class="text-gold font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Building the Sport</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-cream leading-tight mb-10">
+        Philippine BJJ, from the ground up
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+      <div class="space-y-6 text-cream/70 leading-relaxed fade-up">
+        <p>
+          When Stephen arrived in the Philippines in 2004, competitive BJJ barely existed. He didn't just open a gym — he built an entire ecosystem for the sport.
+        </p>
+        <p>
+          As <strong class="text-cream">President of the Brazilian Jiu Jitsu Federation of the Philippines</strong>, he organized the country's first BJJ competition, worked alongside Carlinho Gracie to establish the Philippines as the <strong class="text-cream">first official IBJJF Federation in Southeast Asia</strong>, and built competition events that now draw thousands of spectators.
+        </p>
+        <p>
+          His partnership with SM Super Malls — the Philippines' largest shopping center group — brings BJJ to the public stage, with competition audiences sometimes exceeding 10,000 spectators per day. He also runs the annual <strong class="text-cream">ADCC Philippine International Open</strong>, one of the longest-running ADCC events in Asia since 2010.
+        </p>
+      </div>
+      <div class="space-y-6 text-cream/70 leading-relaxed fade-up stagger-2">
+        <p>
+          For the <strong class="text-cream">2019 Southeast Asian Games</strong> hosted in Manila, Stephen served as Competition Manager for Jiu-Jitsu. Under his guidance, the Philippine team hauled in <strong class="text-cream">5 gold, 3 silver, and 3 bronze medals</strong> — a dominant performance on home soil.
+        </p>
+        <p>
+          He continues to serve as head coach and technical adviser for the Philippine national jiu-jitsu team at international competitions including the Asian Games.
+        </p>
+        <p>
+          Through Team Fabricio Philippines, he has grown the KMA network to <strong class="text-cream">over 30 affiliated schools</strong> across Luzon, Visayas, and Mindanao — plus an international affiliate in New Zealand. 70–80% of KMA members compete in local competitions, a testament to the competitive culture he's cultivated.
+        </p>
+      </div>
+    </div>
+
+    <!-- Firsts -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 fade-up">
+      <div class="bg-cream/5 rounded-lg p-6 border border-cream/10">
+        <p class="text-gold font-display font-bold text-sm uppercase tracking-wide mb-2">First</p>
+        <p class="text-cream text-sm">IBJJF Federation in Southeast Asia</p>
+      </div>
+      <div class="bg-cream/5 rounded-lg p-6 border border-cream/10">
+        <p class="text-gold font-display font-bold text-sm uppercase tracking-wide mb-2">First</p>
+        <p class="text-cream text-sm">Fabricio team outside Brazil</p>
+      </div>
+      <div class="bg-cream/5 rounded-lg p-6 border border-cream/10">
+        <p class="text-gold font-display font-bold text-sm uppercase tracking-wide mb-2">First</p>
+        <p class="text-cream text-sm">Non-Brazilian IBJJF referee in Asia-Pacific</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Next Generation -->
+<section class="py-24 bg-cream">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="fade-up">
+      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Next Generation</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-warm-dark leading-tight mb-10">
+        Raising coaches and competitors
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
+      <div class="lg:col-span-7 space-y-6 text-warm-gray leading-relaxed fade-up">
+        <p>
+          Stephen has been teaching children martial arts since he was 19 years old — over three decades of experience shaping young athletes. At KMA, he personally teaches most of the children's classes, working with kids from age five and up.
+        </p>
+        <p>
+          His approach goes beyond technique. Through structured programs that include anti-bullying training, he focuses on building discipline, focus, confidence, and character. He has particular experience working with children with autism and ADHD, adapting his teaching to meet every student where they are.
+        </p>
+        <p class="text-warm-dark font-medium italic border-l-4 border-terracotta/30 pl-6">
+          "One of the classes that has the most impact on lives is the children's class. It is a great sense of achievement to see them develop both their character and skills."
+        </p>
+        <p>
+          But it doesn't stop with children. Stephen has promoted multiple students to Black Belt — the highest mark of trust a BJJ coach can place in a student. Each promotion represents years of dedicated training, competition, and personal growth under his guidance.
+        </p>
+      </div>
+      <div class="lg:col-span-5 fade-up stagger-2">
+        <div class="rounded-lg overflow-hidden photo-hover">
+          <img src="/images/stephen-coaching.jpg" alt="Stephen teaching a kids class at KMA" class="w-full h-auto">
+        </div>
+        <p class="text-warm-gray-light text-sm italic text-center mt-3">Teaching the next generation — kids class at KMA</p>
+      </div>
+    </div>
+
+    <!-- Belt Promotions -->
+    <div class="fade-up">
+      <h3 class="font-display font-bold text-warm-dark text-2xl mb-8">Homegrown Black Belts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-lg overflow-hidden photo-hover">
+          <img src="/images/blackbelt-promotion-romeo-with-stephen.jpg" alt="Romeo's black belt promotion with Stephen" class="w-full h-auto">
+          <div class="bg-surface p-5 border border-warm-light border-t-0 rounded-b-lg">
+            <h4 class="font-display font-bold text-warm-dark">Romeo John Alfred Raphael</h4>
+            <p class="text-warm-gray text-sm mt-1">Black Belt promotion — years of dedication culminating in the highest rank, awarded at a Team Fabricio Gathering.</p>
+          </div>
+        </div>
+        <div class="rounded-lg overflow-hidden photo-hover">
+          <img src="/images/dan-promotion-marc-ziggy-with-stephen.jpg" alt="Marc and Ziggy's black belt promotion with Stephen" class="w-full h-auto">
+          <div class="bg-surface p-5 border border-warm-light border-t-0 rounded-b-lg">
+            <h4 class="font-display font-bold text-warm-dark">Ian Michael Roces & Marc Alexander Lim</h4>
+            <p class="text-warm-gray text-sm mt-1">Double Black Belt promotion at the Team Fabricio Gathering, Ayala Malls Circuit. Two more coaches ready to carry the art forward.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lineage -->
+<section class="py-16 bg-warm-light relative grain">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12 text-center fade-up">
+    <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Lineage</p>
+    <h2 class="font-display text-3xl font-bold text-warm-dark mb-8">The line from which we come</h2>
+    <div class="flex flex-col items-center gap-2 text-warm-gray text-sm">
+      <span class="font-display font-semibold text-warm-dark text-base">Esai Maeda (Conde Koma)</span>
+      <svg class="w-4 h-4 text-warm-gray-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      <span class="font-display font-semibold text-warm-dark text-base">Carlos & Helio Gracie</span>
+      <svg class="w-4 h-4 text-warm-gray-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      <span class="font-display font-semibold text-warm-dark text-base">Rolls Gracie</span>
+      <svg class="w-4 h-4 text-warm-gray-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      <span class="font-display font-semibold text-warm-dark text-base">Oswaldo Alves</span>
+      <svg class="w-4 h-4 text-warm-gray-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      <span class="font-display font-semibold text-warm-dark text-base">Master Fabricio Martins</span>
+      <svg class="w-4 h-4 text-warm-gray-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      <span class="font-display font-semibold text-terracotta text-lg">Stephen Kamphuis</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-warm-dark relative grain">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12 text-center fade-up">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream mb-4">Train under Stephen</h2>
+    <p class="text-cream/60 mb-8 max-w-lg mx-auto">Stephen teaches regularly at KMA in Salcedo Village, Makati. Drop in for a class — beginners are always welcome.</p>
+    <a href="/contact/" class="inline-block bg-terracotta hover:bg-terracotta-light text-cream px-8 py-4 rounded-sm font-display font-bold uppercase tracking-[0.1em] text-sm transition-all duration-300 hover:shadow-xl hover:shadow-terracotta/25">
+      Train with us
+    </a>
+  </div>
+</section>
+
+</div>
+
+  </main>
+  <footer class="bg-warm-dark text-cream/60 relative grain">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+      
+      <div class="md:col-span-5">
+        <h3 class="font-display font-bold text-cream text-2xl mb-4">KMA Fitness &<br>Martial Arts</h3>
+        <p class="text-sm leading-relaxed max-w-sm">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo, and more. Part of the international Team Fabricio BJJ family.</p>
+        <div class="mt-6">
+          <a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cream/40 hover:text-gold transition-colors duration-300 text-sm">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Follow us on Facebook
+          </a>
+        </div>
+      </div>
+
+      
+      <div class="md:col-span-4">
+        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Contact</h4>
+        <ul class="space-y-3 text-sm">
+          <li>Ground Floor Le Domaine, Tordesillas St, Salcedo Village, Makati City</li>
+          <li>(02) 8551-4449</li>
+          <li>Text: 0917 824 2420</li>
+          <li>
+            <a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors duration-300">mail@bjjphilippines.com</a>
+          </li>
+        </ul>
+      </div>
+
+      
+      <div class="md:col-span-3">
+        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Gym Hours</h4>
+        <ul class="space-y-3 text-sm">
+          <li>Mon–Fri: 7am–9pm</li>
+          <li>Sat: 7am–7pm</li>
+          <li>Sun: 8am–5pm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-cream/8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream/30">
+      <span>&copy; 2026 KMA Fitness & Martial Arts</span>
+      <div class="flex gap-6">
+        <a href="/schedule/" class="hover:text-cream/60 transition-colors">Schedule</a>
+        <a href="/about/" class="hover:text-cream/60 transition-colors">About</a>
+        <a href="/contact/" class="hover:text-cream/60 transition-colors">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-warm-dark hidden flex-col items-center justify-center">
+  <button id="menu-close" class="absolute top-6 right-5 text-cream p-2" aria-label="Close menu">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <nav class="flex flex-col items-center gap-8">
+    <a href="/schedule/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
+      Schedule
+    </a>
+    <a href="/ranks/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
+      Ranks
+    </a>
+    <a href="/about/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
+      About
+    </a>
+    <a href="/contact/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
+      Contact
+    </a>
+    <a href="/contact/" class="mt-6 bg-terracotta hover:bg-terracotta-light text-cream px-10 py-4 rounded-sm text-lg font-display font-bold uppercase tracking-[0.1em] transition-colors mobile-link">
+      Train with us
+    </a>
+  </nav>
+
+  <div class="absolute bottom-10 text-cream/30 text-sm">
+    <a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors">mail@bjjphilippines.com</a>
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function openMenu() {
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.add('flex');
+    document.body.classList.add('overflow-hidden');
+  }
+  function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('flex');
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  menuToggle.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+</script>
+
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

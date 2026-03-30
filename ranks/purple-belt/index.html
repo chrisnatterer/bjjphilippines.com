@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purple Belts | KMA Fitness &amp; Martial Arts</title>
+  <meta name="description" content="Brazilian Jiu Jitsu, Muay Thai, Judo &amp; More in Makati, Philippines">
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Purple Belts | KMA Fitness &amp; Martial Arts">
+  <meta property="og:description" content="Brazilian Jiu Jitsu, Muay Thai, Judo &amp; More in Makati, Philippines">
+  <meta property="og:url" content="https://kma.chrisnatterer.com/ranks/purple-belt/">
+  <meta property="og:site_name" content="KMA Fitness &amp; Martial Arts">
+  <meta property="og:image" content="https://kma.chrisnatterer.com/images/openmat-christmas-2025.JPG">
+
+  <link rel="icon" type="image/png" href="/favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#f5f0e8',
+            'cream-light': '#faf7f2',
+            'warm-dark': '#1c1410',
+            'warm-mid': '#2e2319',
+            terracotta: '#c0462b',
+            'terracotta-light': '#d4553a',
+            gold: '#c89b3c',
+            'gold-light': '#dbb44e',
+            'warm-gray': '#6b5d52',
+            'warm-gray-light': '#9a8d82',
+            'warm-light': '#ebe4d8',
+            surface: '#ffffff',
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    .hero-img {
+      animation: hero-zoom 20s ease-out forwards;
+    }
+    @keyframes hero-zoom {
+      from { transform: scale(1.08); }
+      to { transform: scale(1); }
+    }
+
+    .photo-hover {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    }
+    .photo-hover:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 20px 40px rgba(28, 20, 16, 0.15);
+    }
+
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="font-body text-warm-dark bg-cream">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-warm-dark/95 backdrop-blur-md">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="flex items-center justify-between h-20">
+      <a href="/" class="font-display font-bold text-2xl tracking-tight text-cream transition-colors duration-300">
+        KMA
+      </a>
+
+      
+      <div class="hidden md:flex items-center gap-10">
+        <a href="/schedule/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
+          Schedule
+        </a>
+        <a href="/ranks/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
+          Ranks
+        </a>
+        <a href="/about/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
+          About
+        </a>
+        <a href="/contact/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
+          Contact
+        </a>
+        <a href="/contact/" class="bg-terracotta hover:bg-terracotta-light text-cream px-6 py-2.5 rounded-sm text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-300 hover:shadow-lg hover:shadow-terracotta/20">
+          Train with us
+        </a>
+      </div>
+
+      
+      <button id="menu-toggle" class="md:hidden text-cream p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  <main>
+    
+<div class="pt-20">
+  
+<!-- Hero -->
+<section class="relative py-32 bg-warm-dark overflow-hidden grain">
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
+    <a href="/ranks/" class="inline-flex items-center gap-2 text-gold/70 hover:text-gold text-sm font-display font-semibold uppercase tracking-[0.2em] mb-6 transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      All Ranks
+    </a>
+    <div class="flex items-center justify-center gap-4 mb-6">
+      <div class="w-20 h-8 rounded-sm relative overflow-hidden bg-purple-700">
+        <div class="absolute right-1.5 top-0 bottom-0 w-1 bg-warm-dark/80"></div>
+      </div>
+    </div>
+    <h1 class="font-display text-5xl sm:text-6xl font-extrabold text-cream mb-4">Purple Belts</h1>
+    <p class="text-cream/60 text-lg max-w-2xl mx-auto">Advanced understanding of technique and strategy — developing a personal game and the ability to teach.</p>
+  </div>
+</section>
+
+<!-- Roster -->
+<section class="py-20 bg-cream">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+
+    <!-- 4th Stripe -->
+    <div class="mb-12 fade-up">
+      <h2 class="font-display text-xl font-bold text-warm-dark mb-4 flex items-center gap-3">
+        <span class="flex gap-1">
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+        </span>
+        4th Stripe
+      </h2>
+      <div class="bg-surface rounded-lg border border-warm-light">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-warm-light">
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Abraham Alzate</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ivan Lord U. Regudo</p><p class="text-warm-gray text-xs mt-0.5">Nov 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Mel Andrew Palogan</p><p class="text-warm-gray text-xs mt-0.5">Dec 23 / June 24 / June 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Juan Francis Lagniton</p><p class="text-warm-gray text-xs mt-0.5">Sept 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Joanne Pauline Tan</p><p class="text-warm-gray text-xs mt-0.5">Sept 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Rodel Pocholo Neri</p><p class="text-warm-gray text-xs mt-0.5">July 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Timothy Alfaro</p><p class="text-warm-gray text-xs mt-0.5">Dec 24 / July 25</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3rd Stripe -->
+    <div class="mb-12 fade-up">
+      <h2 class="font-display text-xl font-bold text-warm-dark mb-4 flex items-center gap-3">
+        <span class="flex gap-1">
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+        </span>
+        3rd Stripe
+      </h2>
+      <div class="bg-surface rounded-lg border border-warm-light">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-warm-light">
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Andy Robano</p><p class="text-warm-gray text-xs mt-0.5">Dec 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Bryan Lino</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Benedicto Ayque</p><p class="text-warm-gray text-xs mt-0.5">June 24 / May 25 / Dec 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Aaron Vargas</p><p class="text-warm-gray text-xs mt-0.5">Nov 2024 / June 25 / Nov 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Davie James Paulino</p><p class="text-warm-gray text-xs mt-0.5">Nov 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Francisco R Pascual III</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Leonard Bryan Lupango</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Noah Uychoco</p><p class="text-warm-gray text-xs mt-0.5">Nov 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Nhong Laurio</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Michael Canlas</p><p class="text-warm-gray text-xs mt-0.5">March 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Michaelo Sumulong</p><p class="text-warm-gray text-xs mt-0.5">Sept 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Peter Dennis Parayno</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ronn Marchadesch</p><p class="text-warm-gray text-xs mt-0.5">July 25 / Dec 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ron Suayan</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Robert Darrel Tan</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2nd Stripe -->
+    <div class="mb-12 fade-up">
+      <h2 class="font-display text-xl font-bold text-warm-dark mb-4 flex items-center gap-3">
+        <span class="flex gap-1">
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+        </span>
+        2nd Stripe
+      </h2>
+      <div class="bg-surface rounded-lg border border-warm-light">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-warm-light">
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Alvin Baluyot</p><p class="text-warm-gray text-xs mt-0.5">June 23 / Jan 25 / June 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Bill Jansen Planas</p><p class="text-warm-gray text-xs mt-0.5">Sept 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Dennis Eala</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Danner Yarcia</p><p class="text-warm-gray text-xs mt-0.5">May 24 / Nov 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ernst Peter Porte</p><p class="text-warm-gray text-xs mt-0.5">Sept 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Hoffman Cureg</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Inna Mae Tan</p><p class="text-warm-gray text-xs mt-0.5">Dec 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jason Francis Tulio</p><p class="text-warm-gray text-xs mt-0.5">March 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jennie Delgardo</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jess Balmaceda</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024 / Nov 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Joel S Olivar</p><p class="text-warm-gray text-xs mt-0.5">Jan 22 / June 24 / Dec 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">John Christopher Pacis</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Karen Joyce Abcede</p><p class="text-warm-gray text-xs mt-0.5">March 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Mcdom Malawi</p><p class="text-warm-gray text-xs mt-0.5">Sept 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Takahiro Suzuki</p><p class="text-warm-gray text-xs mt-0.5">Dec 22</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Paul White</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Peds Leonardo</p><p class="text-warm-gray text-xs mt-0.5">Sept 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Xavier Lance Quinto</p><p class="text-warm-gray text-xs mt-0.5">July 25</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1st Stripe -->
+    <div class="mb-12 fade-up">
+      <h2 class="font-display text-xl font-bold text-warm-dark mb-4 flex items-center gap-3">
+        <span class="flex gap-1">
+          <span class="w-2 h-2 rounded-full bg-warm-dark"></span>
+        </span>
+        1st Stripe
+      </h2>
+      <div class="bg-surface rounded-lg border border-warm-light">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-warm-light">
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Adrian Francis S. Bustos</p><p class="text-warm-gray text-xs mt-0.5">July 25 / Dec 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Andy Rabano</p><p class="text-warm-gray text-xs mt-0.5">Dec 22</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Art Pantinople</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Anthony Macapagal</p><p class="text-warm-gray text-xs mt-0.5">Nov 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Anthony Brutas</p><p class="text-warm-gray text-xs mt-0.5">Dec 2024 / Dec 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Arnel Vernabe T Lomibao</p><p class="text-warm-gray text-xs mt-0.5">July 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Art Pascual</p><p class="text-warm-gray text-xs mt-0.5">June 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Alfred Leonardo</p><p class="text-warm-gray text-xs mt-0.5">June 23 / Jan 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Drexzel Yarcia</p><p class="text-warm-gray text-xs mt-0.5">July 23 / Nov 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Drazen Yarcia</p><p class="text-warm-gray text-xs mt-0.5">May 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Emerald Tayag</p><p class="text-warm-gray text-xs mt-0.5">June 24 / July 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Harvey Granfil</p><p class="text-warm-gray text-xs mt-0.5">Dec 22</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ivy Alcala</p><p class="text-warm-gray text-xs mt-0.5">Nov 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jonna Baquillas</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jomar Tuazon</p><p class="text-warm-gray text-xs mt-0.5">March 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Marikit Uychoco</p><p class="text-warm-gray text-xs mt-0.5">Nov 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Michael Palabay</p><p class="text-warm-gray text-xs mt-0.5">June 25 / Nov 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Nino Mondejar</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Quintin Pastrana</p><p class="text-warm-gray text-xs mt-0.5">July 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Oscar Audey Joves</p><p class="text-warm-gray text-xs mt-0.5">May 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Thomas Javier</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024 / June 25</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Purple Belt (no stripe) -->
+    <div class="fade-up">
+      <h2 class="font-display text-xl font-bold text-warm-dark mb-4">Purple Belt</h2>
+      <div class="bg-surface rounded-lg border border-warm-light">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-warm-light">
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Anjonielle Prado</p><p class="text-warm-gray text-xs mt-0.5">Nov 2025</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ariel Oliveros</p><p class="text-warm-gray text-xs mt-0.5">Dec 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Arvin Brioso</p><p class="text-warm-gray text-xs mt-0.5">July 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Antony Pena</p><p class="text-warm-gray text-xs mt-0.5">Nov 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Archie Celebre</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Monica Salazar</p><p class="text-warm-gray text-xs mt-0.5">June 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Brian Aleyis Ongpauco</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Cayden Mathew Tan</p><p class="text-warm-gray text-xs mt-0.5">June 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Carmela Marie Estarija</p><p class="text-warm-gray text-xs mt-0.5">June 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Carlo Duran</p><p class="text-warm-gray text-xs mt-0.5">June 2025</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Carlos Garcia</p><p class="text-warm-gray text-xs mt-0.5">Sept 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Clifford Charlie Hong</p><p class="text-warm-gray text-xs mt-0.5">Nov 2025</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Don King Arriola</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">De Marvin Manalo</p><p class="text-warm-gray text-xs mt-0.5">Sept 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Duane Pascua</p><p class="text-warm-gray text-xs mt-0.5">June 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ernest John Abunda</p><p class="text-warm-gray text-xs mt-0.5">June 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Erwin Ditche</p><p class="text-warm-gray text-xs mt-0.5">Aug 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Elinice Visaya</p><p class="text-warm-gray text-xs mt-0.5">Nov 2025</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Fernando Abenir III</p><p class="text-warm-gray text-xs mt-0.5">May 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Frenz Kato</p><p class="text-warm-gray text-xs mt-0.5">Jan 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Francis Louie Gregorio</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Francis Al Dy</p><p class="text-warm-gray text-xs mt-0.5">June 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Francesca Ella Nepomuceno</p><p class="text-warm-gray text-xs mt-0.5">Nov 2025</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Gian Marco Saquilon</p><p class="text-warm-gray text-xs mt-0.5">Nov 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Gian Paolo Delos Santos</p><p class="text-warm-gray text-xs mt-0.5">July 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Handric Paul Pasigue</p><p class="text-warm-gray text-xs mt-0.5">June 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ian Capito</p><p class="text-warm-gray text-xs mt-0.5">Nov 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jasper Delos Santos</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jade Lu-Schilbach</p><p class="text-warm-gray text-xs mt-0.5">Dec 2022</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jacinto Mendoza</p><p class="text-warm-gray text-xs mt-0.5">Dec 2022</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">John Derek Vergara</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">John Anthony Brutas</p><p class="text-warm-gray text-xs mt-0.5">May 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jaime Abadam</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jes Vincent G. Catayas</p><p class="text-warm-gray text-xs mt-0.5">Cebu MMA Fabricio</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jenery B. Quenonero</p><p class="text-warm-gray text-xs mt-0.5">Jan 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jeloird Alvarez</p><p class="text-warm-gray text-xs mt-0.5">July 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">John Benjamin C. Belen</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">John Marty Pesito</p><p class="text-warm-gray text-xs mt-0.5">May 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">John Patrick Baraquel</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jose Gabriel Ferrier</p><p class="text-warm-gray text-xs mt-0.5">June 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jun Ranier</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Juan Agapito Dakila I. Tria</p><p class="text-warm-gray text-xs mt-0.5">Dec 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Juanito G Estimada</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Jude Yap</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Karlo Sevilla</p><p class="text-warm-gray text-xs mt-0.5">May 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Katryn Angela Saldajeno</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Kel Dione B. Bautista</p><p class="text-warm-gray text-xs mt-0.5">July 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Lionel Zamora</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Lance Xavier Guinto</p><p class="text-warm-gray text-xs mt-0.5">July 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Mark Nimanand</p><p class="text-warm-gray text-xs mt-0.5">Jan 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Marion Noel Manucom</p><p class="text-warm-gray text-xs mt-0.5">Nov 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Monday Dela Rosa Samson</p><p class="text-warm-gray text-xs mt-0.5">May 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Martin Villaruz</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Marvin Baylosis</p><p class="text-warm-gray text-xs mt-0.5">Oct 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Michael Reyes</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Miko Ponce de Leon</p><p class="text-warm-gray text-xs mt-0.5">Jan 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Marco Cenojas</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Mark Daniel T Togonon</p><p class="text-warm-gray text-xs mt-0.5">Nov 2025</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Nathaniel Augustus Ala</p><p class="text-warm-gray text-xs mt-0.5">Sept 25</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Nilo Vidas</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Neil Andrew Larano</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Noel Ang</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Patrick Dos Santos</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Paulino Lalo</p><p class="text-warm-gray text-xs mt-0.5">March 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Peter Scott De la Rosa</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Peter Porte</p><p class="text-warm-gray text-xs mt-0.5">Nov 23</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">R A Lumbang</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ralph Erwin Carreon</p><p class="text-warm-gray text-xs mt-0.5">June 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Roman Rodriguez III</p><p class="text-warm-gray text-xs mt-0.5">Nov 2024</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">William Curtis Macdonald</p><p class="text-warm-gray text-xs mt-0.5">June 24</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Ulysses Fajilan Jr</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Yousif Garsota</p></div>
+          <div class="bg-surface p-4"><p class="font-display font-semibold text-warm-dark text-sm">Vincent Emmanuel Millora Mamaat</p><p class="text-warm-gray text-xs mt-0.5">May 25</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+  </main>
+  <footer class="bg-warm-dark text-cream/60 relative grain">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+      
+      <div class="md:col-span-5">
+        <h3 class="font-display font-bold text-cream text-2xl mb-4">KMA Fitness &<br>Martial Arts</h3>
+        <p class="text-sm leading-relaxed max-w-sm">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo, and more. Part of the international Team Fabricio BJJ family.</p>
+        <div class="mt-6">
+          <a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cream/40 hover:text-gold transition-colors duration-300 text-sm">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Follow us on Facebook
+          </a>
+        </div>
+      </div>
+
+      
+      <div class="md:col-span-4">
+        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Contact</h4>
+        <ul class="space-y-3 text-sm">
+          <li>Ground Floor Le Domaine, Tordesillas St, Salcedo Village, Makati City</li>
+          <li>(02) 8551-4449</li>
+          <li>Text: 0917 824 2420</li>
+          <li>
+            <a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors duration-300">mail@bjjphilippines.com</a>
+          </li>
+        </ul>
+      </div>
+
+      
+      <div class="md:col-span-3">
+        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Gym Hours</h4>
+        <ul class="space-y-3 text-sm">
+          <li>Mon–Fri: 7am–9pm</li>
+          <li>Sat: 7am–7pm</li>
+          <li>Sun: 8am–5pm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-cream/8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream/30">
+      <span>&copy; 2026 KMA Fitness & Martial Arts</span>
+      <div class="flex gap-6">
+        <a href="/schedule/" class="hover:text-cream/60 transition-colors">Schedule</a>
+        <a href="/about/" class="hover:text-cream/60 transition-colors">About</a>
+        <a href="/contact/" class="hover:text-cream/60 transition-colors">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-warm-dark hidden flex-col items-center justify-center">
+  <button id="menu-close" class="absolute top-6 right-5 text-cream p-2" aria-label="Close menu">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <nav class="flex flex-col items-center gap-8">
+    <a href="/schedule/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
+      Schedule
+    </a>
+    <a href="/ranks/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
+      Ranks
+    </a>
+    <a href="/about/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
+      About
+    </a>
+    <a href="/contact/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
+      Contact
+    </a>
+    <a href="/contact/" class="mt-6 bg-terracotta hover:bg-terracotta-light text-cream px-10 py-4 rounded-sm text-lg font-display font-bold uppercase tracking-[0.1em] transition-colors mobile-link">
+      Train with us
+    </a>
+  </nav>
+
+  <div class="absolute bottom-10 text-cream/30 text-sm">
+    <a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors">mail@bjjphilippines.com</a>
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function openMenu() {
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.add('flex');
+    document.body.classList.add('overflow-hidden');
+  }
+  function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('flex');
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  menuToggle.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+</script>
+
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
