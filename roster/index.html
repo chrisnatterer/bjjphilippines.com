@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.128.2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roster Search — KMA Fitness & Martial Arts</title>
+  <meta name="description" content="Search KMA athletes by name.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" type="image/png" href="/favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#f5f0e8',
+            'cream-light': '#faf7f2',
+            'warm-dark': '#1c1410',
+            'warm-mid': '#2e2319',
+            terracotta: '#b8452e',
+            'terracotta-light': '#d4553a',
+            gold: '#c89b3c',
+            'gold-light': '#dbb44e',
+            'warm-gray': '#6b5d52',
+            'warm-gray-light': '#9a8d82',
+            'warm-light': '#ebe4d8',
+            surface: '#ffffff',
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .belt-swatch {
+      display: inline-block;
+      width: 2.5rem;
+      height: 0.6rem;
+      border-radius: 2px;
+      vertical-align: middle;
+      position: relative;
+      overflow: hidden;
+    }
+    .belt-swatch.white { background: #fff; border: 1px solid #ebe4d8; }
+    .belt-swatch.blue { background: #2563eb; }
+    .belt-swatch.purple { background: #7e22ce; }
+    .belt-swatch.brown { background: #6b3a1f; }
+    .belt-swatch.black { background: #1c1410; }
+    .belt-swatch .stripe-zone {
+      position: absolute;
+      right: 2px;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      gap: 1px;
+      align-items: stretch;
+    }
+    .belt-swatch .stripe-zone span {
+      width: 2px;
+      background: #fff;
+      opacity: 0.9;
+    }
+    .belt-swatch.white .stripe-zone span { background: #1c1410; }
+    .belt-swatch.black .stripe-zone span { background: #c89b3c; }
+  </style>
+</head>
+<body class="font-body text-warm-dark bg-cream">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-warm-dark/95 backdrop-blur-md">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="flex items-center justify-between h-20">
+      <a href="/" class="font-display font-bold text-2xl tracking-tight text-cream transition-colors duration-300">
+        KMA
+      </a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="/schedule/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Schedule</a>
+        <a href="/ranks/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Ranks</a>
+        <a href="/about/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">About</a>
+        <a href="/contact/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Contact</a>
+        <a href="/contact/" class="bg-terracotta hover:bg-terracotta-light text-cream px-6 py-2.5 rounded-sm text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-300 hover:shadow-lg hover:shadow-terracotta/20">Train with us</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden text-cream p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  <main>
+<div class="pt-20">
+
+<section class="relative py-20 bg-warm-dark overflow-hidden grain">
+  <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
+    <p class="text-gold font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Team Fabricio Philippines</p>
+    <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-cream mb-4">Roster Search</h1>
+    <p class="text-cream/60 text-base max-w-xl mx-auto">Look up any athlete to see their current rank and promotion history.</p>
+  </div>
+</section>
+
+<section class="py-10 bg-cream-light border-b border-warm-light sticky top-20 z-40">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="relative">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-warm-gray-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <input
+        id="q"
+        type="search"
+        autofocus
+        autocomplete="off"
+        placeholder="Search by name..."
+        class="w-full pl-12 pr-4 py-4 bg-surface border border-warm-light rounded-lg font-display text-lg text-warm-dark placeholder:text-warm-gray-light focus:outline-none focus:border-terracotta transition-colors"
+      />
+    </div>
+    <p id="count" class="mt-3 text-sm text-warm-gray">Loading…</p>
+  </div>
+</section>
+
+<section class="py-12 bg-cream">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div id="results" class="space-y-3"></div>
+    <div id="empty" class="hidden text-center py-16 text-warm-gray">
+      <p class="font-display text-lg">No matches.</p>
+      <p class="text-sm mt-2">Try a shorter or different spelling.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+  </main>
+
+  <footer class="bg-warm-dark text-cream/60 relative grain">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+      <div class="md:col-span-5">
+        <h3 class="font-display font-bold text-cream text-2xl mb-4">KMA Fitness &<br>Martial Arts</h3>
+        <p class="text-sm leading-relaxed max-w-sm">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo, and more. Part of the international Team Fabricio BJJ family.</p>
+        <div class="mt-6">
+          <a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cream/40 hover:text-gold transition-colors duration-300 text-sm">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Follow us on Facebook
+          </a>
+        </div>
+      </div>
+      <div class="md:col-span-4">
+        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Contact</h4>
+        <ul class="space-y-3 text-sm">
+          <li>Ground Floor Le Domaine, Tordesillas St, Salcedo Village, Makati City</li>
+          <li>(02) 8551-4449</li>
+          <li>Text: 0917 824 2420</li>
+          <li><a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors duration-300">mail@bjjphilippines.com</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-3">
+        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Gym Hours</h4>
+        <ul class="space-y-3 text-sm">
+          <li>Mon–Fri: 7am–9pm</li>
+          <li>Sat: 7am–7pm</li>
+          <li>Sun: 8am–5pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-cream/8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream/30">
+      <span>&copy; 2026 KMA Fitness & Martial Arts &middot; <a href="https://github.com/chrisnatterer/bjjphilippines.com/commit/dev" class="font-mono hover:text-cream/60 transition-colors" target="_blank" rel="noopener">dev</a></span>
+      <div class="flex gap-6">
+        <a href="/schedule/" class="hover:text-cream/60 transition-colors">Schedule</a>
+        <a href="/about/" class="hover:text-cream/60 transition-colors">About</a>
+        <a href="/contact/" class="hover:text-cream/60 transition-colors">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const q = document.getElementById('q');
+  const results = document.getElementById('results');
+  const empty = document.getElementById('empty');
+  const count = document.getElementById('count');
+  let athletes = [];
+  let expanded = new Set();
+
+  const beltClass = (rank) => {
+    if (!rank) return '';
+    const w = rank.toLowerCase();
+    if (w.startsWith('black')) return 'black';
+    if (w.startsWith('brown')) return 'brown';
+    if (w.startsWith('purple')) return 'purple';
+    if (w.startsWith('blue')) return 'blue';
+    if (w.startsWith('white')) return 'white';
+    return '';
+  };
+
+  const stripeCount = (rank) => {
+    const m = rank.match(/([1-6])(st|nd|rd|th)\s+(stripe|degree)/i);
+    return m ? parseInt(m[1], 10) : 0;
+  };
+
+  const beltSwatch = (rank) => {
+    const cls = beltClass(rank);
+    if (!cls) return '';
+    const stripes = stripeCount(rank);
+    const stripeSpans = Array(stripes).fill('<span></span>').join('');
+    return `<span class="belt-swatch ${cls}"><span class="stripe-zone">${stripeSpans}</span></span>`;
+  };
+
+  const formatDate = (iso) => {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-');
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    if (d === '01') return `${months[+m - 1]} ${y}`;
+    return `${months[+m - 1]} ${+d}, ${y}`;
+  };
+
+  const escapeHtml = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+
+  const render = (list) => {
+    if (list.length === 0) {
+      results.innerHTML = '';
+      empty.classList.remove('hidden');
+      count.textContent = `0 matches`;
+      return;
+    }
+    empty.classList.add('hidden');
+    const showing = Math.min(list.length, 50);
+    count.textContent = list.length === athletes.length
+      ? `${athletes.length} athletes`
+      : `${list.length} match${list.length === 1 ? '' : 'es'}${list.length > showing ? ` (showing top ${showing})` : ''}`;
+    const html = list.slice(0, showing).map((a, i) => {
+      const isOpen = expanded.has(a.name);
+      const timeline = a.timeline.map(t => `
+        <li class="flex items-center gap-3 text-sm py-1.5">
+          ${beltSwatch(t.rank)}
+          <span class="font-display font-semibold text-warm-dark">${escapeHtml(t.rank)}</span>
+          <span class="text-warm-gray ml-auto tabular-nums">${formatDate(t.date)}</span>
+        </li>
+      `).join('');
+      return `
+        <article data-name="${escapeHtml(a.name)}" class="bg-surface rounded-lg border border-warm-light overflow-hidden transition-all duration-200 ${isOpen ? 'shadow-md' : 'hover:shadow-sm'}">
+          <button type="button" class="w-full p-4 flex items-center gap-4 text-left">
+            ${beltSwatch(a.currentRank)}
+            <div class="flex-1 min-w-0">
+              <h3 class="font-display font-bold text-warm-dark truncate">${escapeHtml(a.name)}</h3>
+              <p class="text-sm text-warm-gray truncate">${escapeHtml(a.currentRank)}${a.location ? ` · ${escapeHtml(a.location)}` : ''}</p>
+            </div>
+            <span class="text-xs text-warm-gray-light tabular-nums shrink-0">${formatDate(a.currentRankDate)}</span>
+            <svg class="w-4 h-4 text-warm-gray-light transition-transform ${isOpen ? 'rotate-90' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          ${isOpen ? `
+            <div class="border-t border-warm-light px-4 pb-4 pt-3">
+              ${a.timeline.length > 0 ? `
+                <p class="text-xs uppercase tracking-[0.15em] text-warm-gray font-semibold mb-2">Promotion History</p>
+                <ul class="divide-y divide-warm-light/50">${timeline}</ul>
+              ` : `
+                <p class="text-sm text-warm-gray italic">No promotion dates on record.</p>
+              `}
+            </div>
+          ` : ''}
+        </article>
+      `;
+    }).join('');
+    results.innerHTML = html;
+  };
+
+  results.addEventListener('click', (e) => {
+    const art = e.target.closest('article[data-name]');
+    if (!art) return;
+    const name = art.dataset.name;
+    if (expanded.has(name)) expanded.delete(name); else expanded.add(name);
+    filter();
+  });
+
+  const normalize = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const filter = () => {
+    const needle = normalize(q.value.trim());
+    if (!needle) return render(athletes);
+    const terms = needle.split(/\s+/).filter(Boolean);
+    const matches = athletes.filter(a => {
+      const hay = normalize(a.name);
+      return terms.every(t => hay.includes(t));
+    });
+    render(matches);
+  };
+
+  q.addEventListener('input', filter);
+
+  fetch('/data/athletes.json')
+    .then(r => r.json())
+    .then(data => {
+      athletes = data;
+      filter();
+    })
+    .catch(err => {
+      count.textContent = 'Failed to load athlete data.';
+      console.error(err);
+    });
+})();
+</script>
+
+</body>
+</html>
