@@ -21,7 +21,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-GWS = "/opt/homebrew/Cellar/googleworkspace-cli/0.22.5/bin/gws"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import sheets  # local: reads via service account (CI) or gws CLI (local)
+
 SHEET_ID = "1uGLeVuB3Goy1mCnbU0UgPsadHHI2JqW6ur9HwUIXtP8"
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "schedule.json"
@@ -47,16 +49,6 @@ TYPES = {
 }
 
 
-def fetch(range_a1: str) -> list[list[str]]:
-    params = {"spreadsheetId": SHEET_ID, "range": range_a1, "valueRenderOption": "FORMATTED_VALUE"}
-    res = subprocess.run(
-        [GWS, "sheets", "spreadsheets", "values", "get", "--params", json.dumps(params)],
-        capture_output=True, text=True, check=True,
-    )
-    out = res.stdout
-    return json.loads(out[out.find("{"):]).get("values", [])
-
-
 def slugify(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", name.strip().lower()).strip("-")
 
@@ -69,7 +61,7 @@ def norm_time(t: str) -> str:
 
 
 def main() -> None:
-    rows = fetch("Schedule!A2:H")
+    rows = sheets.get_values(SHEET_ID, "Schedule!A2:H")
     coaches: dict[str, dict] = {}
     classes: list[dict] = []
     warnings: list[str] = []

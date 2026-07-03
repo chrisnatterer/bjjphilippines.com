@@ -13,32 +13,20 @@ from __future__ import annotations
 
 import json
 import re
-import subprocess
+import sys
 from pathlib import Path
 
-GWS = "/opt/homebrew/Cellar/googleworkspace-cli/0.22.5/bin/gws"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import sheets  # local: reads via service account (CI) or gws CLI (local)
+
 SHEET_ID = "1_y3UAStU_j6pN9-pCY29ESz4Aogz0LCNtAYGOl-KZEM"
 OUT = Path(__file__).resolve().parent.parent / "data" / "athletes.json"
 
 ISO_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
-def fetch_values(range_a1: str) -> list[list[str]]:
-    params = {
-        "spreadsheetId": SHEET_ID,
-        "range": range_a1,
-        "valueRenderOption": "FORMATTED_VALUE",
-    }
-    res = subprocess.run(
-        [GWS, "sheets", "spreadsheets", "values", "get", "--params", json.dumps(params)],
-        capture_output=True, text=True, check=True,
-    )
-    idx = res.stdout.find("{")
-    return json.loads(res.stdout[idx:]).get("values", [])
-
-
 def main() -> None:
-    rows = fetch_values("Adults!A1:AG")
+    rows = sheets.get_values(SHEET_ID, "Adults!A1:AG")
     header = rows[0]
     # Schema (post user's column-D move): A=Name, B=Location, C=Status,
     # D=Current Rank, E..AE=rank dates (27 cols), AF=Notes, AG=Current Rank Date.
