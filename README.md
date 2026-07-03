@@ -132,13 +132,44 @@ Since these are just static files, you can upload the entire folder to any web h
 
 The domain `bjjphilippines.com` needs to be pointed to wherever you host the site. This is done through DNS settings at your domain registrar. The hosting platform you choose will give you specific instructions.
 
-## Rank tracker spreadsheet
+## Data-backed pages: ranks & schedule
 
-Athlete rank data is also maintained in a Google Sheet:
+Two parts of the site are generated from Google Sheets instead of being edited by hand:
 
-**https://docs.google.com/spreadsheets/d/1_y3UAStU_j6pN9-pCY29ESz4Aogz0LCNtAYGOl-KZEM/edit**
+| Page | Google Sheet | Build script | Data file |
+|------|--------------|--------------|-----------|
+| `/roster/` (athlete search) | **KMA Rank Tracker** — [open](https://docs.google.com/spreadsheets/d/1_y3UAStU_j6pN9-pCY29ESz4Aogz0LCNtAYGOl-KZEM/edit) | `scripts/build_roster.py` | `data/athletes.json` |
+| `/schedule/` (class timetable) | **KMA Class Schedule** — [open](https://docs.google.com/spreadsheets/d/1uGLeVuB3Goy1mCnbU0UgPsadHHI2JqW6ur9HwUIXtP8/edit) | `scripts/sync_schedule.py` | `data/schedule.json` |
 
-This spreadsheet is the intended source of truth for rank data. The website rank pages can be regenerated from it in the future.
+### How the sync works (important)
+
+**The sync is a manual step you run on your computer — it is NOT part of the deploy.**
+Cloudflare only runs `build.sh` (which just stamps the commit SHA into footers). It does **not** read the Google Sheets. That means **editing a sheet does nothing on its own** — the change only reaches the website after you run the build script, commit the regenerated data, and push.
+
+To publish sheet changes:
+
+1. **Run the build script locally.** This requires the [`gws` Google Workspace CLI](https://github.com/googleworkspace/google-workspace-cli), signed in to the Google account that owns the sheets:
+   ```
+   python3 scripts/build_roster.py      # ranks / roster
+   python3 scripts/sync_schedule.py     # class schedule
+   ```
+   Each script reads its sheet and rewrites the data file. `sync_schedule.py` also regenerates `schedule/index.html` from `data/schedule.json` (via `scripts/build_schedule.py`).
+2. **Commit and push the regenerated files:**
+   ```
+   git add data/ schedule/
+   git commit -m "Sync schedule from sheet"
+   git push
+   ```
+3. Cloudflare redeploys automatically and the changes go live in a minute or two.
+
+Notes:
+- `/roster/` loads `data/athletes.json` in the browser at page load. `/schedule/` is baked into static HTML by the build script (better for SEO and no-JS).
+- The scripts call `gws` at a pinned Homebrew path (`/opt/homebrew/Cellar/googleworkspace-cli/<version>/bin/gws`). If a Homebrew upgrade changes the version, update the `GWS` constant at the top of each script. Auth is stored in the system keyring.
+- There is currently **no automation** — running the script is a deliberate manual step. If you want sheet edits to publish automatically (e.g. a scheduled job or a button), that has to be built separately.
+
+### Editing the class schedule
+
+Coaches edit the **KMA Class Schedule** sheet directly — one row per class (Day, Start, End, Class, Type, Coach 1, Coach 2, Note); the sheet's *How to edit* tab explains each column. After they've made changes, run `python3 scripts/sync_schedule.py` and push (per above). The old timetable was hand-coded with pixel positions; it is now fully data-driven, so nobody needs to touch HTML to change a class.
 
 ## Pushing changes
 
