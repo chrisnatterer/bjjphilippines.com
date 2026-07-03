@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "hours": {
+      "start": 7,
+      "end": 21
+    },
+    "coaches": {
+      "ziggy-roces": {
+        "name": "Ziggy Roces",
+        "short": "Ziggy",
+        "img": "/images/ziggy-roces.webp"
+      },
+      "godwin-langbayan": {
+        "name": "Godwin Langbayan",
+        "short": "Godwin",
+        "img": "/images/godwin-langbayan.webp"
+      },
+      "brendo-pudan": {
+        "name": "Brendo Pudan",
+        "short": "Brendo",
+        "img": "/images/brendo-pudan.webp"
+      },
+      "ken-menia": {
+        "name": "Ken Menia",
+        "short": "Ken",
+        "img": "/images/ken-menia.webp"
+      }
+    },
+    "types": {
+      "bjj": {
+        "legend": "BJJ",
+        "bg": "bg-terracotta/10",
+        "border": "border-terracotta/20",
+        "hover": "hover:border-terracotta/40",
+        "accent": "text-terracotta"
+      },
+      "striking": {
+        "legend": "Muay Thai / Boxing",
+        "bg": "bg-gold/10",
+        "border": "border-gold/20",
+        "hover": "hover:border-gold/40",
+        "accent": "text-gold"
+      },
+      "judo": {
+        "legend": "Judo",
+        "bg": "bg-warm-dark/5",
+        "border": "border-warm-dark/10",
+        "hover": "hover:border-warm-dark/20",
+        "accent": "text-warm-dark"
+      }
+    }
+  },
+  "classes": [
+    {
+      "day": "Mon",
+      "start": "12:30",
+      "end": "14:00",
+      "title": "BJJ Gi",
+      "type": "bjj",
+      "coaches": [
+        "ziggy-roces"
+      ]
+    },
+    {
+      "day": "Mon",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ Gi Beginners",
+      "type": "bjj",
+      "coaches": [
+        "godwin-langbayan"
+      ]
+    },
+    {
+      "day": "Tue",
+      "start": "12:30",
+      "end": "14:00",
+      "title": "BJJ No Gi",
+      "type": "bjj",
+      "coaches": [
+        "brendo-pudan"
+      ]
+    },
+    {
+      "day": "Tue",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ No Gi",
+      "type": "bjj",
+      "coaches": [
+        "ken-menia"
+      ]
+    },
+    {
+      "day": "Wed",
+      "start": "12:30",
+      "end": "14:00",
+      "title": "BJJ Gi & No Gi",
+      "type": "bjj",
+      "coaches": [
+        "ziggy-roces",
+        "brendo-pudan"
+      ]
+    },
+    {
+      "day": "Wed",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ No Gi Beginners",
+      "type": "bjj",
+      "coaches": [
+        "godwin-langbayan"
+      ]
+    },
+    {
+      "day": "Thu",
+      "start": "12:30",
+      "end": "14:00",
+      "title": "BJJ No Gi",
+      "type": "bjj",
+      "coaches": [
+        "brendo-pudan"
+      ]
+    },
+    {
+      "day": "Thu",
+      "start": "19:00",
+      "end": "20:15",
+      "title": "Muay Thai / Boxing",
+      "type": "striking",
+      "note": "Group",
+      "coaches": []
+    },
+    {
+      "day": "Thu",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ No Gi",
+      "type": "bjj",
+      "coaches": [
+        "ken-menia"
+      ]
+    },
+    {
+      "day": "Fri",
+      "start": "07:00",
+      "end": "08:30",
+      "title": "Muay Thai / Boxing",
+      "type": "striking",
+      "note": "1-on-1",
+      "coaches": []
+    },
+    {
+      "day": "Fri",
+      "start": "12:30",
+      "end": "14:00",
+      "title": "BJJ Open Mat",
+      "type": "bjj",
+      "coaches": []
+    },
+    {
+      "day": "Fri",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ Open Mat",
+      "type": "bjj",
+      "coaches": []
+    },
+    {
+      "day": "Sat",
+      "start": "12:00",
+      "end": "14:00",
+      "title": "BJJ Open Mat",
+      "type": "bjj",
+      "coaches": []
+    },
+    {
+      "day": "Sat",
+      "start": "16:00",
+      "end": "17:30",
+      "title": "Judo — Adults",
+      "type": "judo",
+      "coaches": []
+    },
+    {
+      "day": "Sun",
+      "start": "16:00",
+      "end": "17:30",
+      "title": "Judo — Adults",
+      "type": "judo",
+      "coaches": []
+    }
+  ]
+}
