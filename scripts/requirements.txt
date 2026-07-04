@@ -1,3 +1,4 @@
 # Dependencies for the automated sheet sync (GitHub Actions).
 # Local runs use the gws CLI instead and don't need these.
 google-auth>=2.23
+requests>=2.31
