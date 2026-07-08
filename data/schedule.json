@@ -53,6 +53,15 @@
   "classes": [
     {
       "day": "Mon",
+      "start": "07:00",
+      "end": "08:30",
+      "title": "Muay Thai / Boxing",
+      "type": "striking",
+      "note": "1-on-1",
+      "coaches": []
+    },
+    {
+      "day": "Mon",
       "start": "12:30",
       "end": "14:00",
       "title": "BJJ Gi",
@@ -73,6 +82,15 @@
     },
     {
       "day": "Tue",
+      "start": "07:00",
+      "end": "08:30",
+      "title": "Muay Thai / Boxing",
+      "type": "striking",
+      "note": "1-on-1",
+      "coaches": []
+    },
+    {
+      "day": "Tue",
       "start": "12:30",
       "end": "14:00",
       "title": "BJJ No Gi",
@@ -83,6 +101,14 @@
     },
     {
       "day": "Tue",
+      "start": "17:30",
+      "end": "19:00",
+      "title": "Judo — All ages",
+      "type": "judo",
+      "coaches": []
+    },
+    {
+      "day": "Tue",
       "start": "19:00",
       "end": "21:00",
       "title": "BJJ No Gi",
@@ -90,6 +116,15 @@
       "coaches": [
         "ken-menia"
       ]
+    },
+    {
+      "day": "Wed",
+      "start": "07:00",
+      "end": "08:30",
+      "title": "Muay Thai / Boxing",
+      "type": "striking",
+      "note": "1-on-1",
+      "coaches": []
     },
     {
       "day": "Wed",
@@ -114,6 +149,15 @@
     },
     {
       "day": "Thu",
+      "start": "07:00",
+      "end": "08:30",
+      "title": "Muay Thai / Boxing",
+      "type": "striking",
+      "note": "1-on-1",
+      "coaches": []
+    },
+    {
+      "day": "Thu",
       "start": "12:30",
       "end": "14:00",
       "title": "BJJ No Gi",
@@ -124,11 +168,10 @@
     },
     {
       "day": "Thu",
-      "start": "19:00",
-      "end": "20:15",
-      "title": "Muay Thai / Boxing",
-      "type": "striking",
-      "note": "Group",
+      "start": "17:30",
+      "end": "19:00",
+      "title": "Judo — All ages",
+      "type": "judo",
       "coaches": []
     },
     {
@@ -152,11 +195,22 @@
     },
     {
       "day": "Fri",
+      "start": "08:00",
+      "end": "05:00",
+      "title": "Muay Thai / Boxing",
+      "type": "striking",
+      "note": "1-on-1",
+      "coaches": []
+    },
+    {
+      "day": "Fri",
       "start": "12:30",
       "end": "14:00",
-      "title": "BJJ Open Mat",
+      "title": "BJJ - Gi",
       "type": "bjj",
-      "coaches": []
+      "coaches": [
+        "ziggy-roces"
+      ]
     },
     {
       "day": "Fri",
@@ -168,8 +222,17 @@
     },
     {
       "day": "Sat",
-      "start": "12:00",
-      "end": "14:00",
+      "start": "07:00",
+      "end": "07:00",
+      "title": "Muay Thai / Boxing",
+      "type": "striking",
+      "note": "1-on-1",
+      "coaches": []
+    },
+    {
+      "day": "Sat",
+      "start": "08:00",
+      "end": "10:00",
       "title": "BJJ Open Mat",
       "type": "bjj",
       "coaches": []
@@ -177,16 +240,24 @@
     {
       "day": "Sat",
       "start": "16:00",
-      "end": "17:30",
-      "title": "Judo — Adults",
+      "end": "17:00",
+      "title": "Judo — All ages",
       "type": "judo",
       "coaches": []
     },
     {
       "day": "Sun",
+      "start": "12:30",
+      "end": "14:00",
+      "title": "Karate",
+      "type": "bjj",
+      "coaches": []
+    },
+    {
+      "day": "Sun",
       "start": "16:00",
-      "end": "17:30",
-      "title": "Judo — Adults",
+      "end": "17:00",
+      "title": "Judo — All ages",
       "type": "judo",
       "coaches": []
     }
