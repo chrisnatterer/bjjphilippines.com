@@ -10,14 +10,19 @@ Static website for KMA Fitness & Martial Arts (bjjphilippines.com) — a BJJ gym
 
 ## Data sync — ranks & schedule
 
-Two pages are backed by Google Sheets. **The sync is a MANUAL local step — Cloudflare does NOT run it** (its build only runs `build.sh`). Editing a sheet does nothing until someone runs the script, commits the regenerated files, and pushes.
+Two pages are backed by Google Sheets. A GitHub Actions workflow (`.github/workflows/sync-sheets.yml`) runs both sync scripts **nightly at 19:00 UTC (03:00 Manila)** via a service account, commits as "Sync sheets to site (automated)", and pushes (Cloudflare then deploys). Sheet edits therefore appear on the site within a day; run the scripts locally only when a change should go live immediately. **Before pushing, always `git pull --rebase` — the bot may have pushed since your last fetch.** Cloudflare itself does NOT run the sync (its build only runs `build.sh`).
 
 | Page | Sheet | Script | Data file | Notes |
 |------|-------|--------|-----------|-------|
 | `/roster/` | KMA Rank Tracker (`1_y3UAStU...`) | `scripts/build_roster.py` | `data/athletes.json` | roster page fetches the JSON client-side |
 | `/schedule/` | KMA Class Schedule (`1uGLeVuB3Goy1mCnbU0UgPsadHHI2JqW6ur9HwUIXtP8`) | `scripts/sync_schedule.py` | `data/schedule.json` | sync writes JSON then runs `build_schedule.py`, which regenerates the static grid + mobile list in `schedule/index.html` between `<!-- SCHEDULE:* -->` markers |
 
-Both scripts read their sheet via the `gws` CLI (pinned path `/opt/homebrew/Cellar/googleworkspace-cli/<ver>/bin/gws`, auth in system keyring — update the `GWS` constant if a brew upgrade changes the version). Workflow: run script → `git add data/ schedule/` → commit → push → Cloudflare deploys. No automation exists yet. Full owner-facing docs in `README.md`.
+Both scripts read their sheet via the `gws` CLI (pinned path `/opt/homebrew/Cellar/googleworkspace-cli/<ver>/bin/gws`, auth in system keyring — update the `GWS` constant if a brew upgrade changes the version). Manual workflow: run script → `git add data/ schedule/` → commit → push → Cloudflare deploys. Full owner-facing docs in `README.md`.
+
+### Adding a new class type (e.g. Karate, Self Defence)
+The Schedule tab's **Type** column (E) is a **strict dropdown** — a coach can't type a value that isn't in the list ("it won't let me add" = this). A new type must be added in **two** places:
+1. **Sheet dropdown** (so coaches can select it): the `gws` CLI writes, not just reads. `gws sheets spreadsheets batchUpdate --params '{"spreadsheetId":"1uGLeVuB3Goy1mCnbU0UgPsadHHI2JqW6ur9HwUIXtP8"}' --json '{"requests":[{"setDataValidation":{"range":{"sheetId":1519555663,"startRowIndex":1,"endRowIndex":1000,"startColumnIndex":4,"endColumnIndex":5},"rule":{"condition":{"type":"ONE_OF_LIST","values":[…full list…]},"showCustomUi":true,"strict":true}}}]}'` (Schedule tab gid = `1519555663`; `--params` = query params, `--json` = body).
+2. **`scripts/sync_schedule.py`** (so it renders right, not silently defaulted to BJJ): add the lower-cased label to `TYPE_MAP` and a `TYPES[key]` entry (legend + Tailwind colour classes; CDN JIT generates any hue).
 
 ## Structure
 - `/ranks/` — Belt rank pages (white, blue, purple, brown, black, juniors)

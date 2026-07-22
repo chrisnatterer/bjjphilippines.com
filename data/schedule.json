@@ -20,10 +20,10 @@
         "short": "Brendo",
         "img": "/images/brendo-pudan.webp"
       },
-      "estie": {
+      "estie-liwanen": {
         "name": "Estie",
         "short": "Estie",
-        "img": "/images/estie.webp"
+        "img": "/images/estie-liwanen.webp"
       },
       "ken-menia": {
         "name": "Ken Menia",
@@ -35,15 +35,10 @@
         "short": "Luan",
         "img": "/images/luan.webp"
       },
-      "stephen": {
+      "stephen-kamphuis": {
         "name": "Stephen",
         "short": "Stephen",
-        "img": "/images/stephen.webp"
-      },
-      "godwin": {
-        "name": "Godwin",
-        "short": "Godwin",
-        "img": "/images/godwin.webp"
+        "img": "/images/stephen-kamphuis.webp"
       },
       "ric": {
         "name": "Ric",
@@ -72,6 +67,20 @@
         "border": "border-warm-dark/10",
         "hover": "hover:border-warm-dark/20",
         "accent": "text-warm-dark"
+      },
+      "karate": {
+        "legend": "Karate",
+        "bg": "bg-emerald-700/10",
+        "border": "border-emerald-700/20",
+        "hover": "hover:border-emerald-700/40",
+        "accent": "text-emerald-700"
+      },
+      "selfdefence": {
+        "legend": "Self Defence",
+        "bg": "bg-sky-700/10",
+        "border": "border-sky-700/20",
+        "hover": "hover:border-sky-700/40",
+        "accent": "text-sky-700"
       }
     }
   },
@@ -135,7 +144,7 @@
       "type": "judo",
       "note": "Group class",
       "coaches": [
-        "estie"
+        "estie-liwanen"
       ]
     },
     {
@@ -209,7 +218,7 @@
       "type": "judo",
       "note": "Group class",
       "coaches": [
-        "estie"
+        "estie-liwanen"
       ]
     },
     {
@@ -255,7 +264,7 @@
     {
       "day": "Sat",
       "start": "07:00",
-      "end": "07:00",
+      "end": "08:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -269,18 +278,29 @@
       "type": "bjj",
       "note": "Group class",
       "coaches": [
-        "stephen",
-        "godwin"
+        "stephen-kamphuis",
+        "godwin-langbayan"
       ]
     },
     {
       "day": "Sat",
       "start": "08:00",
-      "end": "05:00",
+      "end": "09:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
       "coaches": []
+    },
+    {
+      "day": "Sat",
+      "start": "10:00",
+      "end": "11:30",
+      "title": "BJJ _ Kids",
+      "type": "bjj",
+      "note": "Group class",
+      "coaches": [
+        "luan"
+      ]
     },
     {
       "day": "Sat",
@@ -290,13 +310,13 @@
       "type": "judo",
       "note": "Group class",
       "coaches": [
-        "estie"
+        "estie-liwanen"
       ]
     },
     {
       "day": "Sun",
       "start": "08:00",
-      "end": "05:00",
+      "end": "09:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -307,7 +327,7 @@
       "start": "12:30",
       "end": "14:00",
       "title": "Karate",
-      "type": "bjj",
+      "type": "karate",
       "note": "Group class",
       "coaches": [
         "ric"

@@ -38,19 +38,44 @@ TYPE_MAP = {
     "boxing": "striking",
     "striking": "striking",
     "judo": "judo",
+    "karate": "karate",
+    "self defence": "selfdefence",
+    "self defense": "selfdefence",
 }
 
 # Config Steven never touches — the grid hours and the colour/legend per type.
 HOURS = {"start": 7, "end": 21}
+# One entry per class type = its legend label + Tailwind colour classes. The
+# colours for karate/selfdefence are default-palette placeholders (Tailwind's
+# CDN generates whatever classes appear here) — swap the hue in one place to
+# re-theme. BJJ=terracotta, striking=gold, judo=neutral are the brand colours.
 TYPES = {
-    "bjj":      {"legend": "BJJ",                "bg": "bg-terracotta/10", "border": "border-terracotta/20", "hover": "hover:border-terracotta/40", "accent": "text-terracotta"},
-    "striking": {"legend": "Muay Thai / Boxing", "bg": "bg-gold/10",       "border": "border-gold/20",       "hover": "hover:border-gold/40",       "accent": "text-gold"},
-    "judo":     {"legend": "Judo",               "bg": "bg-warm-dark/5",   "border": "border-warm-dark/10",  "hover": "hover:border-warm-dark/20",  "accent": "text-warm-dark"},
+    "bjj":         {"legend": "BJJ",                "bg": "bg-terracotta/10",   "border": "border-terracotta/20",   "hover": "hover:border-terracotta/40",   "accent": "text-terracotta"},
+    "striking":    {"legend": "Muay Thai / Boxing", "bg": "bg-gold/10",         "border": "border-gold/20",         "hover": "hover:border-gold/40",         "accent": "text-gold"},
+    "judo":        {"legend": "Judo",               "bg": "bg-warm-dark/5",     "border": "border-warm-dark/10",    "hover": "hover:border-warm-dark/20",    "accent": "text-warm-dark"},
+    "karate":      {"legend": "Karate",             "bg": "bg-emerald-700/10",  "border": "border-emerald-700/20",  "hover": "hover:border-emerald-700/40",  "accent": "text-emerald-700"},
+    "selfdefence": {"legend": "Self Defence",       "bg": "bg-sky-700/10",      "border": "border-sky-700/20",      "hover": "hover:border-sky-700/40",      "accent": "text-sky-700"},
 }
 
 
 def slugify(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", name.strip().lower()).strip("-")
+
+
+# Coaches type first names in the sheet ("Estie"), but profile pages and photos
+# live under full-name slugs (/coaches/estie-liwanen/). Map the short slug to
+# the canonical one so the schedule links and shows the photo. Names not listed
+# here (e.g. Luan, Ric — no profile page yet) fall through and render as plain
+# text, which sync warnings will point out.
+COACH_SLUGS = {
+    "estie": "estie-liwanen",
+    "stephen": "stephen-kamphuis",
+    "godwin": "godwin-langbayan",
+    "ziggy": "ziggy-roces",
+    "brendo": "brendo-pudan",
+    "ken": "ken-menia",
+    "mariane": "mariane-mariano",
+}
 
 
 def norm_time(t: str) -> str:
@@ -83,6 +108,7 @@ def main() -> None:
             if not name:
                 continue
             slug = slugify(name)
+            slug = COACH_SLUGS.get(slug, slug)
             cs.append(slug)
             if slug not in coaches:
                 img = f"/images/{slug}.webp"
