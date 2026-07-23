@@ -1,17 +1,18 @@
 /*
- * Next BJJ class badge — a sticky pill fixed to the right edge on every page.
+ * Next BJJ class badge — a sticky card fixed to the right edge on every page.
  *
- * Reads /data/schedule.json (the same file that builds the /schedule/ page),
- * finds the next upcoming BJJ session relative to *Manila* wall-clock time
- * (so it's correct regardless of the visitor's own timezone), and renders a
- * small pill that links to /schedule/. Self-contained: injects its own markup
- * and styles, so it only needs a single <script> tag per page.
+ * Reads /data/schedule.json (the same file that builds the /schedule/ page)
+ * and shows the next upcoming BJJ session for BOTH tracks — Adults and Kids —
+ * relative to *Manila* wall-clock time (correct regardless of the visitor's
+ * own timezone). Self-contained: injects its own markup and styles, so it only
+ * needs a single <script> tag per page, and links to /schedule/.
  *
- * Scope: BJJ only (type === "bjj"), excluding kids classes — the badge is a
- * prospect-facing "when can I come train" signal, so a children's class
- * shouldn't surface as the next session. To include everything, drop the
- * isKids() filter in nextClass(). Colours/fonts mirror the site's Tailwind
- * tokens (warm-dark / cream / terracotta / Bricolage Grotesque).
+ * Scope: BJJ only (type === "bjj"). Classes whose title matches isKids() go in
+ * the Kids row, everything else BJJ in the Adults row. Each row shows the
+ * relative day (NOW/TODAY/TOMORROW/weekday) + start time + class title. A row
+ * is omitted if that track has no class in the schedule. Colours/fonts mirror
+ * the site's Tailwind tokens (warm-dark / cream / terracotta / gold /
+ * Bricolage Grotesque).
  */
 (function () {
   "use strict";
@@ -45,15 +46,15 @@
     return /kids?|junior|youth/i.test(c.title || "");
   }
 
-  // Returns { class, deltaMin, daysAhead, ongoing } for the soonest BJJ class,
-  // or null. deltaMin is minutes until start (<=0 while a class is ongoing).
-  function nextClass(classes) {
-    var now = manilaNow();
+  // Soonest class matching `pred`, given a pre-computed `now`. Returns
+  // { c, deltaMin, daysAhead, ongoing } or null. deltaMin is minutes until
+  // start (0 while a class is ongoing).
+  function nextMatching(classes, now, pred) {
     var nowAbs = now.dow * MIN_PER_DAY + now.minutes;
     var best = null;
 
     classes.forEach(function (c) {
-      if (c.type !== "bjj" || isKids(c)) return;
+      if (!pred(c)) return;
       var start = toMinutes(c.start);
       var end = toMinutes(c.end);
       if (start == null) return;
@@ -86,55 +87,80 @@
     return WEEKDAY[DOW[info.c.day]];
   }
 
-  function render(info) {
-    var style = document.createElement("style");
-    style.textContent = [
-      "#next-training{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:40;",
-      "display:flex;align-items:center;gap:.6rem;padding:.7rem 1.15rem;",
-      "background:rgba(28,20,16,.95);backdrop-filter:blur(8px);color:#f5f0e8;",
-      "border:1px solid rgba(235,228,216,.14);border-right:none;border-radius:.6rem 0 0 .6rem;",
-      "box-shadow:0 8px 30px rgba(0,0,0,.35);text-decoration:none;",
-      "font-family:'DM Sans',system-ui,sans-serif;line-height:1.15;",
-      "transform-origin:right center;transition:padding-right .25s ease,box-shadow .25s ease;",
-      "opacity:0;animation:nt-in .5s ease .2s forwards}",
-      "@keyframes nt-in{to{opacity:1}}",
-      "#next-training:hover{padding-right:1.5rem;box-shadow:0 10px 36px rgba(192,70,43,.28)}",
-      "#next-training .nt-dot{width:8px;height:8px;border-radius:50%;background:#c0462b;flex:none;",
-      "box-shadow:0 0 0 0 rgba(192,70,43,.6);animation:nt-pulse 2.4s ease-out infinite}",
-      "@keyframes nt-pulse{0%{box-shadow:0 0 0 0 rgba(192,70,43,.55)}70%{box-shadow:0 0 0 9px rgba(192,70,43,0)}100%{box-shadow:0 0 0 0 rgba(192,70,43,0)}}",
-      "#next-training .nt-kicker{font-family:'Bricolage Grotesque',system-ui,sans-serif;",
-      "font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9a8d82}",
-      "#next-training .nt-main{font-size:.9rem;font-weight:600;margin-top:.12rem;white-space:nowrap}",
-      "#next-training .nt-main .nt-time{color:#c89b3c}",
-      "@media (max-width:640px){#next-training{top:auto;bottom:1rem;right:1rem;transform:none;",
-      "border-radius:.6rem;border-right:1px solid rgba(235,228,216,.14);padding:.6rem .9rem}",
-      "#next-training:hover{padding-right:.9rem}#next-training .nt-main{font-size:.82rem}",
-      "#next-training{animation:nt-in .5s ease .2s forwards}}",
-      "@media (prefers-reduced-motion:reduce){#next-training,#next-training .nt-dot{animation:none;opacity:1}}",
-    ].join("");
-    document.head.appendChild(style);
-
-    var kicker = "Next BJJ Class · " + relLabel(info);
-    var timeLabel = info.ongoing ? "Now — " : info.c.start + " — ";
-    var a = document.createElement("a");
-    a.id = "next-training";
-    a.href = "/schedule/";
-    a.setAttribute("aria-label", kicker + ": " + info.c.title + " at " + info.c.start);
-    a.innerHTML =
-      '<span class="nt-dot" aria-hidden="true"></span>' +
-      '<span class="nt-text">' +
-      '<span class="nt-kicker">' + kicker + "</span><br>" +
-      '<span class="nt-main">' +
-      (info.ongoing ? '<span class="nt-time">Now</span> — ' : '<span class="nt-time">' + esc(info.c.start) + "</span> — ") +
-      esc(info.c.title) +
-      "</span></span>";
-    document.body.appendChild(a);
-  }
-
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (ch) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch];
     });
+  }
+
+  // One "TRACK · WHEN / time — title" row.
+  function rowHtml(track, info) {
+    var when = relLabel(info);
+    var time = info.ongoing ? "Now" : esc(info.c.start);
+    return (
+      '<span class="nt-row nt-' + track.toLowerCase() + '">' +
+      '<span class="nt-dot" aria-hidden="true"></span>' +
+      '<span class="nt-col">' +
+      '<span class="nt-kicker">' + track + " · " + when + "</span>" +
+      '<span class="nt-main"><span class="nt-time">' + time + "</span> — " + esc(info.c.title) + "</span>" +
+      "</span></span>"
+    );
+  }
+
+  function injectStyles() {
+    var style = document.createElement("style");
+    style.textContent = [
+      "#next-training{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:40;",
+      "display:block;padding:.85rem 1.15rem;text-decoration:none;",
+      "background:rgba(28,20,16,.95);backdrop-filter:blur(8px);color:#f5f0e8;",
+      "border:1px solid rgba(235,228,216,.14);border-right:none;border-radius:.7rem 0 0 .7rem;",
+      "box-shadow:0 8px 30px rgba(0,0,0,.35);font-family:'DM Sans',system-ui,sans-serif;line-height:1.15;",
+      "transform-origin:right center;transition:padding-right .25s ease,box-shadow .25s ease;",
+      "opacity:0;animation:nt-in .5s ease .2s forwards}",
+      "@keyframes nt-in{to{opacity:1}}",
+      "#next-training:hover{padding-right:1.5rem;box-shadow:0 10px 36px rgba(192,70,43,.28)}",
+      "#next-training .nt-head{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;",
+      "font-size:.56rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#c89b3c;margin-bottom:.55rem}",
+      "#next-training .nt-row{display:flex;align-items:flex-start;gap:.55rem}",
+      "#next-training .nt-row + .nt-row{margin-top:.55rem;padding-top:.55rem;border-top:1px solid rgba(235,228,216,.1)}",
+      "#next-training .nt-dot{width:8px;height:8px;border-radius:50%;flex:none;margin-top:.28rem;background:#c0462b;",
+      "box-shadow:0 0 0 0 rgba(192,70,43,.6);animation:nt-pulse 2.4s ease-out infinite}",
+      "#next-training .nt-kids .nt-dot{background:#c89b3c;box-shadow:0 0 0 0 rgba(200,155,60,.6);animation-name:nt-pulse-gold}",
+      "@keyframes nt-pulse{0%{box-shadow:0 0 0 0 rgba(192,70,43,.55)}70%{box-shadow:0 0 0 9px rgba(192,70,43,0)}100%{box-shadow:0 0 0 0 rgba(192,70,43,0)}}",
+      "@keyframes nt-pulse-gold{0%{box-shadow:0 0 0 0 rgba(200,155,60,.55)}70%{box-shadow:0 0 0 9px rgba(200,155,60,0)}100%{box-shadow:0 0 0 0 rgba(200,155,60,0)}}",
+      "#next-training .nt-col{display:flex;flex-direction:column}",
+      "#next-training .nt-kicker{font-family:'Bricolage Grotesque',system-ui,sans-serif;",
+      "font-size:.58rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#9a8d82}",
+      "#next-training .nt-main{font-size:.9rem;font-weight:600;margin-top:.1rem;white-space:nowrap}",
+      "#next-training .nt-main .nt-time{color:#c89b3c}",
+      "@media (max-width:640px){#next-training{top:auto;bottom:1rem;right:1rem;transform:none;",
+      "border-radius:.7rem;border-right:1px solid rgba(235,228,216,.14);padding:.7rem .95rem}",
+      "#next-training:hover{padding-right:.95rem}#next-training .nt-main{font-size:.82rem}}",
+      "@media (prefers-reduced-motion:reduce){#next-training,#next-training .nt-dot{animation:none;opacity:1}}",
+    ].join("");
+    document.head.appendChild(style);
+  }
+
+  function render(adult, kids) {
+    injectStyles();
+
+    var rows = "";
+    var aria = [];
+    if (adult) {
+      rows += rowHtml("Adults", adult);
+      aria.push("Adults " + relLabel(adult) + " " + adult.c.start + " " + adult.c.title);
+    }
+    if (kids) {
+      rows += rowHtml("Kids", kids);
+      aria.push("Kids " + relLabel(kids) + " " + kids.c.start + " " + kids.c.title);
+    }
+
+    var a = document.createElement("a");
+    a.id = "next-training";
+    a.href = "/schedule/";
+    a.setAttribute("aria-label", "Next BJJ class — " + aria.join("; "));
+    a.innerHTML = '<span class="nt-head">Next BJJ Class</span>' + rows;
+    document.body.appendChild(a);
   }
 
   function init() {
@@ -142,8 +168,11 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (!data || !Array.isArray(data.classes)) return;
-        var info = nextClass(data.classes);
-        if (info) render(info);
+        var now = manilaNow();
+        var isBjj = function (c) { return c.type === "bjj"; };
+        var adult = nextMatching(data.classes, now, function (c) { return isBjj(c) && !isKids(c); });
+        var kids = nextMatching(data.classes, now, function (c) { return isBjj(c) && isKids(c); });
+        if (adult || kids) render(adult, kids);
       })
       .catch(function () { /* fail silent — badge is a nicety, not critical */ });
   }
