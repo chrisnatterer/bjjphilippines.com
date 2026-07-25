@@ -133,7 +133,14 @@
         class="w-full pl-12 pr-4 py-4 bg-surface border border-warm-light rounded-lg font-display text-lg text-warm-dark placeholder:text-warm-gray-light focus:outline-none focus:border-terracotta transition-colors"
       />
     </div>
-    <p id="count" class="mt-3 text-sm text-warm-gray">Loading…</p>
+    <div class="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+      <p id="count" class="text-sm text-warm-gray">Loading…</p>
+      <label id="inactive-toggle" class="inline-flex items-center gap-2.5 cursor-pointer select-none hidden">
+        <input type="checkbox" id="show-inactive" class="sr-only peer">
+        <span class="w-9 h-5 rounded-full bg-warm-light peer-checked:bg-terracotta transition-colors relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:w-4 after:h-4 after:bg-surface after:rounded-full after:shadow after:transition-transform peer-checked:after:translate-x-4"></span>
+        <span class="text-sm text-warm-gray">Show inactive <span id="inactive-count" class="text-warm-gray-light"></span></span>
+      </label>
+    </div>
   </div>
 </section>
 
@@ -198,8 +205,30 @@
   const results = document.getElementById('results');
   const empty = document.getElementById('empty');
   const count = document.getElementById('count');
+  const toggleWrap = document.getElementById('inactive-toggle');
+  const showInactive = document.getElementById('show-inactive');
+  const inactiveCountEl = document.getElementById('inactive-count');
   let athletes = [];
+  let activeCount = 0, inactiveCount = 0;
   let expanded = new Set();
+
+  // "Inactive" = still a white belt whose most recent promotion is 2+ years
+  // old (a rolling window, so it stays accurate over time). Status column in
+  // the sheet isn't maintained, so recency of promotion is the best signal.
+  // Unknown-date white belts are NOT flagged (we don't hide what we can't date).
+  const cutoff = (() => { const d = new Date(); d.setFullYear(d.getFullYear() - 2); return d; })();
+  const lastPromo = (a) => {
+    const dates = [];
+    if (a.currentRankDate) dates.push(a.currentRankDate);
+    (a.timeline || []).forEach(t => { if (t.date) dates.push(t.date); });
+    dates.sort();
+    return dates.length ? dates[dates.length - 1] : null;
+  };
+  const isInactive = (a) => {
+    if (!a.currentRank || !a.currentRank.toLowerCase().startsWith('white')) return false;
+    const last = lastPromo(a);
+    return !!last && new Date(last) < cutoff;
+  };
 
   const beltClass = (rank) => {
     if (!rank) return '';
@@ -235,7 +264,7 @@
 
   const escapeHtml = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 
-  const render = (list) => {
+  const render = (list, searching) => {
     if (list.length === 0) {
       results.innerHTML = '';
       empty.classList.remove('hidden');
@@ -244,9 +273,14 @@
     }
     empty.classList.add('hidden');
     const showing = Math.min(list.length, 50);
-    count.textContent = list.length === athletes.length
-      ? `${athletes.length} athletes`
-      : `${list.length} match${list.length === 1 ? '' : 'es'}${list.length > showing ? ` (showing top ${showing})` : ''}`;
+    if (searching) {
+      count.textContent = `${list.length} match${list.length === 1 ? '' : 'es'}${list.length > showing ? ` (showing top ${showing})` : ''}`;
+    } else if (showInactive.checked) {
+      count.textContent = `${athletes.length} athletes`;
+    } else {
+      count.textContent = `${activeCount} active athlete${activeCount === 1 ? '' : 's'}`
+        + (inactiveCount ? ` · ${inactiveCount} inactive hidden` : '');
+    }
     const html = list.slice(0, showing).map((a, i) => {
       const isOpen = expanded.has(a.name);
       const timeline = a.timeline.map(t => `
@@ -264,6 +298,7 @@
               <h3 class="font-display font-bold text-warm-dark truncate">${escapeHtml(a.name)}</h3>
               <p class="text-sm text-warm-gray truncate">${escapeHtml(a.currentRank)}${a.location ? ` · ${escapeHtml(a.location)}` : ''}</p>
             </div>
+            ${a._inactive ? '<span class="shrink-0 text-[10px] uppercase tracking-wider text-warm-gray-light border border-warm-light rounded px-1.5 py-0.5" title="White belt, no promotion in 2+ years">Inactive</span>' : ''}
             <span class="text-xs text-warm-gray-light tabular-nums shrink-0">${formatDate(a.currentRankDate)}</span>
             <svg class="w-4 h-4 text-warm-gray-light transition-transform ${isOpen ? 'rotate-90' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </button>
@@ -294,21 +329,31 @@
   const normalize = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   const filter = () => {
     const needle = normalize(q.value.trim());
-    if (!needle) return render(athletes);
+    const searching = needle.length > 0;
     const terms = needle.split(/\s+/).filter(Boolean);
-    const matches = athletes.filter(a => {
-      const hay = normalize(a.name);
-      return terms.every(t => hay.includes(t));
+    // While searching, everyone is reachable (search finds all). When browsing,
+    // inactive members are hidden unless the toggle is on.
+    const list = athletes.filter(a => {
+      if (searching) return terms.every(t => normalize(a.name).includes(t));
+      return showInactive.checked || !a._inactive;
     });
-    render(matches);
+    render(list, searching);
   };
 
   q.addEventListener('input', filter);
+  showInactive.addEventListener('change', filter);
 
   fetch('/data/athletes.json')
     .then(r => r.json())
     .then(data => {
       athletes = data;
+      athletes.forEach(a => { a._inactive = isInactive(a); });
+      inactiveCount = athletes.filter(a => a._inactive).length;
+      activeCount = athletes.length - inactiveCount;
+      if (inactiveCount) {
+        inactiveCountEl.textContent = `(${inactiveCount})`;
+        toggleWrap.classList.remove('hidden');
+      }
       filter();
     })
     .catch(err => {
