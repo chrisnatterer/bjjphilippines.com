@@ -88,7 +88,7 @@
     {
       "day": "Mon",
       "start": "07:00",
-      "end": "08:30",
+      "end": "20:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -119,7 +119,7 @@
     {
       "day": "Tue",
       "start": "07:00",
-      "end": "08:30",
+      "end": "20:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -161,7 +161,7 @@
     {
       "day": "Wed",
       "start": "07:00",
-      "end": "08:30",
+      "end": "20:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -193,7 +193,7 @@
     {
       "day": "Thu",
       "start": "07:00",
-      "end": "08:30",
+      "end": "20:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -235,7 +235,7 @@
     {
       "day": "Fri",
       "start": "07:00",
-      "end": "08:30",
+      "end": "20:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -274,7 +274,7 @@
       "day": "Sat",
       "start": "08:00",
       "end": "10:00",
-      "title": "BJJ Comp class",
+      "title": "BJJ Fundimenatl class",
       "type": "bjj",
       "note": "Group class",
       "coaches": [
@@ -285,7 +285,7 @@
     {
       "day": "Sat",
       "start": "08:00",
-      "end": "09:30",
+      "end": "18:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -316,7 +316,7 @@
     {
       "day": "Sun",
       "start": "08:00",
-      "end": "09:30",
+      "end": "16:30",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
