@@ -1,0 +1,102 @@
+{
+  "cards": [
+    {
+      "section": "Membership",
+      "plan": "New Member Signup",
+      "description": "A single registration covers you for every program at KMA. Includes a free T-shirt (except during promos).",
+      "price": "1950",
+      "popular": false
+    },
+    {
+      "section": "BJJ",
+      "plan": "4-Session Pack",
+      "description": "4 classes across BJJ, Judo, Muay Thai or Boxing. Expires 30 days from purchase.",
+      "price": "2000",
+      "popular": false
+    },
+    {
+      "section": "BJJ",
+      "plan": "Adults Monthly",
+      "description": "Unlimited group BJJ classes all month.",
+      "price": "3500",
+      "popular": true
+    },
+    {
+      "section": "BJJ",
+      "plan": "Kids U14",
+      "description": "8 youth BJJ sessions for under-14s.",
+      "price": "3000",
+      "popular": false
+    },
+    {
+      "section": "Judo",
+      "plan": "4-Session Pack",
+      "description": "4 classes across Judo, BJJ, Muay Thai or Boxing. Expires 30 days from purchase.",
+      "price": "2000",
+      "popular": false
+    },
+    {
+      "section": "Judo",
+      "plan": "8 Sessions / Month",
+      "description": "Eight weekend Judo sessions each month.",
+      "price": "3000",
+      "popular": true
+    },
+    {
+      "section": "Judo",
+      "plan": "12 Sessions / Month",
+      "description": "Extra mat time for dedicated judoka.",
+      "price": "3300",
+      "popular": false
+    },
+    {
+      "section": "Muay Thai",
+      "plan": "4-Session Pack",
+      "description": "4 classes across Muay Thai, Boxing, BJJ or Judo. Expires 30 days from purchase.",
+      "price": "2000",
+      "popular": false
+    },
+    {
+      "section": "Muay Thai",
+      "plan": "Monthly",
+      "description": "Unlimited group Muay Thai classes all month.",
+      "price": "3000",
+      "popular": true
+    },
+    {
+      "section": "Boxing",
+      "plan": "4-Session Pack",
+      "description": "4 classes across Boxing, Muay Thai, BJJ or Judo. Expires 30 days from purchase.",
+      "price": "2000",
+      "popular": false
+    },
+    {
+      "section": "Boxing",
+      "plan": "Monthly",
+      "description": "Unlimited group Boxing classes all month.",
+      "price": "3000",
+      "popular": true
+    },
+    {
+      "section": "Taekwondo",
+      "plan": "8 Sessions / Month",
+      "description": "Eight Taekwondo sessions per month. Expires 30 days from purchase.",
+      "price": "4000",
+      "popular": true
+    },
+    {
+      "section": "Self-Defence",
+      "plan": "Private Lesson",
+      "description": "One-on-one self-defence session tailored to you.",
+      "price": "1200",
+      "popular": false
+    },
+    {
+      "section": "Self-Defence",
+      "plan": "Monthly",
+      "description": "Ongoing self-defence training throughout the month.",
+      "price": "3500",
+      "popular": true
+    }
+  ]
+}

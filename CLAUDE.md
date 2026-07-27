@@ -8,16 +8,20 @@ Static website for KMA Fitness & Martial Arts (bjjphilippines.com) — a BJJ gym
 - Two pages are generated from Google Sheets by local Python scripts (see **Data sync** below).
 - Hosted on Cloudflare Pages (auto-deploys on push to `main`).
 
-## Data sync — ranks & schedule
+## Data sync — ranks, schedule & rates
 
-Two pages are backed by Google Sheets. A GitHub Actions workflow (`.github/workflows/sync-sheets.yml`) runs both sync scripts **nightly at 19:00 UTC (03:00 Manila)** via a service account, commits as "Sync sheets to site (automated)", and pushes (Cloudflare then deploys). Sheet edits therefore appear on the site within a day; run the scripts locally only when a change should go live immediately. **Before pushing, always `git pull --rebase` — the bot may have pushed since your last fetch.** Cloudflare itself does NOT run the sync (its build only runs `build.sh`).
+Three pages are backed by Google Sheets. A GitHub Actions workflow (`.github/workflows/sync-sheets.yml`) runs all three sync scripts **nightly at 19:00 UTC (03:00 Manila)** via a service account, commits as "Sync sheets to site (automated)", and pushes (Cloudflare then deploys). Sheet edits therefore appear on the site within a day; run the scripts locally only when a change should go live immediately. **Before pushing, always `git pull --rebase` — the bot may have pushed since your last fetch.** Cloudflare itself does NOT run the sync (its build only runs `build.sh`).
 
 | Page | Sheet | Script | Data file | Notes |
 |------|-------|--------|-----------|-------|
 | `/roster/` | KMA Rank Tracker (`1_y3UAStU...`) | `scripts/build_roster.py` | `data/athletes.json` | roster page fetches the JSON client-side |
 | `/schedule/` | KMA Class Schedule (`1uGLeVuB3Goy1mCnbU0UgPsadHHI2JqW6ur9HwUIXtP8`) | `scripts/sync_schedule.py` | `data/schedule.json` | sync writes JSON then runs `build_schedule.py`, which regenerates the static grid + mobile list in `schedule/index.html` between `<!-- SCHEDULE:* -->` markers |
+| `/rates/` | KMA Rates (`1f4IUkTTE2Kim4pO5gwore7ZV_fcnM_ghTEpx1c5nNhs`) | `scripts/sync_rates.py` | `data/rates.json` | one sheet row = one price card (cols Section/Plan/Description/Price/Popular); sync writes JSON then runs `build_rates.py`, which regenerates the pricing sections in `rates/index.html` between `<!-- RATES:START/END -->` markers. Shared with gym account `bjjfp.com@gmail.com` (editor). Service-account email for sharing new sheets: `kma-sheet-sync@globalisationguideorg.iam.gserviceaccount.com` |
 
-Both scripts read their sheet via the `gws` CLI (pinned path `/opt/homebrew/Cellar/googleworkspace-cli/<ver>/bin/gws`, auth in system keyring — update the `GWS` constant if a brew upgrade changes the version). Manual workflow: run script → `git add data/ schedule/` → commit → push → Cloudflare deploys. Full owner-facing docs in `README.md`.
+All scripts read their sheet via `scripts/sheets.py` (service account in CI, `gws` CLI locally — pinned path `/opt/homebrew/Cellar/googleworkspace-cli/<ver>/bin/gws`, auth in system keyring; update the `GWS` constant if a brew upgrade changes the version). Manual workflow: run script → `git add data/ schedule/ rates/` → commit → push → Cloudflare deploys. Full owner-facing docs in `README.md`.
+
+### Adding a new sport to the Rates page
+Section structure (kicker, heading, `/programs/<slug>/` link, order, background) lives in `scripts/build_rates.py` `SECTIONS`, not the sheet. To add a sport: (1) add an entry to `SECTIONS`, (2) add the value to the sheet's **Section** dropdown (`setDataValidation` on the Rates tab, gid `2022712725`, col A / index 0 — same `gws batchUpdate` pattern as the schedule Type dropdown below), (3) ensure a `/programs/<slug>/` page exists. Everyday price/plan edits are sheet-only. "Membership" is a special full-width card handled separately in `build_rates.py`.
 
 ### Adding a new class type (e.g. Karate, Self Defence)
 The Schedule tab's **Type** column (E) is a **strict dropdown** — a coach can't type a value that isn't in the list ("it won't let me add" = this). A new type must be added in **two** places:
