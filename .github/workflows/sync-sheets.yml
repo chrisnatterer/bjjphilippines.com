@@ -34,6 +34,9 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: python3 scripts/build_roster.py
 
+      - name: Rebuild belt pages from roster
+        run: python3 scripts/build_ranks.py
+
       - name: Sync schedule from KMA Class Schedule
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
@@ -48,7 +51,7 @@ jobs:
         run: |
           git config user.name "kma-sync-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/ schedule/ rates/
+          git add data/ schedule/ rates/ ranks/
           if git diff --staged --quiet; then
             echo "No changes — nothing to publish."
           else

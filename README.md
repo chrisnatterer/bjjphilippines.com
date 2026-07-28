@@ -172,6 +172,10 @@ Notes:
 
 Coaches edit the **KMA Class Schedule** sheet directly — one row per class (Day, Start, End, Class, Type, Coach 1, Coach 2, Note); the sheet's *How to edit* tab explains each column. The old timetable was hand-coded with pixel positions; it is now fully data-driven, so nobody needs to touch HTML to change a class.
 
+### The black / brown / purple belt pages
+
+These three belt pages are **generated from the same Rank Tracker sheet** — you don't edit their HTML. When someone is promoted, update their row in the Rank Tracker (put the promotion date in the right belt/stripe column); overnight the belt pages regenerate to match. Whoever is at a belt in the sheet appears on that belt's page, grouped by degree/stripe, with their promotion history. (The white, blue and juniors pages are still edited by hand for now.)
+
 ### Editing the rates / prices
 
 The gym edits the **KMA Rates** sheet directly — one row per price card (Section, Plan, Description, Price, Popular); the sheet's *How to edit* tab explains each column. Type the price as a plain number (e.g. `3500`) — the website adds the ₱ sign and comma. Tick **Popular** to give a card the highlighted border. Section headings and the "More about …" links live in the code (`scripts/build_rates.py`), so adding a whole new sport is a developer step; everyday price and plan changes are sheet-only.
