@@ -264,7 +264,7 @@
     {
       "day": "Sat",
       "start": "07:00",
-      "end": "08:30",
+      "end": "19:00",
       "title": "Muay Thai / Boxing",
       "type": "striking",
       "note": "1-on-1",
@@ -304,7 +304,7 @@
     },
     {
       "day": "Sat",
-      "start": "16:00",
+      "start": "14:00",
       "end": "17:00",
       "title": "Judo — All ages",
       "type": "judo",
