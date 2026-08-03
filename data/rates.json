@@ -16,7 +16,7 @@
     },
     {
       "section": "BJJ",
-      "plan": "Adults Monthly",
+      "plan": "Adults Monthly BJJ",
       "description": "Unlimited group BJJ classes all month.",
       "price": "3500",
       "popular": true
@@ -40,14 +40,14 @@
       "plan": "8 Sessions / Month",
       "description": "Eight weekend Judo sessions each month.",
       "price": "3000",
-      "popular": true
+      "popular": false
     },
     {
       "section": "Judo",
-      "plan": "12 Sessions / Month",
+      "plan": "Monthly Judo",
       "description": "Extra mat time for dedicated judoka.",
-      "price": "3300",
-      "popular": false
+      "price": "3500",
+      "popular": true
     },
     {
       "section": "Muay Thai",
@@ -58,7 +58,7 @@
     },
     {
       "section": "Muay Thai",
-      "plan": "Monthly",
+      "plan": "Monthly Muay Thai",
       "description": "Unlimited group Muay Thai classes all month.",
       "price": "3000",
       "popular": true
@@ -94,9 +94,23 @@
     {
       "section": "Self-Defence",
       "plan": "Monthly",
-      "description": "Ongoing self-defence training throughout the month.",
-      "price": "3500",
+      "description": "Self-defence training monthly",
+      "price": "4000",
       "popular": true
+    },
+    {
+      "section": "MMA",
+      "plan": "Private Lessons MMA",
+      "description": "Miixed Martial Arts - MMA",
+      "price": "1600",
+      "popular": true
+    },
+    {
+      "section": "Karate",
+      "plan": "4- Sessions",
+      "description": "4 classes Karate",
+      "price": "2000",
+      "popular": false
     }
   ]
 }
