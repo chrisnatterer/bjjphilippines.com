@@ -10,10 +10,10 @@
         "short": "Ziggy",
         "img": "/images/ziggy-roces.webp"
       },
-      "godwin-langbayan": {
-        "name": "Godwin Langbayan",
-        "short": "Godwin",
-        "img": "/images/godwin-langbayan.webp"
+      "luan": {
+        "name": "Luan",
+        "short": "Luan",
+        "img": "/images/luan.webp"
       },
       "brendo-pudan": {
         "name": "Brendo Pudan",
@@ -30,15 +30,15 @@
         "short": "Ken",
         "img": "/images/ken-menia.webp"
       },
-      "luan": {
-        "name": "Luan",
-        "short": "Luan",
-        "img": "/images/luan.webp"
-      },
       "stephen-kamphuis": {
         "name": "Stephen",
         "short": "Stephen",
         "img": "/images/stephen-kamphuis.webp"
+      },
+      "godwin-langbayan": {
+        "name": "Godwin",
+        "short": "Godwin",
+        "img": "/images/godwin-langbayan.webp"
       },
       "luan-schedule-tba": {
         "name": "Luan Schedule TBA",
@@ -106,7 +106,7 @@
     },
     {
       "day": "Mon",
-      "start": "12:30",
+      "start": "12:45",
       "end": "14:00",
       "title": "BJJ Gi",
       "type": "bjj",
@@ -123,7 +123,7 @@
       "type": "bjj",
       "note": "Group class",
       "coaches": [
-        "godwin-langbayan"
+        "luan"
       ]
     },
     {
@@ -179,7 +179,7 @@
     },
     {
       "day": "Wed",
-      "start": "12:30",
+      "start": "12:45",
       "end": "14:00",
       "title": "BJJ Gi & No Gi",
       "type": "bjj",
@@ -197,7 +197,7 @@
       "type": "bjj",
       "note": "Group class",
       "coaches": [
-        "godwin-langbayan"
+        "ken-menia"
       ]
     },
     {
@@ -253,7 +253,7 @@
     },
     {
       "day": "Fri",
-      "start": "12:30",
+      "start": "12:45",
       "end": "14:00",
       "title": "BJJ - Gi",
       "type": "bjj",
@@ -284,7 +284,7 @@
       "day": "Sat",
       "start": "08:00",
       "end": "10:00",
-      "title": "BJJ Fundimenatl class",
+      "title": "BJJ Fundimentals",
       "type": "bjj",
       "note": "Group class",
       "coaches": [
