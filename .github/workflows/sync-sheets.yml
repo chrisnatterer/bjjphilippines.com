@@ -37,6 +37,11 @@ jobs:
       - name: Rebuild belt pages from roster
         run: python3 scripts/build_ranks.py
 
+      - name: Sync juniors page from Rank Tracker
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python3 scripts/build_juniors.py
+
       - name: Sync schedule from KMA Class Schedule
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
