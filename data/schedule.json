@@ -54,6 +54,26 @@
         "name": "Bernie / JB",
         "short": "Bernie",
         "img": "/images/bernie-jb.webp"
+      },
+      "alan": {
+        "name": "Alan",
+        "short": "Alan",
+        "img": "/images/alan.webp"
+      },
+      "gilbert": {
+        "name": "Gilbert",
+        "short": "Gilbert",
+        "img": "/images/gilbert.webp"
+      },
+      "darren-ultra": {
+        "name": "Darren / Ultra",
+        "short": "Darren",
+        "img": "/images/darren-ultra.webp"
+      },
+      "kendrick": {
+        "name": "Kendrick",
+        "short": "Kendrick",
+        "img": "/images/kendrick.webp"
       }
     },
     "types": {
@@ -127,6 +147,17 @@
       ]
     },
     {
+      "day": "Mon",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ Gi all levels - Wack Wack",
+      "type": "bjj",
+      "note": "Group class",
+      "coaches": [
+        "alan"
+      ]
+    },
+    {
       "day": "Tue",
       "start": "07:00",
       "end": "20:30",
@@ -166,6 +197,17 @@
       "note": "Group class",
       "coaches": [
         "ken-menia"
+      ]
+    },
+    {
+      "day": "Tue",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ No Gi - Wack Wack",
+      "type": "bjj",
+      "note": "Group class",
+      "coaches": [
+        "gilbert"
       ]
     },
     {
@@ -201,6 +243,17 @@
       ]
     },
     {
+      "day": "Wed",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ Gi Beginners - Wack Wack",
+      "type": "bjj",
+      "note": "Group class",
+      "coaches": [
+        "darren-ultra"
+      ]
+    },
+    {
       "day": "Thu",
       "start": "07:00",
       "end": "20:30",
@@ -243,6 +296,17 @@
       ]
     },
     {
+      "day": "Thu",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ Gi all levels - Wack Wack",
+      "type": "bjj",
+      "note": "Group class",
+      "coaches": [
+        "alan"
+      ]
+    },
+    {
       "day": "Fri",
       "start": "07:00",
       "end": "20:30",
@@ -272,6 +336,17 @@
       "coaches": []
     },
     {
+      "day": "Fri",
+      "start": "19:00",
+      "end": "21:00",
+      "title": "BJJ Gi Beginners - Wack Wack",
+      "type": "bjj",
+      "note": "Group class",
+      "coaches": [
+        "darren-ultra"
+      ]
+    },
+    {
       "day": "Sat",
       "start": "07:00",
       "end": "19:00",
@@ -290,6 +365,17 @@
       "coaches": [
         "stephen-kamphuis",
         "godwin-langbayan"
+      ]
+    },
+    {
+      "day": "Sat",
+      "start": "09:00",
+      "end": "11:00",
+      "title": "BJJ - No Gi  Beginners - Wack Wack",
+      "type": "bjj",
+      "note": "Group class",
+      "coaches": [
+        "kendrick"
       ]
     },
     {
@@ -323,6 +409,17 @@
       "note": "1-on-1",
       "coaches": [
         "bernie-jb"
+      ]
+    },
+    {
+      "day": "Sun",
+      "start": "09:00",
+      "end": "11:00",
+      "title": "BJJ No Gi - Wack Wack",
+      "type": "bjj",
+      "note": "Group class",
+      "coaches": [
+        "kendrick"
       ]
     },
     {
