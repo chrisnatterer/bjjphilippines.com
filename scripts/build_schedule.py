@@ -5,7 +5,8 @@ The schedule page used to be hand-coded HTML with every class positioned by
 exact pixel math — impossible for a non-technical person to edit safely. This
 script makes the schedule *data-driven* (the same pattern as build_roster.py):
 edit data/schedule.json, run this, and the desktop grid, legend, and mobile
-day-list are all regenerated between marker comments in schedule/index.html.
+day-list are regenerated — once per discipline tab (Grappling / Striking, see
+GROUPS) — between the SCHEDULE:PANELS markers in schedule/index.html.
 
     python3 scripts/build_schedule.py
 
@@ -28,6 +29,22 @@ DAY_FULL = {
     "Fri": "Friday", "Sat": "Saturday", "Sun": "Sunday",
 }
 HOUR_PX = 60  # one hour = 60px in the desktop grid
+
+# The page shows one tab per discipline group so the timetable isn't cluttered.
+# Each class type (see TYPES in sync_schedule.py) belongs to one group; a type
+# not listed here falls into the first group. Add new types here when adding
+# them to the sheet's Type dropdown.
+GROUPS = [
+    {"key": "grappling", "types": {"bjj", "judo"}},
+    {"key": "striking", "types": {"striking", "karate", "selfdefence"}},
+]
+
+
+def group_of(type_key: str) -> str:
+    for g in GROUPS:
+        if type_key in g["types"]:
+            return g["key"]
+    return GROUPS[0]["key"]
 
 # Abbreviations used only in narrow (side-by-side) desktop blocks where the full
 # title won't fit. Full title is still shown everywhere there's room, and on mobile.
@@ -141,7 +158,7 @@ def desktop_block(c, meta, start_h) -> str:
     return f'<div class="{cls}" style="{geo}">{inner}</div>'
 
 
-def build_grid(data) -> str:
+def build_grid(data, classes) -> str:
     meta = data["meta"]
     start_h, end_h = meta["hours"]["start"], meta["hours"]["end"]
     height = (end_h - start_h) * HOUR_PX
@@ -160,7 +177,7 @@ def build_grid(data) -> str:
 
     day_cols = []
     for day in DAYS:
-        day_classes = layout_day([c for c in data["classes"] if c["day"] == day])
+        day_classes = layout_day([c for c in classes if c["day"] == day])
         blocks = "".join(desktop_block(c, meta, start_h) for c in day_classes)
         day_cols.append(f'<div class="relative border-l border-warm-light/50" {stripe}>{blocks}</div>')
 
@@ -171,9 +188,9 @@ def build_grid(data) -> str:
 # ---------------------------------------------------------------------------
 # Legend
 # ---------------------------------------------------------------------------
-def build_legend(data) -> str:
+def build_legend(data, classes) -> str:
     meta = data["meta"]
-    used = {c["type"] for c in data["classes"]}
+    used = {c["type"] for c in classes}
     items = []
     for key, t in meta["types"].items():
         if key not in used:
@@ -227,12 +244,12 @@ def mobile_block(c, meta) -> str:
     return f'<div class="{cls}">{inner}</div>'
 
 
-def build_mobile(data) -> str:
+def build_mobile(data, classes) -> str:
     meta = data["meta"]
     sections = []
     for day in DAYS:
         day_classes = sorted(
-            [c for c in data["classes"] if c["day"] == day],
+            [c for c in classes if c["day"] == day],
             key=lambda c: mins(c["start"]),
         )
         if not day_classes:
@@ -247,23 +264,48 @@ def build_mobile(data) -> str:
 
 
 # ---------------------------------------------------------------------------
+# One panel per discipline group (toggled by the tabs on the page)
+# ---------------------------------------------------------------------------
+def build_panel(data, key, classes, first) -> str:
+    day_headers = "".join(
+        f'<div class="p-3 text-center font-display font-bold text-warm-dark">{d}</div>' for d in DAYS
+    )
+    hidden = "" if first else " hidden"
+    return (
+        f'<div data-panel="{key}" role="tabpanel" class="{hidden.strip()}">'
+        '<div class="hidden lg:block">'
+        f'<div class="grid grid-cols-8 border-b-2 border-warm-light"><div class="p-3"></div>{day_headers}</div>'
+        f'{build_grid(data, classes)}</div>'
+        f'<div class="hidden lg:flex flex-wrap gap-4 mt-8 justify-center">{build_legend(data, classes)}</div>'
+        '<div class="lg:hidden">'
+        '<p class="text-warm-gray text-sm text-center mb-8 italic">View on a larger screen for the full timetable grid.</p>'
+        f'{build_mobile(data, classes)}</div>'
+        '</div>'
+    )
+
+
 def replace_region(html: str, name: str, body: str) -> str:
     start, end = f"<!-- SCHEDULE:{name}:START -->", f"<!-- SCHEDULE:{name}:END -->"
     if start not in html or end not in html:
         raise SystemExit(f"Marker {name} not found in {PAGE}")
     pat = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
-    return pat.sub(f"{start}\n{body}\n      {end}", html)
+    return pat.sub(lambda _: f"{start}\n{body}\n    {end}", html)
 
 
 def main() -> None:
     data = json.loads(DATA.read_text())
     html = PAGE.read_text()
-    html = replace_region(html, "GRID", build_grid(data))
-    html = replace_region(html, "LEGEND", build_legend(data))
-    html = replace_region(html, "MOBILE", build_mobile(data))
+    panels = []
+    for i, g in enumerate(GROUPS):
+        classes = [c for c in data["classes"] if group_of(c["type"]) == g["key"]]
+        panels.append(build_panel(data, g["key"], classes, i == 0))
+    html = replace_region(html, "PANELS", "\n".join(panels))
     PAGE.write_text(html)
+    counts = ", ".join(
+        f'{g["key"]}: {sum(group_of(c["type"]) == g["key"] for c in data["classes"])}' for g in GROUPS
+    )
     print(f"Rebuilt {PAGE.relative_to(ROOT)} from {DATA.relative_to(ROOT)} "
-          f"({len(data['classes'])} classes)")
+          f"({len(data['classes'])} classes — {counts})")
 
 
 if __name__ == "__main__":
