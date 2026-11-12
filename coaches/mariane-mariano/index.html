@@ -19,35 +19,11 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/js/next-training.js" defer></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: '#f5f0e8',
-            'cream-light': '#faf7f2',
-            'warm-dark': '#1c1410',
-            'warm-mid': '#2e2319',
-            terracotta: '#c0462b',
-            'terracotta-light': '#d4553a',
-            gold: '#c89b3c',
-            'gold-light': '#dbb44e',
-            'warm-gray': '#6b5d52',
-            'warm-gray-light': '#9a8d82',
-            'warm-light': '#ebe4d8',
-            surface: '#ffffff',
-          },
-          fontFamily: {
-            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
-            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <script src="/js/tw-config.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
   <style>
     html { scroll-behavior: smooth; }
 
@@ -92,53 +68,32 @@
     }
   </style>
 </head>
-<body class="font-body text-warm-dark bg-cream">
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-warm-dark/95 backdrop-blur-md">
-  <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="flex items-center justify-between h-20">
-      <a href="/" class="font-display font-bold text-2xl tracking-tight text-cream transition-colors duration-300">
-        KMA
-      </a>
-
-
-      <div class="hidden md:flex items-center gap-10">
-        <a href="/schedule/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          Schedule
-        </a>
-        <a href="/rates/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          Rates
-        </a>
-        <a href="/ranks/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          Ranks
-        </a>
-        <a href="/about/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          About
-        </a>
-        <a href="/contact/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          Contact
-        </a>
-        <a href="/locations/wack-wack/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Wack Wack</a>
-        <a href="/contact/" class="bg-terracotta hover:bg-terracotta-light text-cream px-6 py-2.5 rounded-sm text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-300 hover:shadow-lg hover:shadow-terracotta/20">
-          Train with us
-        </a>
-      </div>
-
-
-      <button id="menu-toggle" class="md:hidden text-cream p-2" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-  </nav>
-</header>
+<body class="font-body text-warm-dark bg-ink">
+  <nav id="nav">
+  <div class="kma-wrap">
+    <a href="/" class="kma-logo">KMA<span>.</span></a>
+    <div class="kma-links"><a href="/schedule/">Schedule</a><a href="/rates/">Rates</a><a href="/ranks/">Ranks</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/locations/wack-wack/">Wack Wack</a></div>
+    <a href="/contact/" class="kma-btn">Start training</a>
+    <button class="kma-menu-btn" id="menu-toggle" aria-label="Open menu"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+<div id="mobile-menu" aria-hidden="true">
+  <button class="kma-menu-btn" id="menu-close" aria-label="Close menu"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg></button>
+  <a class="m" href="/schedule/">Schedule</a>
+  <a class="m" href="/rates/">Rates</a>
+  <a class="m" href="/ranks/">Ranks</a>
+  <a class="m" href="/about/">About</a>
+  <a class="m" href="/contact/">Contact</a>
+  <a class="m" href="/locations/wack-wack/">Wack Wack</a>
+  <a href="/contact/" class="kma-btn">Start training</a>
+</div>
 
   <main>
 
 <div class="pt-20">
 
 <!-- Hero -->
-<section class="relative py-32 lg:py-40 bg-warm-dark overflow-hidden grain">
+<section class="relative py-32 lg:py-40 bg-night overflow-hidden grain">
   <div class="absolute inset-0 opacity-15">
     <img src="/images/noon%20class%20mixed.jpg" alt="" class="w-full h-full object-cover">
   </div>
@@ -159,7 +114,7 @@
         </div>
       </div>
       <div class="lg:col-span-5">
-        <div class="rounded-lg overflow-hidden max-w-sm mx-auto lg:mx-0 bg-warm-light">
+        <div class="rounded-lg overflow-hidden max-w-sm mx-auto lg:mx-0 bg-ink-2">
           <img src="/images/mariane-mariano.webp" alt="Mariane Mariano" class="w-full h-auto">
         </div>
       </div>
@@ -192,10 +147,10 @@
 </section>
 
 <!-- About -->
-<section class="py-24 bg-cream">
+<section class="py-24 bg-ink">
   <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">About Mariane</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">About Mariane</p>
       <h2 class="font-display text-4xl sm:text-5xl font-bold text-warm-dark leading-tight mb-10">
         Two decades on the world stage
       </h2>
@@ -217,7 +172,7 @@
         </p>
       </div>
       <div class="lg:col-span-5 fade-up stagger-2">
-        <div class="rounded-lg overflow-hidden photo-hover bg-warm-light">
+        <div class="rounded-lg overflow-hidden photo-hover bg-ink-2">
           <img src="/images/mariane-mariano.webp" alt="Mariane Mariano" class="w-full h-auto rounded-lg">
         </div>
         <p class="text-warm-gray-light text-sm italic text-center mt-3">Athlete &amp; Assistant Coach — Team Fabricio Philippines</p>
@@ -227,10 +182,10 @@
 </section>
 
 <!-- Competition Record -->
-<section class="py-24 bg-warm-light relative grain">
+<section class="py-24 bg-ink-2 relative grain">
   <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Competition Record</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Competition Record</p>
       <h2 class="font-display text-4xl sm:text-5xl font-bold text-warm-dark leading-tight mb-4">
         A career across five sports
       </h2>
@@ -269,25 +224,25 @@
       <div class="bg-surface rounded-lg p-8 border border-warm-light fade-up stagger-2">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 bg-terracotta/10 rounded-full flex items-center justify-center">
-            <svg class="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <h3 class="font-display font-bold text-warm-dark text-xl">Jiu-Jitsu &amp; MMA</h3>
         </div>
         <ul class="space-y-3 text-warm-gray text-sm">
           <li class="flex items-start gap-2">
-            <span class="text-terracotta font-bold mt-0.5">&bull;</span>
+            <span class="text-accent font-bold mt-0.5">&bull;</span>
             <span><strong class="text-warm-dark">33rd SEA Games (DUO)</strong> — Thailand, double bronze</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-terracotta font-bold mt-0.5">&bull;</span>
+            <span class="text-accent font-bold mt-0.5">&bull;</span>
             <span><strong class="text-warm-dark">JJFP National Champion (DUO)</strong> — gold &amp; silver</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-terracotta font-bold mt-0.5">&bull;</span>
+            <span class="text-accent font-bold mt-0.5">&bull;</span>
             <span>Malaysia Grappling League — multiple golds; Warrior FC Women's Flyweight Champion</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-terracotta font-bold mt-0.5">&bull;</span>
+            <span class="text-accent font-bold mt-0.5">&bull;</span>
             <span>Professional MMA — <strong class="text-warm-dark">ONE Championship</strong> &amp; BRAVE Fighting Championship</span>
           </li>
         </ul>
@@ -301,7 +256,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
-              <tr class="bg-warm-dark text-cream">
+              <tr class="bg-night text-cream">
                 <th class="text-left px-6 py-3 font-display font-semibold">Year</th>
                 <th class="text-left px-6 py-3 font-display font-semibold">Event</th>
                 <th class="text-left px-6 py-3 font-display font-semibold">Result</th>
@@ -363,17 +318,17 @@
 </section>
 
 <!-- Disciplines -->
-<section class="py-20 bg-cream">
+<section class="py-20 bg-ink">
   <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="text-center mb-12 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">What Mariane Teaches</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">What Mariane Teaches</p>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">Disciplines</h2>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto fade-up">
       <a href="/programs/bjj/" class="bg-surface rounded-lg p-8 border border-warm-light text-center hover:border-terracotta/30 transition-colors group block">
         <div class="w-14 h-14 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <span class="text-terracotta font-display font-bold text-lg">BJJ</span>
+          <span class="text-accent font-display font-bold text-lg">BJJ</span>
         </div>
         <h3 class="font-display font-bold text-warm-dark text-lg mb-2">Brazilian Jiu Jitsu</h3>
         <p class="text-warm-gray text-sm">Group classes in Gi &amp; No-Gi, plus DUO and competition prep.</p>
@@ -391,10 +346,10 @@
 </section>
 
 <!-- Private Lessons -->
-<section class="py-20 bg-warm-light grain">
+<section class="py-20 bg-ink-2 grain">
   <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="text-center mb-12 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Private Training</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Private Training</p>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">Book a Private Lesson</h2>
     </div>
 
@@ -402,7 +357,7 @@
       <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center">
         <h3 class="font-display font-bold text-warm-dark text-xl mb-3">1-on-1 with Mariane</h3>
         <p class="text-warm-gray mb-6">Private sessions in Jiu-Jitsu, striking, or self-defence — competition prep or fundamentals, tailored to your goals.</p>
-        <div class="bg-warm-light rounded-lg p-4 mb-6">
+        <div class="bg-ink-2 rounded-lg p-4 mb-6">
           <p class="text-warm-dark font-display font-semibold text-sm mb-2">Availability</p>
           <p class="text-warm-gray text-sm">Mon&ndash;Fri 07:00&ndash;21:00 &middot; Sat 07:00&ndash;19:00 &middot; Sun 08:00&ndash;17:00</p>
         </div>
@@ -416,7 +371,7 @@
 </section>
 
 <!-- CTA -->
-<section class="py-20 bg-warm-dark grain">
+<section class="py-20 bg-night grain">
   <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12 text-center fade-up">
     <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream mb-4">Train with Mariane</h2>
     <p class="text-cream/60 mb-8 max-w-lg mx-auto">Book a private session or join the regular group classes at KMA.</p>
@@ -434,120 +389,34 @@
 </div>
 
   </main>
-  <footer class="bg-warm-dark text-cream/60 relative grain">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
-
-      <div class="md:col-span-5">
-        <h3 class="font-display font-bold text-cream text-2xl mb-4">KMA Fitness &<br>Martial Arts</h3>
-        <p class="text-sm leading-relaxed max-w-sm">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo, and more. Part of the international Team Fabricio BJJ family.</p>
-        <div class="mt-6">
-          <a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cream/40 hover:text-gold transition-colors duration-300 text-sm">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Follow us on Facebook
-          </a>
-        </div>
+  <footer class="kma-footer">
+  <div class="kma-wrap">
+    <div class="cols">
+      <div>
+        <a href="/" class="kma-logo">KMA<span>.</span></a>
+        <p style="max-width:380px">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo and more. Part of the international Team Fabricio BJJ family.</p>
+        <p style="margin-top:16px"><a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="fb">Facebook &rsaquo;</a></p>
       </div>
-
-
-      <div class="md:col-span-4">
-        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Contact</h4>
-        <ul class="space-y-3 text-sm">
+      <div>
+        <h4>Contact</h4>
+        <ul>
           <li>Ground Floor Le Domaine, Tordesillas St, Salcedo Village, Makati City</li>
           <li>(02) 8551-4449</li>
           <li>Text: 0917 824 2420</li>
-          <li>
-            <a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors duration-300">mail@bjjphilippines.com</a>
-          </li>
+          <li><a href="mailto:mail@bjjphilippines.com">mail@bjjphilippines.com</a></li>
         </ul>
       </div>
-
-
-      <div class="md:col-span-3">
-        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Gym Hours</h4>
-        <ul class="space-y-3 text-sm">
-          <li>Mon–Fri: 7am–9pm</li>
-          <li>Sat: 7am–7pm</li>
-          <li>Sun: 8am–5pm</li>
-        </ul>
+      <div>
+        <h4>Gym hours</h4>
+        <ul><li>Mon–Fri: 7am–9pm</li><li>Sat: 7am–7pm</li><li>Sun: 8am–5pm</li></ul>
       </div>
     </div>
-
-    <div class="border-t border-cream/8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream/30">
-      <span>&copy; 2026 KMA Fitness & Martial Arts &middot; <a href="https://github.com/chrisnatterer/bjjphilippines.com/commit/dev" class="font-mono hover:text-cream/60 transition-colors" target="_blank" rel="noopener">dev</a></span>
-      <div class="flex gap-6">
-        <a href="/schedule/" class="hover:text-cream/60 transition-colors">Schedule</a>
-        <a href="/about/" class="hover:text-cream/60 transition-colors">About</a>
-        <a href="/contact/" class="hover:text-cream/60 transition-colors">Contact</a>
-      </div>
+    <div class="bottom">
+      <span>&copy; 2026 KMA Fitness &amp; Martial Arts &middot; <a href="https://github.com/chrisnatterer/bjjphilippines.com/commit/dev" target="_blank" rel="noopener">dev</a></span>
+      <span><a href="/schedule/">Schedule</a> &nbsp;·&nbsp; <a href="/rates/">Rates</a> &nbsp;·&nbsp; <a href="/about/">About</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
     </div>
   </div>
 </footer>
-
-
-<div id="mobile-menu" class="fixed inset-0 z-[60] bg-warm-dark hidden flex-col items-center justify-center">
-  <button id="menu-close" class="absolute top-6 right-5 text-cream p-2" aria-label="Close menu">
-    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
-    </svg>
-  </button>
-
-  <nav class="flex flex-col items-center gap-8">
-    <a href="/schedule/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
-      Schedule
-    </a>
-    <a href="/ranks/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
-      Ranks
-    </a>
-    <a href="/about/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
-      About
-    </a>
-    <a href="/contact/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
-      Contact
-    </a>
-    <a href="/locations/wack-wack/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">Wack Wack</a>
-    <a href="/contact/" class="mt-6 bg-terracotta hover:bg-terracotta-light text-cream px-10 py-4 rounded-sm text-lg font-display font-bold uppercase tracking-[0.1em] transition-colors mobile-link">
-      Train with us
-    </a>
-  </nav>
-
-  <div class="absolute bottom-10 text-cream/30 text-sm">
-    <a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors">mail@bjjphilippines.com</a>
-  </div>
-</div>
-
-<script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuClose = document.getElementById('menu-close');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
-
-  function openMenu() {
-    mobileMenu.classList.remove('hidden');
-    mobileMenu.classList.add('flex');
-    document.body.classList.add('overflow-hidden');
-  }
-  function closeMenu() {
-    mobileMenu.classList.add('hidden');
-    mobileMenu.classList.remove('flex');
-    document.body.classList.remove('overflow-hidden');
-  }
-
-  menuToggle.addEventListener('click', openMenu);
-  menuClose.addEventListener('click', closeMenu);
-  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-</script>
-
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
+<script src="/js/site.js"></script>
 </body>
 </html>

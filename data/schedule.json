@@ -67,7 +67,7 @@
         "bg": "bg-terracotta/10",
         "border": "border-terracotta/20",
         "hover": "hover:border-terracotta/40",
-        "accent": "text-terracotta"
+        "accent": "text-accent"
       },
       "striking": {
         "legend": "Muay Thai / Boxing",
@@ -85,17 +85,17 @@
       },
       "karate": {
         "legend": "Karate",
-        "bg": "bg-emerald-700/10",
-        "border": "border-emerald-700/20",
-        "hover": "hover:border-emerald-700/40",
-        "accent": "text-emerald-700"
+        "bg": "bg-emerald-500/10",
+        "border": "border-emerald-500/20",
+        "hover": "hover:border-emerald-500/40",
+        "accent": "text-emerald-400"
       },
       "selfdefence": {
         "legend": "Self Defence",
-        "bg": "bg-sky-700/10",
-        "border": "border-sky-700/20",
-        "hover": "hover:border-sky-700/40",
-        "accent": "text-sky-700"
+        "bg": "bg-sky-500/10",
+        "border": "border-sky-500/20",
+        "hover": "hover:border-sky-500/40",
+        "accent": "text-sky-400"
       }
     }
   },

@@ -4,6 +4,12 @@ Static website for KMA Fitness & Martial Arts (bjjphilippines.com) — a BJJ gym
 
 ## Tech Stack
 - Static HTML + Tailwind CSS (via CDN)
+- **Dark theme, shared files** (all pages except the homepage, which has its own inline CSS):
+  - `js/tw-config.js` holds the Tailwind palette and fonts (Archivo, Barlow, Barlow Condensed). The old colour names are kept but now hold dark-theme values: `text-warm-dark` and `text-cream` are light text, `bg-surface` is a dark card, and `border-warm-light` is a hairline.
+  - The backgrounds are `bg-ink` (page), `bg-ink-2` (alternate sections) and `bg-night` (deep dark). Use `text-accent` for terracotta text, because `text-terracotta` is too dark on black.
+  - `css/site.css` holds the shared nav, mobile menu, footer and typography overrides: uppercase 900-weight h1/h2, condensed labels, sharp corners and dark map embeds.
+  - `js/site.js` makes the nav solid on scroll and runs the mobile menu and the fade-up animation.
+  - The nav and footer markup is copied into every page, so to change a menu link you edit all pages (and `index.html`).
 - No compile step for pages — HTML is served directly. `build.sh` only stamps the commit SHA into footers at deploy time.
 - Two pages are generated from Google Sheets by local Python scripts (see **Data sync** below).
 - Hosted on Cloudflare Pages (auto-deploys on push to `main`).

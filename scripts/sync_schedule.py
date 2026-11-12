@@ -50,11 +50,11 @@ HOURS = {"start": 7, "end": 21}
 # CDN generates whatever classes appear here) — swap the hue in one place to
 # re-theme. BJJ=terracotta, striking=gold, judo=neutral are the brand colours.
 TYPES = {
-    "bjj":         {"legend": "BJJ",                "bg": "bg-terracotta/10",   "border": "border-terracotta/20",   "hover": "hover:border-terracotta/40",   "accent": "text-terracotta"},
+    "bjj":         {"legend": "BJJ",                "bg": "bg-terracotta/10",   "border": "border-terracotta/20",   "hover": "hover:border-terracotta/40",   "accent": "text-accent"},
     "striking":    {"legend": "Muay Thai / Boxing", "bg": "bg-gold/10",         "border": "border-gold/20",         "hover": "hover:border-gold/40",         "accent": "text-gold"},
     "judo":        {"legend": "Judo",               "bg": "bg-warm-dark/5",     "border": "border-warm-dark/10",    "hover": "hover:border-warm-dark/20",    "accent": "text-warm-dark"},
-    "karate":      {"legend": "Karate",             "bg": "bg-emerald-700/10",  "border": "border-emerald-700/20",  "hover": "hover:border-emerald-700/40",  "accent": "text-emerald-700"},
-    "selfdefence": {"legend": "Self Defence",       "bg": "bg-sky-700/10",      "border": "border-sky-700/20",      "hover": "hover:border-sky-700/40",      "accent": "text-sky-700"},
+    "karate":      {"legend": "Karate",             "bg": "bg-emerald-500/10",  "border": "border-emerald-500/20",  "hover": "hover:border-emerald-500/40",  "accent": "text-emerald-400"},
+    "selfdefence": {"legend": "Self Defence",       "bg": "bg-sky-500/10",      "border": "border-sky-500/20",      "hover": "hover:border-sky-500/40",      "accent": "text-sky-400"},
 }
 
 

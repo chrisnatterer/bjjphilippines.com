@@ -19,35 +19,11 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/js/next-training.js" defer></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: '#f5f0e8',
-            'cream-light': '#faf7f2',
-            'warm-dark': '#1c1410',
-            'warm-mid': '#2e2319',
-            terracotta: '#b8452e',
-            'terracotta-light': '#d4553a',
-            gold: '#c89b3c',
-            'gold-light': '#dbb44e',
-            'warm-gray': '#6b5d52',
-            'warm-gray-light': '#9a8d82',
-            'warm-light': '#ebe4d8',
-            surface: '#ffffff',
-          },
-          fontFamily: {
-            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
-            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <script src="/js/tw-config.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
   <style>
     html { scroll-behavior: smooth; }
 
@@ -75,34 +51,31 @@
     }
   </style>
 </head>
-<body class="font-body text-warm-dark bg-cream">
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-warm-dark/95 backdrop-blur-md">
-  <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="flex items-center justify-between h-20">
-      <a href="/" class="font-display font-bold text-2xl tracking-tight text-cream transition-colors duration-300">
-        KMA
-      </a>
-      <div class="hidden md:flex items-center gap-10">
-        <a href="/schedule/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Schedule</a>
-        <a href="/rates/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Rates</a>
-        <a href="/ranks/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Ranks</a>
-        <a href="/about/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">About</a>
-        <a href="/contact/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Contact</a>
-        <a href="/locations/wack-wack/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Wack Wack</a>
-        <a href="/contact/" class="bg-terracotta hover:bg-terracotta-light text-cream px-6 py-2.5 rounded-sm text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-300 hover:shadow-lg hover:shadow-terracotta/20">Train with us</a>
-      </div>
-      <button id="menu-toggle" class="md:hidden text-cream p-2" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-  </nav>
-</header>
+<body class="font-body text-warm-dark bg-ink">
+  <nav id="nav">
+  <div class="kma-wrap">
+    <a href="/" class="kma-logo">KMA<span>.</span></a>
+    <div class="kma-links"><a href="/schedule/">Schedule</a><a href="/rates/" aria-current="page">Rates</a><a href="/ranks/">Ranks</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/locations/wack-wack/">Wack Wack</a></div>
+    <a href="/contact/" class="kma-btn">Start training</a>
+    <button class="kma-menu-btn" id="menu-toggle" aria-label="Open menu"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+<div id="mobile-menu" aria-hidden="true">
+  <button class="kma-menu-btn" id="menu-close" aria-label="Close menu"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg></button>
+  <a class="m" href="/schedule/">Schedule</a>
+  <a class="m" href="/rates/" aria-current="page">Rates</a>
+  <a class="m" href="/ranks/">Ranks</a>
+  <a class="m" href="/about/">About</a>
+  <a class="m" href="/contact/">Contact</a>
+  <a class="m" href="/locations/wack-wack/">Wack Wack</a>
+  <a href="/contact/" class="kma-btn">Start training</a>
+</div>
 
   <main>
 <div class="pt-20">
 
 <!-- Hero -->
-<section class="relative py-32 bg-warm-dark overflow-hidden grain">
+<section class="relative py-32 bg-night overflow-hidden grain">
   <div class="absolute inset-0 opacity-15">
     <img src="/images/openmat-christmas-2025.JPG" alt="" class="w-full h-full object-cover">
   </div>
@@ -114,117 +87,117 @@
 </section>
 
 <!-- RATES:START -->
-<section class="py-16 bg-cream">
+<section class="py-16 bg-ink">
   <div class="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="bg-surface rounded-lg p-8 border border-warm-light fade-up grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
       <div class="md:col-span-3">
-        <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-2">One-Time Membership</p>
+        <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-2">One-Time Membership</p>
         <h2 class="font-display text-2xl sm:text-3xl font-bold text-warm-dark mb-3">New Member Signup</h2>
         <p class="text-warm-gray leading-relaxed">A single registration covers you for every program at KMA. Includes a free T-shirt (except during promos).</p>
       </div>
       <div class="md:col-span-2 text-center md:text-right">
         <p class="text-warm-gray-light text-sm uppercase font-display tracking-[0.15em] mb-1">Adults & Kids</p>
-        <p class="text-terracotta font-display font-bold text-5xl">₱1,950</p>
+        <p class="text-accent font-display font-bold text-5xl">₱1,950</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-16 bg-warm-light grain">
+<section class="py-16 bg-ink-2 grain">
   <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="text-center mb-10 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Brazilian Jiu-Jitsu</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Brazilian Jiu-Jitsu</p>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">BJJ Training</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 fade-up">
-      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">4-Session Pack</h3><p class="text-warm-gray text-sm mb-4">4 classes across BJJ, Judo, Muay Thai or Boxing. Expires 30 days from purchase.</p><p class="text-terracotta font-display font-bold text-2xl">₱2,000</p></div>
-      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Adults Monthly BJJ</h3><p class="text-warm-gray text-sm mb-4">Unlimited group BJJ classes all month.</p><p class="text-terracotta font-display font-bold text-2xl">₱3,500</p></div>
-      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Kids U14</h3><p class="text-warm-gray text-sm mb-4">8 youth BJJ sessions for under-14s.</p><p class="text-terracotta font-display font-bold text-2xl">₱3,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">4-Session Pack</h3><p class="text-warm-gray text-sm mb-4">4 classes across BJJ, Judo, Muay Thai or Boxing. Expires 30 days from purchase.</p><p class="text-accent font-display font-bold text-2xl">₱2,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Adults Monthly BJJ</h3><p class="text-warm-gray text-sm mb-4">Unlimited group BJJ classes all month.</p><p class="text-accent font-display font-bold text-2xl">₱3,500</p></div>
+      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Kids U14</h3><p class="text-warm-gray text-sm mb-4">8 youth BJJ sessions for under-14s.</p><p class="text-accent font-display font-bold text-2xl">₱3,000</p></div>
     </div>
-    <p class="text-center mt-6 fade-up"><a href="/programs/bjj/" class="text-warm-gray hover:text-terracotta text-sm transition-colors duration-300">More about BJJ training →</a></p>
+    <p class="text-center mt-6 fade-up"><a href="/programs/bjj/" class="text-warm-gray hover:text-accent text-sm transition-colors duration-300">More about BJJ training →</a></p>
   </div>
 </section>
 
-<section class="py-16 bg-cream">
+<section class="py-16 bg-ink">
   <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="text-center mb-10 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Judo</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Judo</p>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">Judo Training</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 fade-up">
-      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">4-Session Pack</h3><p class="text-warm-gray text-sm mb-4">4 classes across Judo, BJJ, Muay Thai or Boxing. Expires 30 days from purchase.</p><p class="text-terracotta font-display font-bold text-2xl">₱2,000</p></div>
-      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">8 Sessions / Month</h3><p class="text-warm-gray text-sm mb-4">Eight weekend Judo sessions each month.</p><p class="text-terracotta font-display font-bold text-2xl">₱3,000</p></div>
-      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Monthly Judo</h3><p class="text-warm-gray text-sm mb-4">Extra mat time for dedicated judoka.</p><p class="text-terracotta font-display font-bold text-2xl">₱3,500</p></div>
+      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">4-Session Pack</h3><p class="text-warm-gray text-sm mb-4">4 classes across Judo, BJJ, Muay Thai or Boxing. Expires 30 days from purchase.</p><p class="text-accent font-display font-bold text-2xl">₱2,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">8 Sessions / Month</h3><p class="text-warm-gray text-sm mb-4">Eight weekend Judo sessions each month.</p><p class="text-accent font-display font-bold text-2xl">₱3,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Monthly Judo</h3><p class="text-warm-gray text-sm mb-4">Extra mat time for dedicated judoka.</p><p class="text-accent font-display font-bold text-2xl">₱3,500</p></div>
     </div>
-    <p class="text-center mt-6 fade-up"><a href="/programs/judo/" class="text-warm-gray hover:text-terracotta text-sm transition-colors duration-300">More about Judo training →</a></p>
+    <p class="text-center mt-6 fade-up"><a href="/programs/judo/" class="text-warm-gray hover:text-accent text-sm transition-colors duration-300">More about Judo training →</a></p>
   </div>
 </section>
 
-<section class="py-16 bg-warm-light grain">
+<section class="py-16 bg-ink-2 grain">
   <div class="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="text-center mb-10 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Muay Thai</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Muay Thai</p>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">Muay Thai Training</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 fade-up">
-      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">4-Session Pack</h3><p class="text-warm-gray text-sm mb-4">4 classes across Muay Thai, Boxing, BJJ or Judo. Expires 30 days from purchase.</p><p class="text-terracotta font-display font-bold text-2xl">₱2,000</p></div>
-      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Monthly Muay Thai</h3><p class="text-warm-gray text-sm mb-4">Unlimited group Muay Thai classes all month.</p><p class="text-terracotta font-display font-bold text-2xl">₱3,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">4-Session Pack</h3><p class="text-warm-gray text-sm mb-4">4 classes across Muay Thai, Boxing, BJJ or Judo. Expires 30 days from purchase.</p><p class="text-accent font-display font-bold text-2xl">₱2,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Monthly Muay Thai</h3><p class="text-warm-gray text-sm mb-4">Unlimited group Muay Thai classes all month.</p><p class="text-accent font-display font-bold text-2xl">₱3,000</p></div>
     </div>
-    <p class="text-center mt-6 fade-up"><a href="/programs/muay-thai/" class="text-warm-gray hover:text-terracotta text-sm transition-colors duration-300">More about Muay Thai training →</a></p>
+    <p class="text-center mt-6 fade-up"><a href="/programs/muay-thai/" class="text-warm-gray hover:text-accent text-sm transition-colors duration-300">More about Muay Thai training →</a></p>
   </div>
 </section>
 
-<section class="py-16 bg-cream">
+<section class="py-16 bg-ink">
   <div class="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="text-center mb-10 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Boxing</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Boxing</p>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">Boxing Training</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 fade-up">
-      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">4-Session Pack</h3><p class="text-warm-gray text-sm mb-4">4 classes across Boxing, Muay Thai, BJJ or Judo. Expires 30 days from purchase.</p><p class="text-terracotta font-display font-bold text-2xl">₱2,000</p></div>
-      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Monthly</h3><p class="text-warm-gray text-sm mb-4">Unlimited group Boxing classes all month.</p><p class="text-terracotta font-display font-bold text-2xl">₱3,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">4-Session Pack</h3><p class="text-warm-gray text-sm mb-4">4 classes across Boxing, Muay Thai, BJJ or Judo. Expires 30 days from purchase.</p><p class="text-accent font-display font-bold text-2xl">₱2,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Monthly</h3><p class="text-warm-gray text-sm mb-4">Unlimited group Boxing classes all month.</p><p class="text-accent font-display font-bold text-2xl">₱3,000</p></div>
     </div>
-    <p class="text-center mt-6 fade-up"><a href="/programs/boxing/" class="text-warm-gray hover:text-terracotta text-sm transition-colors duration-300">More about Boxing training →</a></p>
+    <p class="text-center mt-6 fade-up"><a href="/programs/boxing/" class="text-warm-gray hover:text-accent text-sm transition-colors duration-300">More about Boxing training →</a></p>
   </div>
 </section>
 
-<section class="py-16 bg-warm-light grain">
+<section class="py-16 bg-ink-2 grain">
   <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="text-center mb-10 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Taekwondo</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Taekwondo</p>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">Kids Taekwondo</h2>
     </div>
     <div class="grid grid-cols-1 gap-6 fade-up max-w-sm mx-auto">
-      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">8 Sessions / Month</h3><p class="text-warm-gray text-sm mb-4">Eight Taekwondo sessions per month. Expires 30 days from purchase.</p><p class="text-terracotta font-display font-bold text-2xl">₱4,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">8 Sessions / Month</h3><p class="text-warm-gray text-sm mb-4">Eight Taekwondo sessions per month. Expires 30 days from purchase.</p><p class="text-accent font-display font-bold text-2xl">₱4,000</p></div>
     </div>
-    <p class="text-center mt-6 fade-up"><a href="/programs/taekwondo/" class="text-warm-gray hover:text-terracotta text-sm transition-colors duration-300">More about Taekwondo training →</a></p>
+    <p class="text-center mt-6 fade-up"><a href="/programs/taekwondo/" class="text-warm-gray hover:text-accent text-sm transition-colors duration-300">More about Taekwondo training →</a></p>
   </div>
 </section>
 
-<section class="py-16 bg-cream">
+<section class="py-16 bg-ink">
   <div class="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
     <div class="text-center mb-10 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Self-Defence</p>
+      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">Self-Defence</p>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">Self-Defence Training</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 fade-up">
-      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Private Lesson</h3><p class="text-warm-gray text-sm mb-4">One-on-one self-defence session tailored to you.</p><p class="text-terracotta font-display font-bold text-2xl">₱1,200</p></div>
-      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Monthly</h3><p class="text-warm-gray text-sm mb-4">Self-defence training monthly</p><p class="text-terracotta font-display font-bold text-2xl">₱4,000</p></div>
+      <div class="bg-surface rounded-lg p-8 border border-warm-light text-center"><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Private Lesson</h3><p class="text-warm-gray text-sm mb-4">One-on-one self-defence session tailored to you.</p><p class="text-accent font-display font-bold text-2xl">₱1,200</p></div>
+      <div class="bg-surface rounded-lg p-8 border-2 border-terracotta text-center relative"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-cream text-xs font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span><h3 class="font-display font-bold text-warm-dark text-lg mb-2">Monthly</h3><p class="text-warm-gray text-sm mb-4">Self-defence training monthly</p><p class="text-accent font-display font-bold text-2xl">₱4,000</p></div>
     </div>
-    <p class="text-center mt-6 fade-up"><a href="/programs/self-defence/" class="text-warm-gray hover:text-terracotta text-sm transition-colors duration-300">More about Self-Defence training →</a></p>
+    <p class="text-center mt-6 fade-up"><a href="/programs/self-defence/" class="text-warm-gray hover:text-accent text-sm transition-colors duration-300">More about Self-Defence training →</a></p>
   </div>
 </section>
 <!-- RATES:END -->
 
 <!-- Note -->
-<section class="py-12 bg-warm-light">
+<section class="py-12 bg-ink-2">
   <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12 text-center fade-up">
-    <p class="text-warm-gray text-sm">All session packs expire 30 days from purchase. Need a cross-art combo or family rate? <a href="/contact/" class="text-terracotta hover:text-terracotta-light font-semibold transition-colors">Contact us</a>.</p>
+    <p class="text-warm-gray text-sm">All session packs expire 30 days from purchase. Need a cross-art combo or family rate? <a href="/contact/" class="text-accent hover:text-terracotta-light font-semibold transition-colors">Contact us</a>.</p>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="py-20 bg-warm-dark relative grain">
+<section class="py-20 bg-night relative grain">
   <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
     <h2 class="font-display text-4xl sm:text-5xl font-bold text-cream mb-6 fade-up">Ready to start?</h2>
     <p class="text-cream/60 text-lg leading-relaxed mb-10 fade-up stagger-1">Come in for a trial class, ask about rates, or book a private session — we'll point you to the right program.</p>
@@ -242,55 +215,35 @@
 </div>
   </main>
 
-  <footer class="bg-warm-dark text-cream/60 relative grain">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
-      <div class="md:col-span-5">
-        <h3 class="font-display font-bold text-cream text-2xl mb-4">KMA Fitness &<br>Martial Arts</h3>
-        <p class="text-sm leading-relaxed max-w-sm">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo, and more. Part of the international Team Fabricio BJJ family.</p>
-        <div class="mt-6">
-          <a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cream/40 hover:text-gold transition-colors duration-300 text-sm">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Follow us on Facebook
-          </a>
-        </div>
+  <footer class="kma-footer">
+  <div class="kma-wrap">
+    <div class="cols">
+      <div>
+        <a href="/" class="kma-logo">KMA<span>.</span></a>
+        <p style="max-width:380px">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo and more. Part of the international Team Fabricio BJJ family.</p>
+        <p style="margin-top:16px"><a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="fb">Facebook &rsaquo;</a></p>
       </div>
-      <div class="md:col-span-4">
-        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Contact</h4>
-        <ul class="space-y-3 text-sm">
+      <div>
+        <h4>Contact</h4>
+        <ul>
           <li>Ground Floor Le Domaine, Tordesillas St, Salcedo Village, Makati City</li>
           <li>(02) 8551-4449</li>
           <li>Text: 0917 824 2420</li>
-          <li><a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors duration-300">mail@bjjphilippines.com</a></li>
+          <li><a href="mailto:mail@bjjphilippines.com">mail@bjjphilippines.com</a></li>
         </ul>
       </div>
-      <div class="md:col-span-3">
-        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Gym Hours</h4>
-        <ul class="space-y-3 text-sm">
-          <li>Mon–Fri: 7am–9pm</li>
-          <li>Sat: 7am–7pm</li>
-          <li>Sun: 8am–5pm</li>
-        </ul>
+      <div>
+        <h4>Gym hours</h4>
+        <ul><li>Mon–Fri: 7am–9pm</li><li>Sat: 7am–7pm</li><li>Sun: 8am–5pm</li></ul>
       </div>
     </div>
-    <div class="border-t border-cream/8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream/30">
-      <span>&copy; 2026 KMA Fitness & Martial Arts &middot; <a href="https://github.com/chrisnatterer/bjjphilippines.com/commit/dev" class="font-mono hover:text-cream/60 transition-colors" target="_blank" rel="noopener">dev</a></span>
-      <div class="flex gap-6">
-        <a href="/schedule/" class="hover:text-cream/60 transition-colors">Schedule</a>
-        <a href="/about/" class="hover:text-cream/60 transition-colors">About</a>
-        <a href="/contact/" class="hover:text-cream/60 transition-colors">Contact</a>
-      </div>
+    <div class="bottom">
+      <span>&copy; 2026 KMA Fitness &amp; Martial Arts &middot; <a href="https://github.com/chrisnatterer/bjjphilippines.com/commit/dev" target="_blank" rel="noopener">dev</a></span>
+      <span><a href="/schedule/">Schedule</a> &nbsp;·&nbsp; <a href="/rates/">Rates</a> &nbsp;·&nbsp; <a href="/about/">About</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
     </div>
   </div>
 </footer>
 
-<script>
-  // Fade-up scroll reveal (mirrors other pages)
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-</script>
-
+<script src="/js/site.js"></script>
 </body>
 </html>

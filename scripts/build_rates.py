@@ -66,30 +66,30 @@ def card_html(c: dict) -> str:
             'font-display font-bold uppercase tracking-wider px-3 py-1 rounded-full">Popular</span>'
             f'<h3 class="font-display font-bold text-warm-dark text-lg mb-2">{plan}</h3>'
             f'<p class="text-warm-gray text-sm mb-4">{desc}</p>'
-            f'<p class="text-terracotta font-display font-bold text-2xl">{price}</p></div>'
+            f'<p class="text-accent font-display font-bold text-2xl">{price}</p></div>'
         )
     return (
         '<div class="bg-surface rounded-lg p-8 border border-warm-light text-center">'
         f'<h3 class="font-display font-bold text-warm-dark text-lg mb-2">{plan}</h3>'
         f'<p class="text-warm-gray text-sm mb-4">{desc}</p>'
-        f'<p class="text-terracotta font-display font-bold text-2xl">{price}</p></div>'
+        f'<p class="text-accent font-display font-bold text-2xl">{price}</p></div>'
     )
 
 
 def membership_section(card: dict) -> str:
     plan, desc, price = esc(card["plan"]), esc(card["description"]), fmt_price(card["price"])
     return (
-        '<section class="py-16 bg-cream">\n'
+        '<section class="py-16 bg-ink">\n'
         '  <div class="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">\n'
         '    <div class="bg-surface rounded-lg p-8 border border-warm-light fade-up grid grid-cols-1 md:grid-cols-5 gap-6 items-center">\n'
         '      <div class="md:col-span-3">\n'
-        f'        <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-2">{MEMBERSHIP["kicker"]}</p>\n'
+        f'        <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-2">{MEMBERSHIP["kicker"]}</p>\n'
         f'        <h2 class="font-display text-2xl sm:text-3xl font-bold text-warm-dark mb-3">{plan}</h2>\n'
         f'        <p class="text-warm-gray leading-relaxed">{desc}</p>\n'
         '      </div>\n'
         '      <div class="md:col-span-2 text-center md:text-right">\n'
         f'        <p class="text-warm-gray-light text-sm uppercase font-display tracking-[0.15em] mb-1">{MEMBERSHIP["sublabel"]}</p>\n'
-        f'        <p class="text-terracotta font-display font-bold text-5xl">{price}</p>\n'
+        f'        <p class="text-accent font-display font-bold text-5xl">{price}</p>\n'
         '      </div>\n'
         '    </div>\n'
         '  </div>\n'
@@ -101,19 +101,19 @@ def art_section(cfg: dict, cards: list[dict], warm: bool) -> str:
     n = len(cards)
     grid = GRID_BY_COUNT.get(n, "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-up")
     maxw = MAXW_BY_COUNT.get(n, "max-w-5xl")
-    bg = "bg-warm-light grain" if warm else "bg-cream"
+    bg = "bg-ink-2 grain" if warm else "bg-ink"
     cards_html = "\n      ".join(card_html(c) for c in cards)
     return (
         f'<section class="py-16 {bg}">\n'
         f'  <div class="{maxw} mx-auto px-5 sm:px-8 lg:px-12">\n'
         '    <div class="text-center mb-10 fade-up">\n'
-        f'      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">{esc(cfg["kicker"])}</p>\n'
+        f'      <p class="text-accent font-display font-semibold text-sm uppercase tracking-[0.2em] mb-3">{esc(cfg["kicker"])}</p>\n'
         f'      <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm-dark">{esc(cfg["heading"])}</h2>\n'
         '    </div>\n'
         f'    <div class="{grid}">\n'
         f'      {cards_html}\n'
         '    </div>\n'
-        f'    <p class="text-center mt-6 fade-up"><a href="{cfg["link"]}" class="text-warm-gray hover:text-terracotta text-sm transition-colors duration-300">More about {esc(cfg["key"])} training →</a></p>\n'
+        f'    <p class="text-center mt-6 fade-up"><a href="{cfg["link"]}" class="text-warm-gray hover:text-accent text-sm transition-colors duration-300">More about {esc(cfg["key"])} training →</a></p>\n'
         '  </div>\n'
         '</section>'
     )

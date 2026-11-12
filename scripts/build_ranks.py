@@ -120,12 +120,12 @@ def grid_block(cells: list[str]) -> str:
 def degree_section(rank: str, people: list[dict], cfg: dict, last: bool) -> str:
     mb = "fade-up" if last else "mb-16 fade-up"
     if rank == "Black Belt":
-        badge = f'<div class="w-10 h-10 rounded-full bg-warm-dark flex items-center justify-center">{STAR}</div>'
+        badge = f'<div class="w-10 h-10 rounded-full bg-night flex items-center justify-center">{STAR}</div>'
         title = "Black Belt"
         body = grid_block([grid_cell(a, cfg) for a in people])
     else:
         deg = rank.split()[1]  # 1st / 2nd / ...
-        badge = ('<div class="w-10 h-10 rounded-full bg-warm-dark flex items-center justify-center">'
+        badge = ('<div class="w-10 h-10 rounded-full bg-night flex items-center justify-center">'
                  f'<span class="text-gold font-display font-bold text-xs">{deg}</span></div>')
         title = f"{deg} Degree"
         entries = "\n".join(list_entry(a, cfg) for a in people)
@@ -148,7 +148,7 @@ def stripe_section(rank: str, people: list[dict], cfg: dict, last: bool) -> str:
         h2 = f'      <h2 class="font-display text-xl font-bold text-warm-dark mb-4">{rank}</h2>'
     else:
         n = int(rank.split()[1][0])  # '4th' -> 4
-        dots = "".join('<span class="w-2 h-2 rounded-full bg-warm-dark"></span>' for _ in range(n))
+        dots = "".join('<span class="w-2 h-2 rounded-full bg-night"></span>' for _ in range(n))
         label = " ".join(rank.split()[1:])  # '4th Stripe'
         h2 = ('      <h2 class="font-display text-xl font-bold text-warm-dark mb-4 flex items-center gap-3">\n'
               f'        <span class="flex gap-1">{dots}</span>\n'

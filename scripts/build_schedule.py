@@ -174,7 +174,7 @@ def build_grid(data, classes) -> str:
     time_col = f'<div class="relative">{"".join(labels)}</div>'
 
     stripe = ('style="background-image: repeating-linear-gradient(to bottom, transparent, '
-              'transparent 59px, rgba(235,228,216,0.5) 59px, rgba(235,228,216,0.5) 60px);"')
+              'transparent 59px, rgba(243,238,232,0.08) 59px, rgba(243,238,232,0.08) 60px);"')
 
     day_cols = []
     for day in DAYS:
