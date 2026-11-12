@@ -22,6 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "schedule.json"
 PAGE = ROOT / "schedule" / "index.html"
+HOME = ROOT / "index.html"  # homepage "On the mat this week" block
 
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_FULL = {
@@ -292,6 +293,73 @@ def replace_region(html: str, name: str, body: str) -> str:
     return pat.sub(lambda _: f"{start}\n{body}\n    {end}", html)
 
 
+# ---------------------------------------------------------------------------
+# Homepage summary: compact day-by-day table per discipline tab, Makati only
+# (Wack Wack classes live on the full timetable and the location page).
+# ---------------------------------------------------------------------------
+EVENING_FROM = 16 * 60  # classes starting at/after 16:00 go in the Evening column
+
+
+def esc(s: str) -> str:
+    return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def home_tags(c) -> str:
+    t, title = c["type"], c["title"].lower()
+    tags = []
+    if "beginner" in title:
+        tags.append(("Beginners", ""))
+    if "kids" in title:
+        tags.append(("Kids", ""))
+    if t == "judo" and "bjj" not in title:
+        tags.append(("Judo", " g"))
+    if c.get("note") and "group" not in c["note"].lower():
+        tags.append((c["note"], " g"))
+    return "".join(f' <span class="tag{cls}">{esc(n)}</span>' for n, cls in tags)
+
+
+def home_cell(classes, meta) -> str:
+    if not classes:
+        return '<span class="muted">&mdash;</span>'
+    out = []
+    for c in classes:
+        title = " ".join(c["title"].split())
+        who = " &amp; ".join(esc(meta["coaches"][s]["short"]) for s in c.get("coaches", []))
+        small = f'{c["start"]}–{c["end"]}' + (f" · {who}" if who else "")
+        out.append(f'<span class="cls">{esc(title)}{home_tags(c)}<small>{small}</small></span>')
+    return "".join(out)
+
+
+def build_home(data) -> str:
+    meta = data["meta"]
+    makati = [c for c in data["classes"] if "wack wack" not in c["title"].lower()]
+    panels = []
+    for i, g in enumerate(GROUPS):
+        group = [c for c in makati if group_of(c["type"]) == g["key"]]
+        # A tab with no evening starts (e.g. all-day 1-on-1 striking) gets one column.
+        split = any(mins(c["start"]) >= EVENING_FROM for c in group)
+        rows = []
+        for day in DAYS:
+            cs = sorted((c for c in group if c["day"] == day), key=lambda c: mins(c["start"]))
+            if not cs:
+                continue
+            if split:
+                day_cs = [c for c in cs if mins(c["start"]) < EVENING_FROM]
+                eve_cs = [c for c in cs if mins(c["start"]) >= EVENING_FROM]
+                cells = f'<td>{home_cell(day_cs, meta)}</td><td>{home_cell(eve_cs, meta)}</td>'
+            else:
+                cells = f'<td>{home_cell(cs, meta)}</td>'
+            rows.append(f'<tr><td class="day">{day}</td>{cells}</tr>')
+        head = "<th>Daytime</th><th>Evening</th>" if split else "<th>Classes</th>"
+        hidden = "" if i == 0 else " hidden"
+        panels.append(
+            f'<div data-home-panel="{g["key"]}" role="tabpanel"{hidden}><table class="sched">'
+            f'<thead><tr><th></th>{head}</tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>'
+        )
+    return "\n".join(panels)
+
+
 def main() -> None:
     data = json.loads(DATA.read_text())
     html = PAGE.read_text()
@@ -301,6 +369,14 @@ def main() -> None:
         panels.append(build_panel(data, g["key"], classes, i == 0))
     html = replace_region(html, "PANELS", "\n".join(panels))
     PAGE.write_text(html)
+
+    home = HOME.read_text()
+    start, end = "<!-- HOME:SCHEDULE:START -->", "<!-- HOME:SCHEDULE:END -->"
+    if start not in home or end not in home:
+        raise SystemExit(f"Marker HOME:SCHEDULE not found in {HOME}")
+    home = re.sub(re.escape(start) + r".*?" + re.escape(end),
+                  lambda _: f"{start}\n{build_home(data)}\n    {end}", home, flags=re.S)
+    HOME.write_text(home)
     counts = ", ".join(
         f'{g["key"]}: {sum(group_of(c["type"]) == g["key"] for c in data["classes"])}' for g in GROUPS
     )

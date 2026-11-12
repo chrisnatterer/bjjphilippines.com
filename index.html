@@ -1,515 +1,429 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.128.2">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KMA Fitness &amp; Martial Arts</title>
-  <meta name="description" content="Brazilian Jiu Jitsu, Muay Thai, Judo &amp; More in Makati, Philippines">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KMA Fitness &amp; Martial Arts</title>
+<meta name="description" content="Brazilian Jiu Jitsu, Muay Thai, Judo &amp; More in Makati, Philippines">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KMA Fitness &amp; Martial Arts">
+<meta property="og:description" content="Brazilian Jiu Jitsu, Muay Thai, Judo &amp; More in Makati, Philippines">
+<meta property="og:url" content="https://bjjphilippines.com/">
+<meta property="og:site_name" content="KMA Fitness &amp; Martial Arts">
+<meta property="og:image" content="https://bjjphilippines.com/images/openmat-christmas-2025.JPG">
+<link rel="icon" type="image/png" href="/favicon-32x32.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/next-training.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0908; --bg2:#13100e; --panel:#1a1512; --line:rgba(243,238,232,.09);
+    --text:#f3eee8; --muted:#9a8d82; --dim:#6b5d52;
+    --accent:#c0462b; --accent-hi:#e0765c; --gold:#c89b3c;
+    --display:"Archivo",Arial,sans-serif; --body:"Barlow",system-ui,sans-serif; --label:"Barlow Condensed",system-ui,sans-serif;
+    --wrap:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  .label{font-family:var(--label);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:13px}
+  .kicker{color:var(--accent-hi)}
+  .num{color:var(--accent-hi);font-family:var(--label);font-weight:700;font-size:13px;letter-spacing:.1em}
+  h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.035em}
+  h1{font-size:clamp(56px,10vw,140px)}
+  h2{font-size:clamp(40px,6vw,84px)}
+  h3{font-size:22px;letter-spacing:-.01em;line-height:1}
+  .red{color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--label);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:14px;padding:16px 26px;border:1px solid transparent;transition:.2s}
+  .btn-red{background:var(--accent);color:#fff}
+  .btn-red:hover{background:var(--accent-hi)}
+  .btn-line{border-color:rgba(243,238,232,.35)}
+  .btn-line:hover{border-color:var(--text)}
+  section{padding:120px 0}
+  .rule{border-top:1px solid var(--line)}
 
-  
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="KMA Fitness &amp; Martial Arts">
-  <meta property="og:description" content="Brazilian Jiu Jitsu, Muay Thai, Judo &amp; More in Makati, Philippines">
-  <meta property="og:url" content="https://bjjphilippines.com/">
-  <meta property="og:site_name" content="KMA Fitness &amp; Martial Arts">
-  <meta property="og:image" content="https://bjjphilippines.com/images/openmat-christmas-2025.JPG">
+  /* nav */
+  nav{position:fixed;inset:0 0 auto 0;z-index:50;background:linear-gradient(to bottom,rgba(11,9,8,.9),rgba(11,9,8,0));transition:background .3s}
+  nav.solid{background:rgba(11,9,8,.96);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .logo{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:-.04em}
+  .logo span{color:var(--accent)}
+  .links{display:flex;gap:34px}
+  .links a{font-family:var(--label);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:rgba(243,238,232,.75)}
+  .links a:hover{color:var(--text)}
+  nav .btn{padding:12px 20px;font-size:13px}
 
-  <link rel="icon" type="image/png" href="/favicon-32x32.png">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/js/next-training.js" defer></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: '#f5f0e8',
-            'cream-light': '#faf7f2',
-            'warm-dark': '#1c1410',
-            'warm-mid': '#2e2319',
-            terracotta: '#c0462b',
-            'terracotta-light': '#d4553a',
-            gold: '#c89b3c',
-            'gold-light': '#dbb44e',
-            'warm-gray': '#6b5d52',
-            'warm-gray-light': '#9a8d82',
-            'warm-light': '#ebe4d8',
-            surface: '#ffffff',
-          },
-          fontFamily: {
-            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
-            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
+  /* hero */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 160px}
+  .hero-bg{position:absolute;inset:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,9,8,.92) 0%,rgba(11,9,8,.7) 45%,rgba(11,9,8,.35) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 35%)}
+  .hero .wrap{position:relative;width:100%}
+  .hero .label{margin-bottom:26px}
+  .hero p.lead{max-width:520px;color:rgba(243,238,232,.78);font-size:19px;margin:34px 0 40px}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .stagger-1 { transition-delay: 0.1s; }
-    .stagger-2 { transition-delay: 0.2s; }
-    .stagger-3 { transition-delay: 0.3s; }
-    .stagger-4 { transition-delay: 0.4s; }
+  /* ticker */
+  .ticker{position:relative;z-index:5;margin-top:-70px;transform:rotate(-2deg);background:var(--accent);padding:14px 0;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+  .ticker-track{display:flex;gap:0;width:max-content;animation:tick 40s linear infinite}
+  .ticker span{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:20px;letter-spacing:-.01em;padding:0 22px;white-space:nowrap;color:#fff}
+  .ticker span.dot{padding:0;opacity:.6}
+  @keyframes tick{to{transform:translateX(-50%)}}
 
-    .hero-img {
-      animation: hero-zoom 20s ease-out forwards;
-    }
-    @keyframes hero-zoom {
-      from { transform: scale(1.08); }
-      to { transform: scale(1); }
-    }
+  /* beginners */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .split p{color:var(--muted);max-width:440px;margin:28px 0 34px}
+  .steps{list-style:none}
+  .steps li{display:flex;gap:28px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);font-size:19px}
+  .steps li:first-child{border-top:1px solid var(--line)}
+  .steps li.hl{color:var(--accent-hi)}
 
-    .photo-hover {
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
-    }
-    .photo-hover:hover {
-      transform: scale(1.02) translateY(-4px);
-      box-shadow: 0 20px 40px rgba(28, 20, 16, 0.15);
-    }
+  /* programs */
+  .head-row{display:flex;justify-content:space-between;align-items:end;gap:40px;padding-bottom:28px;margin-bottom:44px;border-bottom:1px solid var(--line)}
+  .head-row .label{color:var(--muted)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card .ph{aspect-ratio:4/3;overflow:hidden;background:var(--panel)}
+  .card .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25);transition:transform .6s,filter .4s}
+  .card:hover .ph img{transform:scale(1.04);filter:none}
+  .card .meta{padding:18px 0 0}
+  .card .meta .top{display:flex;gap:14px;align-items:baseline;margin-bottom:8px}
+  .card .meta p{color:var(--muted);font-size:15px;line-height:1.5}
 
-    .grain::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1;
-    }
-  </style>
+  /* statement */
+  .statement{background:var(--bg2)}
+  .statement .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;margin-top:56px}
+  .statement .cols p{color:var(--muted);font-size:18px}
+  .statement .quote{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:24px;line-height:1.05;letter-spacing:-.01em}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;border-top:1px solid var(--line)}
+  .stat{padding:32px 24px 0 0}
+  .stat + .stat{padding-left:24px;border-left:1px solid var(--line)}
+  .stat b{display:block;font-family:var(--display);font-weight:900;font-size:52px;letter-spacing:-.03em;line-height:1}
+  .stat b i{font-style:normal;color:var(--accent)}
+  .stat .label{color:var(--muted);font-size:12px;margin-top:10px;display:block}
+  .strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-top:0}
+  .strip img{width:100%;height:340px;object-fit:cover;filter:grayscale(.4)}
+
+  /* schedule */
+  .sched{width:100%;border-collapse:collapse}
+  .sched th{text-align:left;font-family:var(--label);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--muted);padding:0 16px 16px 0}
+  .sched td{padding:20px 16px 20px 0;border-top:1px solid var(--line);vertical-align:top}
+  .sched td.day{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:22px;width:110px;letter-spacing:-.01em}
+  .cls{display:block;font-weight:600}
+  .cls small{display:block;color:var(--muted);font-weight:400;font-size:14px}
+  .tag{display:inline-block;font-family:var(--label);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:2px 7px;margin-left:8px;vertical-align:2px;border:1px solid var(--accent);color:var(--accent-hi)}
+  .tag.g{border-color:var(--gold);color:var(--gold)}
+  .muted{color:var(--dim)}
+  .tabs{display:flex;gap:0;border:1px solid var(--line)}
+
+  /* team */
+  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .coach .ph{aspect-ratio:3/4;overflow:hidden;background:radial-gradient(circle at 50% 30%,#2a221d,#0f0c0a)}
+  .coach .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);transition:filter .4s}
+  .coach:hover .ph img{filter:grayscale(0)}
+  .coach h3{margin-top:16px;font-size:24px}
+  .coach .label{color:var(--accent-hi);font-size:12px;margin-top:6px;display:block}
+
+  /* pricing */
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .price{position:relative;border:1px solid var(--line);background:var(--bg2);padding:36px 32px 32px;display:flex;flex-direction:column}
+  .price.pop{border-color:var(--accent);background:linear-gradient(180deg,rgba(192,70,43,.12),var(--bg2) 60%)}
+  .price .flag{position:absolute;top:-1px;right:-1px;background:var(--accent);color:#fff;padding:6px 12px}
+  .price .label{color:var(--muted)}
+  .price b{font-family:var(--display);font-weight:900;font-size:58px;letter-spacing:-.04em;line-height:1;margin:18px 0 6px;display:block}
+  .price b sup{font-size:26px;vertical-align:22px;margin-right:2px}
+  .price p{color:var(--muted);font-size:15px;margin:10px 0 28px;flex:1}
+  .price .btn{align-self:flex-start}
+  .how{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:64px;padding-top:34px;border-top:1px solid var(--line)}
+  .how p{color:var(--muted);font-size:15px;margin-top:8px}
+
+  /* visit */
+  .visit{display:grid;grid-template-columns:1fr 1.2fr;gap:0;border:1px solid var(--line)}
+  .visit .info{padding:48px}
+  .visit dl{margin:36px 0 40px}
+  .visit dt{font-family:var(--label);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--accent-hi);margin-top:22px}
+  .visit dd{font-size:18px;margin-top:4px}
+  .visit iframe{width:100%;height:100%;min-height:440px;border:0;filter:grayscale(1) invert(.92) contrast(.9)}
+  .loc2{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* closer */
+  .closer{position:relative;padding:200px 0;text-align:center;overflow:hidden}
+  .closer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.5)}
+  .closer::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(11,9,8,.55),rgba(11,9,8,.92) 75%)}
+  .closer .wrap{position:relative;z-index:2}
+  .closer h2{font-size:clamp(56px,9vw,128px)}
+  .closer .ctas{display:flex;gap:14px;justify-content:center;margin-top:44px;flex-wrap:wrap}
+
+  footer{border-top:1px solid var(--line);padding:64px 0 36px;color:var(--muted);font-size:15px}
+
+  .menu-btn{display:none;background:none;border:0;color:var(--text);padding:8px;cursor:pointer}
+  .menu-btn svg{width:28px;height:28px}
+  #mobile-menu{position:fixed;inset:0;z-index:70;background:var(--bg);display:none;flex-direction:column;justify-content:center;padding:0 28px}
+  #mobile-menu.open{display:flex}
+  #mobile-menu a.m{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:44px;letter-spacing:-.03em;line-height:1.1}
+  #mobile-menu a.m:hover{color:var(--accent)}
+  #mobile-menu .btn{margin-top:36px;align-self:flex-start}
+  #menu-close{position:absolute;top:22px;right:18px}
+  .tabs button{background:none;border:0;cursor:pointer;font-family:var(--label);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:13px;padding:10px 18px;color:var(--muted)}
+  .tabs button[aria-selected="true"]{background:var(--text);color:var(--bg)}
+  footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:40px}
+  footer h4{font-family:var(--label);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:var(--text);margin-bottom:14px}
+  footer li{list-style:none;margin-bottom:6px}
+  footer a:hover{color:var(--text)}
+  footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:var(--dim)}
+  footer .logo{display:block;margin-bottom:12px;color:var(--text)}
+
+  @media (max-width:960px){
+    section{padding:84px 0}
+    .links,nav .btn{display:none}
+    .menu-btn{display:block}
+    footer .cols{grid-template-columns:1fr;gap:32px}
+    .split,.statement .cols,.visit{grid-template-columns:1fr;gap:48px}
+    .grid3,.prices{grid-template-columns:1fr 1fr}
+    .team{grid-template-columns:1fr 1fr}
+    .stats,.how{grid-template-columns:1fr 1fr}
+    .stat:nth-child(3){padding-left:0;border-left:0}
+    .strip{grid-template-columns:1fr 1fr}.strip img:first-child{grid-column:1/-1}
+    .head-row{flex-direction:column;align-items:start}
+    .sched td.day{width:70px;font-size:18px}
+    .visit .info{padding:32px 24px}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 16px}
+    .grid3,.prices{grid-template-columns:1fr}
+    .sched .eve-h,.sched .eve{display:block}
+    .sched thead{display:none}
+    .sched tr{display:block;border-top:1px solid var(--line);padding:16px 0}
+    .sched td{display:block;border:0;padding:4px 0}
+  }
+</style>
 </head>
-<body class="font-body text-warm-dark bg-cream">
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-warm-dark/95 backdrop-blur-md">
-  <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="flex items-center justify-between h-20">
-      <a href="/" class="font-display font-bold text-2xl tracking-tight text-cream transition-colors duration-300">
-        KMA
-      </a>
+<body>
 
-      
-      <div class="hidden md:flex items-center gap-10">
-        <a href="/schedule/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          Schedule
-        </a>
-        <a href="/rates/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          Rates
-        </a>
-        <a href="/ranks/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          Ranks
-        </a>
-        <a href="/about/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          About
-        </a>
-        <a href="/contact/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">
-          Contact
-        </a>
-        <a href="/locations/wack-wack/" class="text-cream/70 hover:text-gold text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300">Wack Wack</a>
-        <a href="/contact/" class="bg-terracotta hover:bg-terracotta-light text-cream px-6 py-2.5 rounded-sm text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-300 hover:shadow-lg hover:shadow-terracotta/20">
-          Train with us
-        </a>
-      </div>
-
-      
-      <button id="menu-toggle" class="md:hidden text-cream p-2" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
+<nav id="nav">
+  <div class="wrap">
+    <a href="/" class="logo">KMA<span>.</span></a>
+    <div class="links">
+      <a href="/schedule/">Schedule</a><a href="/rates/">Rates</a><a href="/ranks/">Ranks</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/locations/wack-wack/">Wack Wack</a>
     </div>
-  </nav>
+    <a href="/contact/" class="btn btn-red">Start training</a>
+    <button class="menu-btn" id="menu-toggle" aria-label="Open menu"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+
+<div id="mobile-menu" aria-hidden="true">
+  <button class="menu-btn" id="menu-close" aria-label="Close menu" style="display:block"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg></button>
+  <a class="m" href="/schedule/">Schedule</a>
+  <a class="m" href="/rates/">Rates</a>
+  <a class="m" href="/ranks/">Ranks</a>
+  <a class="m" href="/about/">About</a>
+  <a class="m" href="/contact/">Contact</a>
+  <a class="m" href="/locations/wack-wack/">Wack Wack</a>
+  <a href="/contact/" class="btn btn-red">Start training</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"><img src="/images/openmat-christmas-2025.JPG" alt=""></div>
+  <div class="wrap">
+    <p class="label kicker">Team Fabricio BJJ &nbsp;·&nbsp; Salcedo Village, Makati</p>
+    <h1>Train hard.<br><span class="red">Roll easy.</span><br>Makati.</h1>
+    <p class="lead">Brazilian Jiu Jitsu, Muay Thai, Judo and Boxing under one roof. Beginners train next to black belts &mdash; and everyone is welcome on day one.</p>
+    <div class="ctas">
+      <a href="/contact/" class="btn btn-red">Start training</a>
+      <a href="#schedule" class="btn btn-line">View schedule &nbsp;&rsaquo;&rsaquo;&rsaquo;</a>
+    </div>
+  </div>
 </header>
 
-  <main>
-    
-
-
-<section class="relative min-h-screen flex items-end overflow-hidden grain">
-  <div class="absolute inset-0">
-    <img src="/images/openmat-christmas-2025.JPG" alt="KMA Fitness open mat" class="w-full h-full object-cover hero-img">
-    <div class="absolute inset-0 bg-gradient-to-t from-warm-dark via-warm-dark/50 to-warm-dark/20"></div>
-    <div class="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-warm-dark/60 to-transparent"></div>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <!-- duplicated once for a seamless loop -->
+    <span>Gi</span><span class="dot">•</span><span>No-Gi</span><span class="dot">•</span><span>Muay Thai</span><span class="dot">•</span><span>Judo</span><span class="dot">•</span><span>Boxing</span><span class="dot">•</span><span>Kids</span><span class="dot">•</span><span>Open Mat</span><span class="dot">•</span><span>Beginners welcome</span><span class="dot">•</span><span>Makati</span><span class="dot">•</span><span>Wack Wack</span><span class="dot">•</span>
+    <span>Gi</span><span class="dot">•</span><span>No-Gi</span><span class="dot">•</span><span>Muay Thai</span><span class="dot">•</span><span>Judo</span><span class="dot">•</span><span>Boxing</span><span class="dot">•</span><span>Kids</span><span class="dot">•</span><span>Open Mat</span><span class="dot">•</span><span>Beginners welcome</span><span class="dot">•</span><span>Makati</span><span class="dot">•</span><span>Wack Wack</span><span class="dot">•</span>
   </div>
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-20 pt-40">
-    <p class="text-gold font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">KMA Fitness & Martial Arts — Makati, Philippines</p>
-    <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-cream leading-[0.95] mb-6 max-w-4xl">
-      Train<br>with us
-    </h1>
-    <p class="text-xl sm:text-2xl text-cream/70 mb-10 max-w-xl leading-relaxed">
-      Brazilian Jiu Jitsu, Muay Thai, Judo & more — in the heart of Salcedo Village.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4">
-      <a href="/contact/" class="bg-terracotta hover:bg-terracotta-light text-cream px-8 py-4 rounded-sm text-base font-display font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-xl hover:shadow-terracotta/25 text-center">
-        Start training
-      </a>
-      <a href="/schedule/" class="border-2 border-cream/30 hover:border-gold text-cream hover:text-gold px-8 py-4 rounded-sm text-base font-display font-bold uppercase tracking-[0.1em] transition-all duration-300 text-center">
-        View schedule
-      </a>
+</div>
+
+<!-- BEGINNERS -->
+<section id="beginners">
+  <div class="wrap split">
+    <div>
+      <h2>First time<br>on the mat?<br><span class="red">Good.</span></h2>
+      <p>Most of our black belts started out not knowing what a guard was. Beginner classes run twice a week, and every coach will make sure you're paired with someone who looks after you.</p>
+      <a href="/contact/" class="btn btn-red">Book a first class</a>
+    </div>
+    <ol class="steps">
+      <li><span class="num">01</span>You don't need any experience.</li>
+      <li><span class="num">02</span>You don't need to get fit first.</li>
+      <li><span class="num">03</span>Beginners: Mon &amp; Wed, 19:00.</li>
+      <li class="hl"><span class="num">04</span>Bring water. Show up 10 minutes early.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" style="padding-top:0">
+  <div class="wrap">
+    <div class="head-row"><h2>Pick your<br>discipline</h2><span class="label">Six programs &middot; one membership</span></div>
+    <div class="grid3">
+      <a class="card" href="/programs/bjj/"><div class="ph"><img src="/images/showcase_bjj.jpg" alt=""></div><div class="meta"><div class="top"><span class="num">01</span><h3>Brazilian Jiu Jitsu</h3></div><p>Gi and No-Gi, noon and evening, beginners to black belts. Our core since day one.</p></div></a>
+      <a class="card" href="/programs/muay-thai/"><div class="ph"><img src="/images/showcase_muaythai.jpg" alt=""></div><div class="meta"><div class="top"><span class="num">02</span><h3>Muay Thai</h3></div><p>Striking, clinch and conditioning. One-on-one sessions daily, 7am to 8:30pm.</p></div></a>
+      <a class="card" href="/programs/judo/"><div class="ph"><img src="/images/showcase_judo.jpg" alt=""></div><div class="meta"><div class="top"><span class="num">03</span><h3>Judo</h3></div><p>Throws and groundwork. Tue &amp; Thu evenings, long Saturday session.</p></div></a>
+      <a class="card" href="/programs/boxing/"><div class="ph"><img src="/images/showcase_boxing2.jpg" alt=""></div><div class="meta"><div class="top"><span class="num">04</span><h3>Boxing</h3></div><p>Footwork, combinations, pad work. Private coaching available every day.</p></div></a>
+      <a class="card" href="/programs/taekwondo/"><div class="ph"><img src="/images/Taekwondo.jpg" alt=""></div><div class="meta"><div class="top"><span class="num">05</span><h3>Taekwondo</h3></div><p>Traditional Korean striking, forms and sparring for adults and kids.</p></div></a>
+      <a class="card" href="/programs/self-defence/"><div class="ph"><img src="/images/selfdefense.jpg" alt=""></div><div class="meta"><div class="top"><span class="num">06</span><h3>Self-Defence</h3></div><p>Practical self-protection drawn from BJJ, Muay Thai and Judo.</p></div></a>
     </div>
   </div>
 </section>
 
+<!-- STATEMENT + STATS -->
+<section class="statement">
+  <div class="wrap">
+    <h2>Serious mats.<br><span class="red">Friendly room.</span></h2>
+    <div class="cols">
+      <p>Nobody here is trying to win the warm-up. You'll learn the names of the people you train with, the black belts will answer your questions, and the person who just tapped you will happily show you how they did it.</p>
+      <p class="quote">Part of the Team Fabricio family &mdash; <span class="red">from Makati to the whole Philippines.</span></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20<i>+</i></b><span class="label">Group classes a week</span></div>
+      <div class="stat"><b>40<i>+</i></b><span class="label">Black belts in the family</span></div>
+      <div class="stat"><b>6</b><span class="label">Disciplines</span></div>
+      <div class="stat"><b>2</b><span class="label">Locations</span></div>
+    </div>
+  </div>
+</section>
+<div class="strip">
+  <img src="/images/noon%20class%20mixed.jpg" alt="">
+  <img src="/images/Nogi%20tuesday%20night.JPG" alt="">
+  <img src="/images/stephen-coaching.jpg" alt="" style="object-position:50% 30%">
+</div>
 
-<section class="py-24 bg-cream relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-5 fade-up">
-        <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">More than a gym</p>
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-warm-dark leading-tight mb-6">
-          A community that trains together
-        </h2>
-        <p class="text-warm-gray text-lg leading-relaxed mb-6">
-          From your first class to your first competition — KMA is where friendships are forged on the mats. Beginners train alongside black belts. Everyone is welcome.
-        </p>
-        <a href="/about/" class="inline-flex items-center gap-2 text-terracotta font-display font-semibold hover:text-terracotta-light transition-colors group">
-          Meet the team
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-      <div class="lg:col-span-7">
-        <div class="grid grid-cols-12 grid-rows-2 gap-3 h-[420px] sm:h-[500px]">
-          <div class="col-span-7 row-span-2 rounded-lg overflow-hidden photo-hover fade-up stagger-1">
-            <img src="/images/Nogi%20and%20Gi%20noon%20class.JPG" alt="Gi and No-Gi noon class at KMA" class="w-full h-full object-cover">
-          </div>
-          <div class="col-span-5 row-span-1 rounded-lg overflow-hidden photo-hover fade-up stagger-2">
-            <img src="/images/Nogi%20tuesday%20night.JPG" alt="No-Gi Tuesday night class" class="w-full h-full object-cover">
-          </div>
-          <div class="col-span-5 row-span-1 rounded-lg overflow-hidden photo-hover fade-up stagger-3">
-            <img src="/images/KMA%20Christmas%20Party%202025.JPG" alt="KMA Christmas Party 2025" class="w-full h-full object-cover">
-          </div>
-        </div>
-      </div>
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="head-row">
+      <h2>On the mat<br>this week</h2>
+      <div class="tabs" role="tablist" aria-label="Schedule type"><button type="button" role="tab" data-home-tab="grappling" aria-selected="true">Grappling</button><button type="button" role="tab" data-home-tab="striking" aria-selected="false">Striking</button></div>
+    </div>
+    <!-- Generated by scripts/build_schedule.py from data/schedule.json (Makati classes only) -->
+    <!-- HOME:SCHEDULE:START -->
+<div data-home-panel="grappling" role="tabpanel"><table class="sched"><thead><tr><th></th><th>Daytime</th><th>Evening</th></tr></thead><tbody><tr><td class="day">Mon</td><td><span class="cls">BJJ Gi<small>12:45–14:00 · Ziggy</small></span></td><td><span class="cls">BJJ Gi Beginners <span class="tag">Beginners</span><small>19:00–21:00 · Luan</small></span></td></tr><tr><td class="day">Tue</td><td><span class="cls">BJJ No Gi<small>12:30–14:00 · Brendo</small></span></td><td><span class="cls">Judo — All ages <span class="tag g">Judo</span><small>17:30–19:00 · Estie</small></span><span class="cls">BJJ No Gi<small>19:00–21:00 · Ken</small></span></td></tr><tr><td class="day">Wed</td><td><span class="cls">BJJ Gi &amp; No Gi<small>12:45–14:00 · Ziggy &amp; Brendo</small></span></td><td><span class="cls">BJJ No Gi Beginners <span class="tag">Beginners</span><small>19:00–21:00 · Ken</small></span></td></tr><tr><td class="day">Thu</td><td><span class="cls">BJJ No Gi<small>12:30–14:00 · Brendo</small></span></td><td><span class="cls">Judo — All ages <span class="tag g">Judo</span><small>17:30–19:00 · Estie</small></span><span class="cls">BJJ No Gi<small>19:00–21:00 · Ken</small></span></td></tr><tr><td class="day">Fri</td><td><span class="cls">BJJ - Gi<small>12:45–14:00 · Ziggy</small></span></td><td><span class="cls">BJJ Open Mat<small>19:00–21:00</small></span></td></tr><tr><td class="day">Sat</td><td><span class="cls">BJJ Fundimentals<small>08:00–10:00 · Luan</small></span><span class="cls">BJJ Kids - All ages <span class="tag">Kids</span><small>10:00–11:30 · Luan</small></span><span class="cls">Judo — All ages <span class="tag g">Judo</span><small>14:00–15:30 · Estie</small></span></td><td><span class="muted">&mdash;</span></td></tr><tr><td class="day">Sun</td><td><span class="cls">BJJ Kids — All ages <span class="tag">Kids</span><small>10:00–11:30 · Luan</small></span><span class="cls">Judo — All ages <span class="tag g">Judo</span><small>14:00–15:30 · Estie</small></span></td><td><span class="muted">&mdash;</span></td></tr></tbody></table></div>
+<div data-home-panel="striking" role="tabpanel" hidden><table class="sched"><thead><tr><th></th><th>Classes</th></tr></thead><tbody><tr><td class="day">Mon</td><td><span class="cls">Muay Thai / Boxing <span class="tag g">1-on-1</span><small>07:00–20:30</small></span></td></tr><tr><td class="day">Tue</td><td><span class="cls">Muay Thai / Boxing <span class="tag g">1-on-1</span><small>07:00–20:30</small></span></td></tr><tr><td class="day">Wed</td><td><span class="cls">Muay Thai / Boxing <span class="tag g">1-on-1</span><small>07:00–20:30</small></span></td></tr><tr><td class="day">Thu</td><td><span class="cls">Muay Thai / Boxing <span class="tag g">1-on-1</span><small>07:00–20:30</small></span></td></tr><tr><td class="day">Fri</td><td><span class="cls">Muay Thai / Boxing <span class="tag g">1-on-1</span><small>07:00–20:30</small></span></td></tr><tr><td class="day">Sat</td><td><span class="cls">Muay Thai / Boxing <span class="tag g">1-on-1</span><small>07:00–19:00</small></span></td></tr><tr><td class="day">Sun</td><td><span class="cls">Muay Thai / Boxing <span class="tag g">1-on-1</span><small>08:00–16:30 · Bernie</small></span><span class="cls">Karate<small>12:30–14:00 · Ric</small></span></td></tr></tbody></table></div>
+    <!-- HOME:SCHEDULE:END -->
+    <p style="margin-top:34px"><a href="/schedule/" class="btn btn-line">Full timetable incl. Wack Wack &nbsp;&rsaquo;&rsaquo;&rsaquo;</a></p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="statement">
+  <div class="wrap">
+    <div class="head-row"><h2>The coaches</h2><span class="label">The people who'll teach you</span></div>
+    <div class="team">
+      <a class="coach" href="/coaches/stephen-kamphuis/"><div class="ph"><img src="/images/stephen-kamphuis.webp" alt=""></div><h3>Stephen</h3><span class="label">Head instructor · 5th° black</span></a>
+      <a class="coach" href="/coaches/ziggy-roces/"><div class="ph"><img src="/images/ziggy-roces.webp" alt=""></div><h3>Ziggy</h3><span class="label">BJJ black belt · Gi noon</span></a>
+      <a class="coach" href="/coaches/brendo-pudan/"><div class="ph"><img src="/images/brendo-pudan.webp" alt=""></div><h3>Brendo</h3><span class="label">BJJ black belt · No-Gi noon</span></a>
+      <a class="coach" href="/coaches/ken-menia/"><div class="ph"><img src="/images/ken-menia.webp" alt=""></div><h3>Ken</h3><span class="label">BJJ black belt · No-Gi evening</span></a>
+      <a class="coach" href="/coaches/godwin-langbayan/"><div class="ph"><img src="/images/godwin-langbayan.webp" alt=""></div><h3>Godwin</h3><span class="label">BJJ black belt · Fundamentals</span></a>
+      <a class="coach" href="/coaches/estie-liwanen/"><div class="ph"><img src="/images/estie-liwanen.webp" alt=""></div><h3>Estie</h3><span class="label">Judo</span></a>
+      <a class="coach" href="/coaches/mariane-mariano/"><div class="ph"><img src="/images/mariane-mariano.webp" alt=""></div><h3>Mariane</h3><span class="label">Coach</span></a>
+      <a class="coach" href="/about/"><div class="ph" style="display:flex;align-items:end;padding:22px"><h3 style="font-size:34px;line-height:.9">Meet<br>the whole<br><span class="red">team &rsaquo;</span></h3></div></a>
     </div>
   </div>
 </section>
 
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="head-row"><h2>Simple<br>pricing.</h2><span class="label" style="max-width:340px;letter-spacing:.08em;text-transform:none;font-family:var(--body);font-weight:400;font-size:16px">One sign-up covers every program at KMA. Pick a pack or go monthly &mdash; <a href="/rates/" style="color:var(--accent-hi)">all rates &rsaquo;</a></span></div>
+    <!-- Generated by scripts/build_rates.py from data/rates.json -->
+    <!-- HOME:RATES:START -->
+<div class="prices"><div class="price"><span class="label">BJJ</span><b><sup>₱</sup>2,000</b><span class="label" style="color:var(--text)">4-Session Pack</span><p>4 classes across BJJ, Judo, Muay Thai or Boxing. Expires 30 days from purchase.</p><a href="/contact/" class="btn btn-line">Sign up</a></div><div class="price pop"><span class="flag label">Most popular</span><span class="label">BJJ</span><b><sup>₱</sup>3,500</b><span class="label" style="color:var(--text)">Adults Monthly BJJ</span><p>Unlimited group BJJ classes all month.</p><a href="/contact/" class="btn btn-red">Sign up</a></div><div class="price"><span class="label">BJJ</span><b><sup>₱</sup>3,000</b><span class="label" style="color:var(--text)">Kids U14</span><p>8 youth BJJ sessions for under-14s.</p><a href="/contact/" class="btn btn-line">Sign up</a></div></div><div class="how"><div><span class="num">01 — Message us</span><p>Text 0917 824 2420 or drop by the front desk.</p></div><div><span class="num">02 — Sign up once</span><p>₱1,950 registration, covers every program.</p></div><div><span class="num">03 — Show up</span><p>Wear sportswear. Arrive 10 minutes early.</p></div><div><span class="num">04 — Roll</span><p>Your coach takes it from there.</p></div></div>
+    <!-- HOME:RATES:END -->
+  </div>
+</section>
 
-<section class="py-24 bg-warm-light relative grain">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="text-center mb-16 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Disciplines</p>
-      <h2 class="font-display text-4xl sm:text-5xl font-bold text-warm-dark">What we teach</h2>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-      <a href="/programs/bjj/" class="group relative rounded-lg overflow-hidden photo-hover fade-up stagger-1 block" style="aspect-ratio: 3/4;">
-        <img src="/images/showcase_bjj.jpg" alt="Brazilian Jiu Jitsu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-warm-dark/90 via-warm-dark/20 to-transparent"></div>
-        <div class="absolute bottom-0 p-6">
-          <h3 class="text-cream font-display font-bold text-2xl mb-2">Brazilian Jiu Jitsu</h3>
-          <p class="text-cream/60 text-sm leading-relaxed">Gi & No-Gi classes for all levels. Our core program since day one.</p>
+<!-- VISIT -->
+<section id="visit" style="padding-top:0">
+  <div class="wrap">
+    <div class="visit">
+      <div class="info">
+        <h2>Find<br><span class="red">the mats.</span></h2>
+        <dl>
+          <dt>Makati</dt><dd>Ground Floor Le Domaine, Tordesillas St,<br>Salcedo Village — next to Solar Sport Building</dd>
+          <dt>Hours</dt><dd>Mon–Fri 7am–9pm · Sat 7am–7pm · Sun 8am–5pm</dd>
+          <dt>Call / text</dt><dd>(02) 8551-4449 · 0917 824 2420</dd>
+        </dl>
+        <div class="loc2">
+          <a href="/contact/" class="btn btn-red">Message us</a>
+          <a href="/locations/wack-wack/" class="btn btn-line">Wack Wack location &rsaquo;</a>
         </div>
-      </a>
-
-      
-      <a href="/programs/muay-thai/" class="group relative rounded-lg overflow-hidden photo-hover fade-up stagger-2 block" style="aspect-ratio: 3/4;">
-        <img src="/images/showcase_muaythai.jpg" alt="Muay Thai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-warm-dark/90 via-warm-dark/20 to-transparent"></div>
-        <div class="absolute bottom-0 p-6">
-          <h3 class="text-cream font-display font-bold text-2xl mb-2">Muay Thai</h3>
-          <p class="text-cream/60 text-sm leading-relaxed">Striking, clinch work, and conditioning. Private and group sessions.</p>
-        </div>
-      </a>
-
-      
-      <a href="/programs/judo/" class="group relative rounded-lg overflow-hidden photo-hover fade-up stagger-3 block" style="aspect-ratio: 3/4;">
-        <img src="/images/showcase_judo.jpg" alt="Judo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-warm-dark/90 via-warm-dark/20 to-transparent"></div>
-        <div class="absolute bottom-0 p-6">
-          <h3 class="text-cream font-display font-bold text-2xl mb-2">Judo</h3>
-          <p class="text-cream/60 text-sm leading-relaxed">Throws and groundwork. Weekend sessions for all levels.</p>
-        </div>
-      </a>
-
-      
-      <a href="/programs/boxing/" class="group relative rounded-lg overflow-hidden photo-hover fade-up stagger-4 block" style="aspect-ratio: 3/4;">
-        <img src="/images/showcase_boxing2.jpg" alt="Boxing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-warm-dark/90 via-warm-dark/20 to-transparent"></div>
-        <div class="absolute bottom-0 p-6">
-          <h3 class="text-cream font-display font-bold text-2xl mb-2">Boxing</h3>
-          <p class="text-cream/60 text-sm leading-relaxed">Fundamentals to advanced. One-on-one sessions available daily.</p>
-        </div>
-      </a>
-
-
-      <a href="/programs/taekwondo/" class="group relative rounded-lg overflow-hidden photo-hover fade-up stagger-4 block" style="aspect-ratio: 3/4;">
-        <img src="/images/Taekwondo.jpg" alt="Taekwondo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-warm-dark/90 via-warm-dark/20 to-transparent"></div>
-        <div class="absolute bottom-0 p-6">
-          <h3 class="text-cream font-display font-bold text-2xl mb-2">Taekwondo</h3>
-          <p class="text-cream/60 text-sm leading-relaxed">Traditional Korean striking, forms, and sparring. Adults and kids welcome.</p>
-        </div>
-      </a>
-
-
-      <a href="/programs/self-defence/" class="group relative rounded-lg overflow-hidden photo-hover fade-up stagger-4 block" style="aspect-ratio: 3/4;">
-        <img src="/images/selfdefense.jpg" alt="Self-Defence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-warm-dark/90 via-warm-dark/20 to-transparent"></div>
-        <div class="absolute bottom-0 p-6">
-          <h3 class="text-cream font-display font-bold text-2xl mb-2">Self-Defence</h3>
-          <p class="text-cream/60 text-sm leading-relaxed">Practical self-protection drawn from BJJ, Muay Thai, and Judo.</p>
-        </div>
-      </a>
+      </div>
+      <iframe src="https://maps.google.com/maps?q=KMA+Fitness+and+Martial+Arts+Makati&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map"></iframe>
     </div>
   </div>
 </section>
 
-
-<section class="py-24 bg-cream">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="text-center mb-16 fade-up">
-      <p class="text-terracotta font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Schedule</p>
-      <h2 class="font-display text-4xl sm:text-5xl font-bold text-warm-dark mb-3">When to train</h2>
-      <p class="text-warm-gray text-lg">Le Domaine, Tordesillas St, Salcedo Village</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      
-      <div class="bg-surface rounded-lg p-8 shadow-sm border border-warm-light fade-up stagger-1">
-        <div class="w-12 h-12 bg-terracotta/10 rounded-full flex items-center justify-center mb-5">
-          <span class="text-terracotta font-display font-bold text-lg">BJJ</span>
-        </div>
-        <h3 class="font-display font-bold text-warm-dark text-xl mb-4">Brazilian Jiu Jitsu</h3>
-        <ul class="space-y-3 text-warm-gray text-sm">
-          <li class="flex justify-between">
-            <span>Noon classes</span>
-            <span class="text-warm-dark font-medium">Mon–Fri 12:30–14:00</span>
-          </li>
-          <li class="flex justify-between">
-            <span>Evening classes</span>
-            <span class="text-warm-dark font-medium">Mon–Thu 19:00–21:00</span>
-          </li>
-          <li class="flex justify-between">
-            <span>Beginners</span>
-            <span class="text-warm-dark font-medium">Mon & Wed 19:00</span>
-          </li>
-          <li class="flex justify-between">
-            <span>Open Mat</span>
-            <span class="text-warm-dark font-medium">Fri & Sat</span>
-          </li>
-        </ul>
-      </div>
-
-      
-      <div class="bg-surface rounded-lg p-8 shadow-sm border border-warm-light fade-up stagger-2">
-        <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-5">
-          <span class="text-gold font-display font-bold text-lg">MT</span>
-        </div>
-        <h3 class="font-display font-bold text-warm-dark text-xl mb-4">Muay Thai & Boxing</h3>
-        <ul class="space-y-3 text-warm-gray text-sm">
-          <li class="flex justify-between">
-            <span>Private 1-on-1</span>
-            <span class="text-warm-dark font-medium">Daily, all day</span>
-          </li>
-          <li class="flex justify-between">
-            <span>Group class</span>
-            <span class="text-warm-dark font-medium">Thu 19:00–20:15</span>
-          </li>
-        </ul>
-      </div>
-
-      
-      <div class="bg-surface rounded-lg p-8 shadow-sm border border-warm-light fade-up stagger-3">
-        <div class="w-12 h-12 bg-warm-dark/5 rounded-full flex items-center justify-center mb-5">
-          <span class="text-warm-dark font-display font-bold text-lg">JD</span>
-        </div>
-        <h3 class="font-display font-bold text-warm-dark text-xl mb-4">Judo</h3>
-        <ul class="space-y-3 text-warm-gray text-sm">
-          <li class="flex justify-between">
-            <span>Adults</span>
-            <span class="text-warm-dark font-medium">Sat & Sun 16:00–17:30</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="text-center fade-up">
-      <a href="/schedule/" class="inline-flex items-center gap-2 bg-warm-dark hover:bg-warm-mid text-cream px-8 py-4 rounded-sm font-display font-bold uppercase tracking-[0.1em] text-sm transition-all duration-300 group">
-        Full weekly schedule
-        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      </a>
-    </div>
+<!-- CLOSER -->
+<section class="closer">
+  <img src="/images/KMA%20Christmas%20Party%202025.JPG" alt="">
+  <div class="wrap">
+    <p class="label kicker" style="margin-bottom:22px">Your first class is the hardest one to show up to</p>
+    <h2>So just<br><span class="red">show up.</span></h2>
+    <div class="ctas"><a href="/contact/" class="btn btn-red">Start training</a><a href="/schedule/" class="btn btn-line">View schedule</a></div>
   </div>
 </section>
 
-
-<section class="py-24 bg-warm-dark text-cream relative grain">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="fade-up">
-        <p class="text-gold font-display font-semibold text-sm uppercase tracking-[0.2em] mb-4">Location</p>
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-cream leading-tight mb-8">Find us</h2>
-
-        <div class="space-y-6 text-cream/70">
-          <div class="flex items-start gap-4">
-            <svg class="w-5 h-5 text-gold mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <div>
-              <p class="text-cream font-medium">Ground Floor Le Domaine, Tordesillas St, Salcedo Village, Makati City</p>
-              <p class="text-sm mt-1">Next to Solar Sport Building</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <svg class="w-5 h-5 text-gold mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            <div>
-              <p class="text-cream font-medium">(02) 8551-4449</p>
-              <p class="text-sm mt-1">Text: 0917 824 2420</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <svg class="w-5 h-5 text-gold mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <div>
-              <p class="text-cream font-medium">Mon–Fri: 7am–9pm</p>
-              <p class="text-sm">Sat: 7am–7pm &middot; Sun: 8am–5pm</p>
-            </div>
-          </div>
-        </div>
-
-        <a href="/contact/" class="inline-block mt-10 bg-terracotta hover:bg-terracotta-light text-cream px-8 py-4 rounded-sm font-display font-bold uppercase tracking-[0.1em] text-sm transition-all duration-300 hover:shadow-xl hover:shadow-terracotta/25">
-          Train with us
-        </a>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a href="/" class="logo">KMA<span class="red">.</span></a>
+        <p style="max-width:380px">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo and more. Part of the international Team Fabricio BJJ family.</p>
+        <p style="margin-top:16px"><a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="label" style="color:var(--accent-hi)">Facebook &rsaquo;</a></p>
       </div>
-
-      <div class="rounded-lg overflow-hidden h-80 lg:h-[440px] fade-up stagger-2">
-        <iframe
-          src="https://maps.google.com/maps?q=KMA+Fitness+and+Martial+Arts+Makati&output=embed"
-          width="100%" height="100%" style="border:0; filter: grayscale(30%) contrast(1.05);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  </main>
-  <footer class="bg-warm-dark text-cream/60 relative grain">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
-      
-      <div class="md:col-span-5">
-        <h3 class="font-display font-bold text-cream text-2xl mb-4">KMA Fitness &<br>Martial Arts</h3>
-        <p class="text-sm leading-relaxed max-w-sm">Makati's home for Brazilian Jiu Jitsu, Muay Thai, Judo, and more. Part of the international Team Fabricio BJJ family.</p>
-        <div class="mt-6">
-          <a href="https://www.facebook.com/pages/KMA-Fitness-Martial-Arts/250938388275949" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cream/40 hover:text-gold transition-colors duration-300 text-sm">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Follow us on Facebook
-          </a>
-        </div>
-      </div>
-
-      
-      <div class="md:col-span-4">
-        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Contact</h4>
-        <ul class="space-y-3 text-sm">
+      <div>
+        <h4>Contact</h4>
+        <ul>
           <li>Ground Floor Le Domaine, Tordesillas St, Salcedo Village, Makati City</li>
           <li>(02) 8551-4449</li>
           <li>Text: 0917 824 2420</li>
-          <li>
-            <a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors duration-300">mail@bjjphilippines.com</a>
-          </li>
+          <li><a href="mailto:mail@bjjphilippines.com">mail@bjjphilippines.com</a></li>
         </ul>
       </div>
-
-      
-      <div class="md:col-span-3">
-        <h4 class="font-display font-semibold text-cream text-sm uppercase tracking-[0.15em] mb-5">Gym Hours</h4>
-        <ul class="space-y-3 text-sm">
-          <li>Mon–Fri: 7am–9pm</li>
-          <li>Sat: 7am–7pm</li>
-          <li>Sun: 8am–5pm</li>
-        </ul>
+      <div>
+        <h4>Gym hours</h4>
+        <ul><li>Mon–Fri: 7am–9pm</li><li>Sat: 7am–7pm</li><li>Sun: 8am–5pm</li></ul>
       </div>
     </div>
-
-    <div class="border-t border-cream/8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream/30">
-      <span>&copy; 2026 KMA Fitness & Martial Arts &middot; <a href="https://github.com/chrisnatterer/bjjphilippines.com/commit/dev" class="font-mono hover:text-cream/60 transition-colors" target="_blank" rel="noopener">dev</a></span>
-      <div class="flex gap-6">
-        <a href="/schedule/" class="hover:text-cream/60 transition-colors">Schedule</a>
-        <a href="/about/" class="hover:text-cream/60 transition-colors">About</a>
-        <a href="/contact/" class="hover:text-cream/60 transition-colors">Contact</a>
-      </div>
+    <div class="bottom">
+      <span>&copy; 2026 KMA Fitness &amp; Martial Arts &middot; <a href="https://github.com/chrisnatterer/bjjphilippines.com/commit/dev" target="_blank" rel="noopener">dev</a></span>
+      <span><a href="/schedule/">Schedule</a> &nbsp;·&nbsp; <a href="/rates/">Rates</a> &nbsp;·&nbsp; <a href="/about/">About</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></span>
     </div>
   </div>
 </footer>
 
-  
-<div id="mobile-menu" class="fixed inset-0 z-[60] bg-warm-dark hidden flex-col items-center justify-center">
-  <button id="menu-close" class="absolute top-6 right-5 text-cream p-2" aria-label="Close menu">
-    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
-    </svg>
-  </button>
-
-  <nav class="flex flex-col items-center gap-8">
-    <a href="/schedule/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
-      Schedule
-    </a>
-    <a href="/ranks/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
-      Ranks
-    </a>
-    <a href="/about/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
-      About
-    </a>
-    <a href="/contact/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">
-      Contact
-    </a>
-    <a href="/locations/wack-wack/" class="text-cream text-3xl font-display font-bold tracking-tight hover:text-gold transition-colors mobile-link">Wack Wack</a>
-    <a href="/contact/" class="mt-6 bg-terracotta hover:bg-terracotta-light text-cream px-10 py-4 rounded-sm text-lg font-display font-bold uppercase tracking-[0.1em] transition-colors mobile-link">
-      Train with us
-    </a>
-  </nav>
-
-  <div class="absolute bottom-10 text-cream/30 text-sm">
-    <a href="mailto:mail@bjjphilippines.com" class="hover:text-gold transition-colors">mail@bjjphilippines.com</a>
-  </div>
-</div>
 
 <script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuClose = document.getElementById('menu-close');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), { passive: true });
 
-  function openMenu() {
-    mobileMenu.classList.remove('hidden');
-    mobileMenu.classList.add('flex');
-    document.body.classList.add('overflow-hidden');
-  }
-  function closeMenu() {
-    mobileMenu.classList.add('hidden');
-    mobileMenu.classList.remove('flex');
-    document.body.classList.remove('overflow-hidden');
-  }
+  const menu = document.getElementById('mobile-menu');
+  const setMenu = open => { menu.classList.toggle('open', open); menu.setAttribute('aria-hidden', !open); document.body.style.overflow = open ? 'hidden' : ''; };
+  document.getElementById('menu-toggle').addEventListener('click', () => setMenu(true));
+  document.getElementById('menu-close').addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
-  menuToggle.addEventListener('click', openMenu);
-  menuClose.addEventListener('click', closeMenu);
-  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+  // Homepage schedule: Grappling / Striking tabs
+  const tabs = document.querySelectorAll('[data-home-tab]');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.setAttribute('aria-selected', x === t));
+    document.querySelectorAll('[data-home-panel]').forEach(p => p.hidden = p.dataset.homePanel !== t.dataset.homeTab);
+  }));
 </script>
-
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>

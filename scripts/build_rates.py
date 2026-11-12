@@ -151,11 +151,55 @@ def replace_region(html: str, body: str) -> str:
     return pat.sub(f"{start}\n{body}\n<!-- RATES:END -->", html)
 
 
+# ---------------------------------------------------------------------------
+# Homepage pricing teaser: the BJJ cards (in sheet order) + the 4-step "how to
+# join" row, which quotes the Membership sign-up fee. Everything else is on /rates/.
+# ---------------------------------------------------------------------------
+HOME = ROOT / "index.html"
+HOME_SECTION = "BJJ"
+
+
+def home_card(c: dict) -> str:
+    plan, desc, price = esc(c["plan"]), esc(c["description"]), fmt_price(c["price"])
+    m = re.match(r"₱([\d,.]+)$", price)
+    big = f"<sup>₱</sup>{m.group(1)}" if m else price
+    pop = c.get("popular")
+    cls = "price pop" if pop else "price"
+    flag = '<span class="flag label">Most popular</span>' if pop else ""
+    btn = "btn btn-red" if pop else "btn btn-line"
+    return (f'<div class="{cls}">{flag}<span class="label">{esc(HOME_SECTION)}</span><b>{big}</b>'
+            f'<span class="label" style="color:var(--text)">{plan}</span><p>{desc}</p>'
+            f'<a href="/contact/" class="{btn}">Sign up</a></div>')
+
+
+def build_home(data: dict) -> str:
+    cards = [c for c in data["cards"] if c["section"] == HOME_SECTION][:3]
+    signup = next((c for c in data["cards"] if c["section"] == "Membership"), None)
+    fee = f"{fmt_price(signup['price'])} registration, " if signup else "One-time registration, "
+    steps = [
+        ("01 — Message us", "Text 0917 824 2420 or drop by the front desk."),
+        ("02 — Sign up once", f"{fee}covers every program."),
+        ("03 — Show up", "Wear sportswear. Arrive 10 minutes early."),
+        ("04 — Roll", "Your coach takes it from there."),
+    ]
+    how = "".join(f'<div><span class="num">{t}</span><p>{d}</p></div>' for t, d in steps)
+    return (f'<div class="prices">{"".join(home_card(c) for c in cards)}</div>'
+            f'<div class="how">{how}</div>')
+
+
 def main() -> None:
     data = json.loads(DATA.read_text())
     html = PAGE.read_text()
     html = replace_region(html, build_rates(data))
     PAGE.write_text(html)
+
+    home = HOME.read_text()
+    start, end = "<!-- HOME:RATES:START -->", "<!-- HOME:RATES:END -->"
+    if start not in home or end not in home:
+        raise SystemExit(f"Markers HOME:RATES not found in {HOME}")
+    home = re.sub(re.escape(start) + r".*?" + re.escape(end),
+                  lambda _: f"{start}\n{build_home(data)}\n    {end}", home, flags=re.S)
+    HOME.write_text(home)
     print(f"Rebuilt {PAGE.relative_to(ROOT)} from {DATA.relative_to(ROOT)} "
           f"({len(data['cards'])} cards)")
 
